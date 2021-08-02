@@ -10,6 +10,7 @@ import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { MyPerfilComponent } from './my-perfil/my-perfil.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RegisterComponent } from './register/register.component';
     ProductsComponent,
     ShoppingCartComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MyPerfilComponent
   ],
   imports: [
     BrowserModule,
