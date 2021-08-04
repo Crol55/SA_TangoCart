@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 // Creacion de la tabla/Schema Product
 const ProductsSchema = new mongoose.Schema({
-    titulo:{
+    nombre:{
         type: String,
         trim: true,
         required: [true, 'Please add a product titulo']
@@ -24,7 +24,7 @@ const ProductsSchema = new mongoose.Schema({
         trim: true,
         required: [true, 'Please add a product categoria']
     },
-    imagen:{
+    foto:{
         type: String,
         trim: true,
         required: [true, 'Please add a product image']

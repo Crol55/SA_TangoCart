@@ -6,7 +6,8 @@ const { getProducts,
         getProduct, 
         addProduct, 
         updateProduct,
-        deleteProduct 
+        deleteProduct, 
+        uploadPhoto
 } = require('../controllers/products');
 
 //hacemos uso del metodod Router para crear las rutas 
@@ -23,6 +24,10 @@ router
         .get(getProduct)
         .put(updateProduct)
         .delete(deleteProduct);
+
+router
+     .route('/:id/photo')
+     .post(uploadPhoto)
 
 // finalmente se exporta la variable router donde definimos las rutas de categoria
 module.exports = router;
