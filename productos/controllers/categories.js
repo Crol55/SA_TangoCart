@@ -9,15 +9,13 @@ async function addCategory(req,res){
                 success: true,
                 data: categoria
                });
+               
 }
 
 // Obtener todas las categorias
 async function getCategories(req,res){
         const categories = await Categories.find();
-        return res.status(200).json({
-                 success: true,
-                 data: categories
-               });
+        res.json(categories);
 }
 
 // Eliminar Categoria

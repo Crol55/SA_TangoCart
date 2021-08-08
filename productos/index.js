@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const colors = require('colors');
 const fileupload = require('express-fileupload');
 const connectDB = require('./config/db');
+const cors = require('cors');
 
 //load env vars
 dotenv.config({ path: './config/config.env'});
@@ -19,6 +20,8 @@ const product = require('./routes/products');
 const category = require('./routes/categories');
 
 const app = express();
+
+app.use(cors());
 //Body parser
 app.use(express.json());
 // Dev logging middleware
