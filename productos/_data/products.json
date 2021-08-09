@@ -1,0 +1,154 @@
+[
+    {
+        "nombre" : "Horno Microondas",
+        "precio" : 150.00,
+        "descripcion": "Descripcion Microondas",
+        "categoria": "Electronicos",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/image/9a1cf866937fe184bfc3b11490fb0dcb/k/m/kmcs3022gss.jpg"
+    },
+    {
+        "nombre" : "Samsung QN82Q800TA 82",
+        "precio" : 250.00,
+        "descripcion": "Descripcion Televisor",
+        "categoria": "Electronicos",
+        "stock": 10,
+        "foto": "https://media.flixcar.com/f360cdn/Samsung-67291924-latin-feature-ready-for-today-and-tomorrow-228833914FB_TYPE_A_JPG.jpg"
+    },
+    {
+        "nombre" : "Parlante inalámbrico Premium",
+        "precio" : 50.00,
+        "descripcion": "Descripcion Parlante",
+        "categoria": "Audio",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/s/r/srsra5000-2.png"
+    },
+    {
+        "nombre" : "Bocina portátil",
+        "precio" : 60.00,
+        "descripcion": "Descripcion Bosina",
+        "categoria": "Audio",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/l/i/link300bht_1.jpg"
+    },
+    {
+        "nombre" : "Router tipo Mesh WiFi 6",
+        "precio" : 80.00,
+        "descripcion": "Descripcion Router tipo Mesh WiFi 6",
+        "categoria": "Hogar Inteligente",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/m/r/mr8300.jpg"
+    },
+    {
+        "nombre" : "Camara inteligente con WIFI",
+        "precio" : 20.00,
+        "descripcion": "Descripcion Camara inteligente con WIFI",
+        "categoria": "Hogar Inteligente",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/n/h/nhcf610.jpg"
+    },
+    {
+        "nombre" : "MacBook Pro de 13 CORE i5 10 Gen 2.0 GHz",
+        "precio" : 1200,
+        "descripcion": "Descripcion MacBook Pro de 13 CORE i5 10 Gen 2.0 GHz",
+        "categoria": "Computacion y Tablets",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/m/w/mwp42lla.jpg"
+    },
+    {
+        "nombre" : "Laptop Acer Nitro 5 de 15.6",
+        "precio" : 800,
+        "descripcion": "Descripcion Laptop Acer Nitro 5 de 15.6",
+        "categoria": "Computacion y Tablets",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/n/h/nhq7pal005_1.jpg"
+    },
+    {
+        "nombre" : "Laptop HP Pavilion Gaming 15-dk1037",
+        "precio" : 850,
+        "descripcion": "Descripcion Laptop HP Pavilion Gaming 15-dk1037",
+        "categoria": "Computacion y Tablets",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/3/0/309f7la.jpg"
+    },
+    {
+        "nombre" : "Tomates Extra Grande",
+        "precio" : 1.50,
+        "descripcion": "Descripcion tomates",
+        "categoria": "Comestibles",
+        "stock": 10,
+        "foto": "https://www.ngenespanol.com/wp-content/uploads/2018/08/Dato-del-d%C3%ADa-Tomates.jpg"
+    },
+    {
+        "nombre" : "Pan de trigo",
+        "precio" : 1.50,
+        "descripcion": "Descripcion pan de trigo",
+        "categoria": "Comestibles",
+        "stock": 10,
+        "foto": "https://www.hogarmania.com/archivos/201207/receta-barra-de-pan-basica-xl-668x400x80xX.jpg"
+    },
+    {
+        "nombre" : "Pastas Roma",
+        "precio" : 1.50,
+        "descripcion": "Descripcion pastas roma",
+        "categoria": "Comestibles",
+        "stock": 10,
+        "foto": "https://static.eldiario.es/clip/3033e791-1b83-49d3-9e1a-4bef8507cb48_16-9-aspect-ratio_default_0.jpg"
+    },
+    {
+        "nombre" : "Zanahoria",
+        "precio" : 1.50,
+        "descripcion": "Descripcion Zanahoria",
+        "categoria": "Comestibles",
+        "stock": 10,
+        "foto": "https://elpoderdelconsumidor.org/wp-content/uploads/2021/05/zanahorias.png"
+    },
+    {
+        "nombre" : "Trigo ",
+        "precio" : 1.50,
+        "descripcion": "Descripcion Trigo",
+        "categoria": "Comestibles",
+        "stock": 10,
+        "foto": "https://www.partesdel.com/wp-content/uploads/Partes-del-trigo-400x267.jpg"
+    },
+    {
+        "nombre" : "Carne Premium",
+        "precio" : 15.00,
+        "descripcion": "Descripcion Carne Premium",
+        "categoria": "Comestibles",
+        "stock": 10,
+        "foto": "https://agroecuador.org/media/k2/items/cache/d197c421d422f5cbf569ea13f09ef700_XL.jpg"
+    },
+    {
+        "nombre" : "Refrigeradora French Door de 27",
+        "precio" : 2000,
+        "descripcion": "Descripcion  Refrigeradora French Door de 27",
+        "categoria": "Linea Blanca",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/k/r/krff507hps.jpg"
+    },
+    {
+        "nombre" : "Horno empotrable de 30",
+        "precio" : 15.00,
+        "descripcion": "Descripcion Horno empotrable de 30",
+        "categoria": "Linea Blanca",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/f/p/fpew3077rf-01_1.jpg"
+    },
+    {
+        "nombre" : "Juego PS4 Call of Duty Black OPS Cold War",
+        "precio" : 100,
+        "descripcion": "Descripcion Juego ps4 Call of Duty",
+        "categoria": "Videojuegos",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/p/s/ps4codcoldwar_1.jpg"
+    },
+    {
+        "nombre" : "Juego PS4 Call of Duty: Modern Warfare",
+        "precio" : 15.00,
+        "descripcion": "Descripcion Juego PS4 Call of Duty: Modern Warfare",
+        "categoria": "Videojuegos",
+        "stock": 10,
+        "foto": "https://www.max.com.gt/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/p/s/ps4codmodwarfa_2.jpg"
+    }
+]

@@ -1,0 +1,42 @@
+[  
+   {
+    "_id": "5d713995b721c3bb38c1f5d0",   
+    "nombre": "Electronicos",
+    "descripcion": "Descripcion de Electronicos"
+   },
+   { 
+    "_id": "5d713a66ec8f2b88b8f830b8",  
+    "nombre": "Computacion y Tablets",
+    "descripcion": "Descripcion de Computadoras"
+   },
+   {
+    "_id": "5d713a66ec8f2b99b8f830b8",     
+    "nombre": "Comestibles",
+    "descripcion": "Descripcion de Comestibles"
+   },
+   { 
+    "_id": "5d725a037b292f5f8ceff787",  
+    "nombre": "Audio",
+    "descripcion": "Descripcion de Audio"
+   },
+   { 
+    "_id": "5d725a1b7b292f5f8ceff788",  
+    "nombre": "Linea Blanca",
+    "descripcion": "Descripcion de Linea Blanca"
+   },
+   {
+    "_id": "5d725a1b7b292f5f8ce83788",   
+    "nombre": "Videojuegos",
+    "descripcion": "Descripcion de videojegos"
+   },
+   {
+    "_id": "5d725a1b5b292f5f8ceff789",   
+    "nombre": "Hogar Inteligente",
+    "descripcion": "Descripcion de Hogar Inteligente"
+   },
+   { 
+    "_id": "9d725a1b7b292f5f8ceff788",  
+    "nombre": "Cuidado Personal",
+    "descripcion": "Descripcion de Cuidado Personal"
+   }
+]
