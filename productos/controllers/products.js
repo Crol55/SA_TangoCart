@@ -15,18 +15,15 @@ var fs = require('fs');
 
 //Crear Producto
 async function addProduct(req,res){
-    var {titulo,precio,descripcion,categoria,stock} = req.body
+    var {titulo,precio,descripcion,categoria,stock,foto,ext} = req.body
     
-    file = req.files.files
-    nombre  = file.name.split('.')
-    ext = "."+nombre[1]
     let  idb = uuidv4();
     let ruta = `fotos/${idb}${ext}`
 
     const paramsS3 = {
         Bucket: "proyecto-sa",
         Key:  ruta,
-        Body: Buffer.from(file.data.toString('base64'),'base64'),
+        Body: Buffer.from(foto,'base64'),
         ContentType: "image",
         ACL: 'public-read'
     }
@@ -58,29 +55,13 @@ async function addProduct(req,res){
 // Obtener todos los productos
 async function getProducts(req,res){
     const products = await Product.find();
-    return res.status(200).json({
-        success: true,
-        data: products  
-    });
-
+    res.json(products);
 }
 // Obtener un producto en especifico
  async function getProduct(req,res){
-    
-    const product = await Product.findById(req.params.id)
-    
-    if(product){
-     return res.status(200).json({
-             success: true,
-             data: product
-         });
-     }
-    return res.status(400).json({
-        success: false,
-        data: {}
-    });
+    const product = await Product.findById(req.params.id);
+    res.json(product);
 }
-
 
 //Actualizar producto
 async function updateProduct(req,res){
