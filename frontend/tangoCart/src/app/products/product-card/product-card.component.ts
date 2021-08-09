@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/products';
+import { ShoppingCardService } from 'src/app/servicios/shopping-card.service';
 
 @Component({
   selector: 'product-card',
@@ -9,14 +10,11 @@ import { Producto } from 'src/app/models/products';
 export class ProductCardComponent implements OnInit {
   
   @Input('product') product : any;
-  constructor() { }
+  constructor( private cardService: ShoppingCardService ) { }
 
   addToCart(product:any){
 
-    let cartId = localStorage.getItem('cardId');
-    if(!cartId){
-
-    }
+  
 
   }
 
