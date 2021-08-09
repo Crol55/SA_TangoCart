@@ -25,6 +25,7 @@ import { DialogService } from './servicios/dialog.service';
 import { CommonModule } from '@angular/common';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
+import { ShoppingCardService } from './servicios/shopping-card.service';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
   providers: [
     CategoriaService,
     ProductoService,
+    ShoppingCardService,
     DialogService,
     { provide: DialogService, useClass: DialogService }
 
