@@ -18,7 +18,7 @@ import { Observable } from 'rxjs';
 export class ProductFormComponent implements OnInit{
   
   imgPreview: string | ArrayBuffer | any
-  base64?: string | any
+  base64? : string | any 
   ext?:string | any
   ocultar : boolean = true;
   categories$?: Observable<Categoria[]>;;
