@@ -3,7 +3,7 @@
 
 
 const jwt = require('jsonwebtoken'); // Para autenticar con JWT el inicio de sesion de un usuario (https://www.npmjs.com/package/jsonwebtoken)
-const jwtPass = 'clienteSA';
+const jwtPass = 'ProveedoresSA2021';
 
 function login(req, res){ // Idealmente tipo post
 
@@ -62,6 +62,6 @@ function verityToken(headers){
 
 
 module.exports = {
-    login:login, 
+    login, 
     verify: verifyAuth
 };
