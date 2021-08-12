@@ -1,4 +1,3 @@
-console.log("hola mundo para el proyecto");
 
 const express = require ('express');
 const cors = require('cors');
@@ -15,3 +14,9 @@ const app = express();
     app.listen(puerto, ()=>{
         console.log("Servidor Login en el puerto", puerto);
     });
+
+//let co = 'hola mundo';
+//
+//let x = co.split(" ");
+//
+//console.log(x[2]);

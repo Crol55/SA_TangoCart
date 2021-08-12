@@ -8,4 +8,6 @@ router.get('/test', (req, res)=>{ res.send('Todo bien'); });
 
 router.post('/login', controlador.login);
 
+router.post('/verify', controlador.verify);
+
 module.exports = router;
