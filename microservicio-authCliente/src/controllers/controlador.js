@@ -11,9 +11,9 @@ function login(req, res){ // Idealmente tipo post
     // JWT: Se compone de 3 partes: header . payload . firma -> se codifica con (HMAC u otros) 
     jwt.sign( userInfo, jwtPass, (err, token)=>{
     
-        res.send("Respuesta a solicitud de login");
+        //res.send("Respuesta a solicitud de login");
         console.log('token:',token);
-        res.send(token);
+        res.send( {"Token":token} );
     }) // asyncrona
 
     //console.log(userInfo);
