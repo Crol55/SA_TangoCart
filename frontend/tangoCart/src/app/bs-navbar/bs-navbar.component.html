@@ -17,7 +17,11 @@
               <a class="nav-link" routerLink="/products">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/shopping-cart">Shopping Cart</a>
+              <a class="nav-link" href="/shopping-cart">Shopping Cart
+                <span class="badge badge-warning badge-pill" *ngIf="this.productos">
+                  {{this.productos?.length}}
+                </span>
+              </a>
             </li>
             <li ngbDropdown class="nav-item dropdown">
               <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -1,1 +1,35 @@
-<p>shopping-cart works!</p>
+<h1>Shooping Cart</h1>
+<ng-container>
+    <p>
+        You have {{this.productos?.length}} items in your shooping cart.
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>SubTotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of productos">
+                <td>{{ p.nombre }}</td>
+                <td>{{ p.cantidad}}</td>
+                <td>{{ p.precio}}</td>
+                <td>{{ p.cantidad * p.precio | currency: 'USD' }}</td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+          <tr>
+              <td> <h1>Total</h1> </td>
+              <td></td>
+              <td></td>
+              <td> {{this.total + this.total*0.1 | currency: 'USD'  }} </td>
+          </tr>
+        </tfoot>
+    </table>
+</ng-container>
+
+<button *ngIf ="productos"  class="btn btn-primary" >Order</button>

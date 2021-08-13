@@ -10,15 +10,19 @@ import { ShoppingCardService } from 'src/app/servicios/shopping-card.service';
 export class ProductCardComponent implements OnInit {
   
   @Input('product') product : any;
-  constructor( private cardService: ShoppingCardService ) { }
-
-  addToCart(product:any){
-
-  
-
-  }
+  @Input('shopping-cart') shoppingCart : any;
+  constructor( ) { }
 
   ngOnInit(): void {
+     
   }
 
+
+
+  addToCart(product:any){
+    console.log(product)
+   }
+
+
+   
 }
