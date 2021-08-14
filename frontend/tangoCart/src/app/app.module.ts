@@ -4,6 +4,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DataTablesModule } from "angular-datatables";
+import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon'
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatTableModule } from '@angular/material/table'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,8 +57,11 @@ import { ShoppingCardService } from './servicios/shopping-card.service';
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MatDialogModule,
+    MatButtonModule,
     DataTablesModule,
-    CommonModule
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   entryComponents:[
       DialogComponent

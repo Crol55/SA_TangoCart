@@ -57,11 +57,10 @@ async function getCart(req,res){
 //Actualizar producto
 async function updateCart(req,res){
         
+       
         cart    = await Cart.findById(req.params.id)
-         
-        product =  cart.items.find( p => p._id === req.body.items._id)
-        index =  cart.items.indexOf(cart)
-        
+        product =  cart.items.find(p => p._id === req.body.items[0]._id)
+        index =  cart.items.indexOf(product)
         cart.items.splice(index, 1);
         update = { items : cart.items }
 

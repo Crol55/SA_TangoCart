@@ -50,7 +50,7 @@ export class ProductFormComponent implements OnInit{
     .afterClosed()
   }
 
-  save(product:any){
+  async save(product:any){
     if(this.id){ 
       let producto = {
           nombre : product.nombre,
@@ -61,7 +61,7 @@ export class ProductFormComponent implements OnInit{
       }
       this.Productservice.updateProduct(this.id,producto)
       .subscribe(p => {
-      
+        this.openDialog("Producto Actualizado exitosamente!!")
       })
       this.router.navigate(['/admin/products'])
      }else if(this.base64)
@@ -75,14 +75,16 @@ export class ProductFormComponent implements OnInit{
                 foto: this.base64,
                 ext: this.ext
             }
-            console.log(saveProduct)
-            this.Productservice.postProducts(saveProduct)
-            .subscribe(result => {})
+             this.Productservice.postProducts(saveProduct)
+            .subscribe(result => {
+              this.openDialog("Producto Agregado exitosamente!!")
+              this.router.navigate(['/admin/products'])
+            })
         }else{
-          this.openDialog("Producto No se puedo crear")
+          this.openDialog("Error Verifique La Información")
         }
 
-    this.router.navigate(['/admin/products'])
+    
 
   }
 

@@ -1,13 +1,10 @@
-
+<div class="sticky-top">
   <nav class="navbar navbar-expand-lg navbar-dark   bg-dark" >
-   
       <div class="container-fluid">
         <div class="container">
-
-      
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <a class="navbar-brand" href="#">
-            Tango Cart
+            TangoCart
           </a>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -17,9 +14,10 @@
               <a class="nav-link" routerLink="/products">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/shopping-cart">Shopping Cart
-                <span class="badge badge-warning badge-pill" *ngIf="this.productos">
-                  {{this.productos?.length}}
+              <a class="nav-link" href="/shopping-cart">ShoppingCart
+                
+                <span class="badge bg-warning text-dark" *ngIf="this.productos">
+                  {{currentNoItems}}
                 </span>
               </a>
             </li>
@@ -44,10 +42,8 @@
         </div>
       </div>
     </div>
-    
-    
-    
   </nav>
+</div>
 
 
 

@@ -15,20 +15,25 @@ export class ShoppingCardService {
   };
 
   private api = 'http://localhost:3001/api'
+  
+  public cartsItems?: any;
 
   constructor( private http: HttpClient ) { }
 
-  private create() {
-     return "shopping Cart"
-  }
 
   addToCart(product: any) {
-     
+    const path = `${this.api}/cart`;
+    return  this.http.post(path, product)
   }
 
   getCart(id: any): Observable<Cart> {
     const path = `${this.api}/cart/${id}`;
     return  this.http.get<Cart>(path)
+  }
+
+  updateCart(items: any, id: any){
+    const path = `${this.api}/cart/${id}`;
+    return  this.http.put(path, items) 
   }
 
 }

@@ -10,24 +10,37 @@ import { ShoppingCardService } from '../servicios/shopping-card.service';
 })
 export class BsNavbarComponent implements OnInit {
 
-  constructor( public cardService: ShoppingCardService) { }
+  constructor( public cartService: ShoppingCardService) { }
   
   public shopping? : Observable<Cart> | any;
-
-  public productos? : any
-  
+  public productos? :  any;
   public total : number = 0;
 
+  public NoItems : number = 0;
+  
   ngOnInit(): void {
-    this.getCart("6115d09ea098037dc88ee7ba")
+    this.getCart(this.currentCart._id)
   }
   getCart(id: any){
-    this.cardService.getCart(id).subscribe( cart => 
+    this.cartService.getCart(id).subscribe( cart => 
       { 
         this.shopping = cart
         this.productos = this.shopping.items
-        for(let p of this.productos) { this.total  =  this.total + (p.precio * p.cantidad) }
       })
   }
+  get currentCart() {
+    let token = localStorage.getItem('IdCart')
+    if(!token) return null;
+    
+    return  JSON.parse(token)
+  }
+
+  get currentNoItems(){
+    let token = localStorage.getItem('NoItems')
+    if(!token) return null;
+    return  JSON.parse(token)
+  }
+
+
 
 }
