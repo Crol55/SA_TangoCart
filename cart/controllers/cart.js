@@ -4,7 +4,6 @@ const Cart = require('../models/cart');
 
 //Crear Cart
 async function addCart(req,res){
-
         usuario  = await Cart.find({"user":req.body.user})
         if(usuario[0]){
              product =  usuario[0].items.find( p => p._id === req.body.items[0]._id)
@@ -69,11 +68,27 @@ async function updateCart(req,res){
                       runValidators: true
         })
         return res.status(200).json({ success: true, data: cart});
+}
 
+async function deleteCart(req,res){
+       
+    const cart = await Cart.findById(req.params.id);
+    if(cart){
+      await cart.remove();  
+      return res.status(200).json({
+                success: true,
+             });
     }
+    return res.status(400).json({
+        success: false,
+        data: {}
+    });
+
+}
 
 module.exports = {
         addCart: addCart,
         getCart: getCart,
-        updateCart: updateCart
+        updateCart: updateCart,
+        deleteCart: deleteCart
 }

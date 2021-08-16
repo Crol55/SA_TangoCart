@@ -35,5 +35,11 @@ export class ShoppingCardService {
     const path = `${this.api}/cart/${id}`;
     return  this.http.put(path, items) 
   }
+   
+  deleteCart( id: any){
+    const path = `${this.api}/cart/${id}`;
+    return  this.http.delete(path) 
+  }
+
 
 }

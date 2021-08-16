@@ -2,11 +2,10 @@
 const express = require('express');
 
 // importamos todas las funciones creadas en el controlador en el archivo de categoria
-const { addCart,
-        getCart,
-        updateCart,
-        deleteCart    
-} = require('../controllers/cart');
+const { addOrder,
+        getOrder,
+        getOrders
+} = require('../controllers/order');
 
 //hacemos uso del metodod Router para crear las rutas 
 const router = express.Router();
@@ -14,12 +13,11 @@ const router = express.Router();
 // definimos las rutas y su tipo POST/GET/PUT/DELETE
 router
     .route('/')
-        .post(addCart)
+        .post(addOrder)
+        .get(getOrders)
 router
     .route('/:id')
-        .get(getCart)
-        .put(updateCart)
-        .delete(deleteCart);
+        .get(getOrder)
 
 // finalmente se exporta la variable router donde definimos las rutas de categoria
 module.exports = router;

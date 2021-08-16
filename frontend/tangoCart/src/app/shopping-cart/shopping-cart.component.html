@@ -1,4 +1,4 @@
-<h1>Shooping Cart</h1>
+<h1 class="fs-2" >Shooping Cart</h1>
 <ng-container>
     <p>
         You have  <span class="badge bg-warning text-dark">{{this.productos?.length}}</span> items in your shooping cart.
@@ -40,5 +40,6 @@
         </tfoot>
     </table>
 </ng-container>
-
-<button *ngIf ="this.total != 0"  class="btn btn-primary" >Order</button>
+<a *ngIf ="this.total != 0"
+  routerLink="/check-out" 
+  class="btn btn-primary">Check Out</a>

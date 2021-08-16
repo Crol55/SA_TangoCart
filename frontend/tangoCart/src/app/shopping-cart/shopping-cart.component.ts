@@ -20,7 +20,9 @@ export class ShoppingCartComponent implements OnInit {
   
   public total : number = 0;
   ngOnInit(): void {
-    this.getCart(this.currentCart._id)
+    if(this.currentCart != null){
+      this.getCart(this.currentCart._id)
+   }
   }
 
   getCart(id: any){
@@ -52,7 +54,6 @@ export class ShoppingCartComponent implements OnInit {
            NoItems  =  NoItems + p.cantidad
       }
       localStorage.setItem('NoItems',JSON.stringify(NoItems))
-
       this.getCart(this.currentCart._id)
       this.UpdateStock(item._id,item.cantidad)
     })
@@ -68,13 +69,12 @@ export class ShoppingCartComponent implements OnInit {
      })
   }
 
-
-
-
   get currentCart() {
     let token = localStorage.getItem('IdCart')
     if(!token) return null;
     return  JSON.parse(token)
   }
+
+
 
 }

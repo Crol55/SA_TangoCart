@@ -15,6 +15,7 @@ connectDB();
 //Route files
 
 const cart  = require('./routers/cart')
+const order = require('./routers/order')
 
 const app = express();
 
@@ -28,6 +29,7 @@ if (process.env.NODE_ENV === 'development') {
 
 //Mount routers
 app.use('/api/cart',cart);
+app.use('/api/order',order);
 
 const PORT = process.env.PORT || 3001 ;
 

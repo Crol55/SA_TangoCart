@@ -14,12 +14,11 @@ export class BsNavbarComponent implements OnInit {
   
   public shopping? : Observable<Cart> | any;
   public productos? :  any;
-  public total : number = 0;
 
-  public NoItems : number = 0;
-  
   ngOnInit(): void {
-    this.getCart(this.currentCart._id)
+    if(this.currentCart != null){
+       this.getCart(this.currentCart._id)
+    }
   }
   getCart(id: any){
     this.cartService.getCart(id).subscribe( cart => 
