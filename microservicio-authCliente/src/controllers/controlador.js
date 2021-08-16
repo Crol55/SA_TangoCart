@@ -82,8 +82,48 @@ async function get_usuario(filtro){
 
 
 
+async function create_usuario(req,res){
+
+    let {nombre,apellido,foto,correo,password,tipo,tarjetas} = req.body
+    //console.log("data:",nombre,apellido,foto,correo,password,tipo,tarjetas);
+    
+    let newUser = {
+        //_id: "carlosorantesgmail.com",
+        "nombre": nombre,
+        "apellido": apellido,
+        "foto": foto,
+        "correo": correo, 
+        "password": password,
+        "tipo": tipo,
+        "tarjetas": tarjetas//[ {titular:'Carlos O. lara', numero:123456, vencimiento:'08/8/2021'}] 
+    };
+    //await mongoDB.connectDB();
+    
+    try{
+        //1) Antes de crear un usuario, verificar que el correo no se repita
+        const usuario = await mongoDB.usuarioModel.find( {"correo":correo} );
+        console.log(usuario);
+        if(usuario.length === 0){
+        
+            const data = await mongoDB.usuarioModel.create(newUser);
+            res.status(201).send( JSON.stringify({ mensaje: "Nuevo usuario insertado a la base de datos."}) );
+            console.log("Nuevo usuario insertado a la base de datos:", data);
+        }else {
+            res.status(409).send( JSON.stringify( { mensaje: "El usuario con dicho correo ya existe."}) );
+            console.log("El usuario que desea insertar es repetido");
+        }
+        
+    }catch(e){
+        console.log("Posible ERROR en base de datos(funcion:create_usuario)");
+        res.status(500).send("Internal problem.");
+    }   
+        
+}
+
+
 
 module.exports = {
     login:login, 
-    verify: verifyAuth
+    verify: verifyAuth,
+    signup:create_usuario
 };

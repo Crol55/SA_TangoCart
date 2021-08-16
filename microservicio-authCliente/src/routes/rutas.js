@@ -10,4 +10,6 @@ router.post('/login', controlador.login);
 
 router.post('/verify', controlador.verify);
 
+router.post('/signup',controlador.signup);
+
 module.exports = router;
