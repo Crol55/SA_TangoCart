@@ -43,6 +43,11 @@ export class ProductoService {
     const path = `${this.api}/product/${id}`;
     return this.http.put(path,product)
   }
+
+  delete(id:any){
+    const path = `${this.api}/product/${id}`;
+    return this.http.delete(path)
+  }
   
 
   
