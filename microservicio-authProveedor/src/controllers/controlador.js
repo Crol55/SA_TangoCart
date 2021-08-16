@@ -13,7 +13,8 @@ async function login(req, res){ // Idealmente tipo post
 
     let filtro = {
         "correo":userInfo['correo'], 
-        "password":userInfo['password']
+        "password":userInfo['password'],
+        "tipo": "P"
     };
 
     let registro = await get_usuario(filtro);
