@@ -15,6 +15,7 @@ pipeline{
             steps{ /*Se ejecuta en la computadora host*/
                 'ls -a' 
                 echo 'Continuous integration'
+                /*testeando la conexion*/
             }
         }
 
