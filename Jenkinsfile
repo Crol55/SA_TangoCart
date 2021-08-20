@@ -2,7 +2,7 @@
 se haga un commit a una rama deseada*/
 
 pipeline{
-    agents any 
+    agent any 
     stages {
 
         stage('Dockerfiles'){
