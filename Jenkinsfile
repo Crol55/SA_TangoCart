@@ -1,5 +1,8 @@
 /*Archivo necesario para que jenkins sepa que pasos tomar cuando 
-se haga un commit a una rama deseada*/
+se haga un commit a una rama deseada
+CONSIDERACIONES: 
+    * Para ejecutar en steps, haciendo el uso de la consola, colocar 'sh' antes de la instruccion
+*/
 
 pipeline{
     agent any 
@@ -13,7 +16,7 @@ pipeline{
 
         stage('CI'){
             steps{ /*Se ejecuta en la computadora host*/
-                'ls -a' 
+                sh 'ls -a' 
                 echo 'Continuous integration'
                 /*testeando la conexion*/
             }
