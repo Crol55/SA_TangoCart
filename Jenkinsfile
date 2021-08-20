@@ -13,7 +13,7 @@ pipeline{
 
         stage('CI'){
             steps{ /*Se ejecuta en la computadora host*/
-                ls -a 
+                /*ls -a*/ 
                 echo 'Continuous integration'
             }
         }
