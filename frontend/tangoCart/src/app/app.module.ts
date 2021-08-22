@@ -1,9 +1,13 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DataTablesModule } from "angular-datatables";
+import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon'
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatTableModule } from '@angular/material/table'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,10 +26,17 @@ import { DialogComponent } from './dialog/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogService } from './servicios/dialog.service';
-import { CommonModule } from '@angular/common';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { ShoppingCardService } from './servicios/shopping-card.service';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { OrderService } from './servicios/order.service';
+import { OrderSuccessComponent } from './order-success/order-success.component';
+import { ShoppingCartSumaryComponent } from './shopping-cart-sumary/shopping-cart-sumary.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
+import { Router } from '@angular/router';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 @NgModule({
@@ -41,7 +52,12 @@ import { ShoppingCardService } from './servicios/shopping-card.service';
     AdminProductsComponent,
     DialogComponent,
     ProductFilterComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CheckOutComponent,
+    OrderSuccessComponent,
+    ShoppingCartSumaryComponent,
+    MyOrdersComponent,
+    ManageOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +69,12 @@ import { ShoppingCardService } from './servicios/shopping-card.service';
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MatDialogModule,
+    MatButtonModule,
     DataTablesModule,
-    CommonModule
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
+    
   ],
   entryComponents:[
       DialogComponent
@@ -64,8 +84,12 @@ import { ShoppingCardService } from './servicios/shopping-card.service';
     ProductoService,
     ShoppingCardService,
     DialogService,
-    { provide: DialogService, useClass: DialogService }
-
+    { provide: DialogService, useClass: DialogService },
+    OrderService,
+    OverlayModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })

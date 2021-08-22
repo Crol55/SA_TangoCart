@@ -1,13 +1,10 @@
-
+<div class="sticky-top">
   <nav class="navbar navbar-expand-lg navbar-dark   bg-dark" >
-   
       <div class="container-fluid">
         <div class="container">
-
-      
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <a class="navbar-brand" href="#">
-            Tango Cart
+            TangoCart
           </a>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -17,7 +14,12 @@
               <a class="nav-link" routerLink="/products">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/shopping-cart">Shopping Cart</a>
+              <a class="nav-link" href="/shopping-cart">ShoppingCart
+                
+                <span class="badge bg-warning text-dark">
+                  {{currentNoItems}}
+                </span>
+              </a>
             </li>
             <li ngbDropdown class="nav-item dropdown">
               <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,8 +27,8 @@
               </a>
               <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" routerLink="/my-perfil">My Perfil</a></li>
-                <li><a class="dropdown-item" href="#">My Orders</a></li>
-                <li><a class="dropdown-item" href="#">Manage Orders </a></li>
+                <li><a class="dropdown-item" href="/my-orders">My Orders</a></li>
+                <li><a class="dropdown-item" href="/manage-orders">Manage Orders </a></li>
                 <li><a class="dropdown-item" routerLink="admin/products">Manage Products</a></li>
                 <li><a class="dropdown-item">Log Out</a></li>
               </ul>
@@ -40,10 +42,8 @@
         </div>
       </div>
     </div>
-    
-    
-    
   </nav>
+</div>
 
 
 

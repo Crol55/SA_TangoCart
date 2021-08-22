@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Categoria } from '../models/categories';
 import { Producto } from '../models/products';
-import { CategoriaService } from '../servicios/categoria.service';
 import { ProductoService } from '../servicios/producto.service';
 
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
+  providers: [ProductoService]
 })
 export class ProductsComponent implements OnInit {
 
@@ -30,28 +28,17 @@ export class ProductsComponent implements OnInit {
       
       route.queryParamMap.subscribe(params =>{
         this.categoria = params.get('categoria');
-        
         this.filteredProducts = (this.categoria) ?
         this.products?.filter(p => p.categoria == this.categoria) : this.products
       });
   
     });
 
-   
-   
-    
-  
-    
-
-   
-  
     }
 
     
-
   ngOnInit(): void {
     
-  
 
   }
 }

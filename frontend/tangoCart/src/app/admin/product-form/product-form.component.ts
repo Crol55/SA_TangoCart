@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from 'src/app/servicios/categoria.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css'],
-  providers:[CategoriaService, ProductoService]
+  providers:[CategoriaService, ProductoService, MatDialog]
 })
 export class ProductFormComponent implements OnInit{
   
@@ -50,7 +50,7 @@ export class ProductFormComponent implements OnInit{
     .afterClosed()
   }
 
-  save(product:any){
+  async save(product:any){
     if(this.id){ 
       let producto = {
           nombre : product.nombre,
@@ -61,7 +61,7 @@ export class ProductFormComponent implements OnInit{
       }
       this.Productservice.updateProduct(this.id,producto)
       .subscribe(p => {
-      
+        this.openDialog("Producto Actualizado exitosamente!!")
       })
       this.router.navigate(['/admin/products'])
      }else if(this.base64)
@@ -75,14 +75,16 @@ export class ProductFormComponent implements OnInit{
                 foto: this.base64,
                 ext: this.ext
             }
-            console.log(saveProduct)
-            this.Productservice.postProducts(saveProduct)
-            .subscribe(result => {})
+             this.Productservice.postProducts(saveProduct)
+            .subscribe(result => {
+              this.openDialog("Producto Agregado exitosamente!!")
+              this.router.navigate(['/admin/products'])
+            })
         }else{
-          this.openDialog("Producto No se puedo crear")
+          this.openDialog("Error Verifique La Información")
         }
 
-    this.router.navigate(['/admin/products'])
+    
 
   }
 
