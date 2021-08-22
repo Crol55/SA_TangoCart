@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from 'src/app/servicios/categoria.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css'],
-  providers:[CategoriaService, ProductoService]
+  providers:[CategoriaService, ProductoService, MatDialog]
 })
 export class ProductFormComponent implements OnInit{
   

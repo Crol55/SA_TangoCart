@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import { Cart } from '../models/cart';
-import { Order } from '../models/order';
+import { Subscription } from 'rxjs';
 import { OrderService } from '../servicios/order.service';
 import { ShoppingCardService } from '../servicios/shopping-card.service';
 
@@ -24,7 +22,7 @@ export class CheckOutComponent implements OnInit, OnDestroy {
 
   constructor(public router: Router,
               public shoppingCartService: ShoppingCardService,
-              public  OrderService: OrderService){}
+              public OrderService: OrderService){}
 
   async ngOnInit(){
     this.cart =  await this.shoppingCartService.getCart(this.currentCart._id).toPromise();

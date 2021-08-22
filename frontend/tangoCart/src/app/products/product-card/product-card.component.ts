@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { Producto } from 'src/app/models/products';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { ShoppingCardService } from 'src/app/servicios/shopping-card.service';
 
@@ -15,7 +16,7 @@ export class ProductCardComponent implements OnInit {
   @Input('shopping-cart') shoppingCart : any;
 
   public cantidad? : number = 1
-  public producto  : any;
+  public producto?  : Producto;
   
   constructor(public shopping:ShoppingCardService,
               public ProductService: ProductoService,
@@ -24,18 +25,18 @@ export class ProductCardComponent implements OnInit {
      
   }
   addToCart(product:any){
-     this.ProductService.getProduct(product._id)
+     this.ProductService.getProduct(product?._id)
      .subscribe(p => {
     if(p.stock == 0) { this.openDialog("Inventario Vacio, Intentelo más tarde") }
     else {
     let items = {
          user:"usuario1",
          state: "active",
-         items: [{_id: product._id,
-                  nombre: product.nombre,
-                  precio: product.precio,
-                  stock : product.stock,
-                  foto: product.foto, 
+         items: [{_id: product?._id,
+                  nombre: product?.nombre,
+                  precio: product?.precio,
+                  stock : product?.stock,
+                  foto: product?.foto, 
                   cantidad: this.cantidad
                 }]
     }

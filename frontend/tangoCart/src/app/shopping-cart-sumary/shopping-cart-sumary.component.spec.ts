@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ShoppingCartSumaryComponent } from './shopping-cart-sumary.component';
+import { ShoppingCardService } from '../servicios/shopping-card.service';
 
 describe('ShoppingCartSumaryComponent', () => {
   let component: ShoppingCartSumaryComponent;
@@ -8,7 +9,9 @@ describe('ShoppingCartSumaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShoppingCartSumaryComponent ]
+      declarations: [ ShoppingCartSumaryComponent ],
+      imports: [ HttpClientTestingModule],
+      providers: [ShoppingCardService]
     })
     .compileComponents();
   });

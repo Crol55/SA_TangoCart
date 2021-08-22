@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DataTablesModule } from "angular-datatables";
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
@@ -26,7 +26,6 @@ import { DialogComponent } from './dialog/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogService } from './servicios/dialog.service';
-import { CommonModule } from '@angular/common';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { ShoppingCardService } from './servicios/shopping-card.service';
@@ -36,6 +35,8 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ShoppingCartSumaryComponent } from './shopping-cart-sumary/shopping-cart-sumary.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
+import { Router } from '@angular/router';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
     DataTablesModule,
     MatIconModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    
   ],
   entryComponents:[
       DialogComponent
@@ -83,8 +85,11 @@ import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
     ShoppingCardService,
     DialogService,
     { provide: DialogService, useClass: DialogService },
-    OrderService
-
+    OrderService,
+    OverlayModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })
