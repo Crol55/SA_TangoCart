@@ -8,11 +8,7 @@ import { ShoppingCardService } from '../servicios/shopping-card.service';
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css'],
-<<<<<<< HEAD
-  providers: [ShoppingCardService, ProductoService]
-=======
   providers: [ShoppingCardService,ProductoService]
->>>>>>> feature/testing
 })
 export class ShoppingCartComponent implements OnInit {
 
