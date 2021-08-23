@@ -15,6 +15,7 @@ pipeline{
                     docker images 
                     docker build ./microservicio-authCliente
                     docker build ./microservicio-authProveedor
+                    docker ps -a
                 '''
 
             }
