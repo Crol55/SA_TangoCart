@@ -15,7 +15,6 @@ pipeline{
                     ls -a 
                     pwd
                     whoami
-                    sudo usermod -aG docker $USER
                     docker ps
                 '''
 
