@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CategoriaService } from 'src/app/servicios/categoria.service';
 
 import { ProductFilterComponent } from './product-filter.component';
 
@@ -8,7 +10,9 @@ describe('ProductFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductFilterComponent ]
+      declarations: [ ProductFilterComponent ],
+      imports:[HttpClientTestingModule],
+      providers:[ CategoriaService]
     })
     .compileComponents();
   });
