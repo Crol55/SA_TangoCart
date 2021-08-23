@@ -12,6 +12,7 @@ pipeline{
             steps{ /*Se ejecuta en la computadora host*/
                 echo 'Paso 1) Construir las imagenes de los microservicios'
                 sh '''
+                    docker-compose stop
                     docker-compose up --build -d
                 '''
 
