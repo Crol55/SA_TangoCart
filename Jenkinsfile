@@ -14,6 +14,7 @@ pipeline{
                 sh '''
                     ls -a 
                     pwd
+                    whoami
                 '''
 
             }
