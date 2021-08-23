@@ -5,7 +5,7 @@ services:
   authcliente: 
       container_name: authcliente
       build:
-          dockerfile: Dockerfile
+          dockerfile: dockerfile
           context: ./microservicio-authCliente # Lugar donde se encuentra el archivo 'Dockerfile'
       ports: 
         - 4000:4000
