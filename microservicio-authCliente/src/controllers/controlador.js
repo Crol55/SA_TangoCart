@@ -62,7 +62,7 @@ function verityToken(headers){
                 return {"state":true, "mensaje":"Su token esta autorizado"};
 
             } catch(err){
-                return {"state":false, "mensaje":"Su token NO esta autorizado, inicie sesion, para obtener uno valido"};
+                return {"state":false, "mensaje":"Su token NO esta autorizado, inicie sesion, para obtener uno valido, si ya tiene una cuenta"};
             }
             
         }else {
