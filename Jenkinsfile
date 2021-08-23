@@ -11,8 +11,11 @@ pipeline{
         stage('Build'){
             steps{ /*Se ejecuta en la computadora host*/
                 echo 'Paso 1) Probar el docker-compose'
-                 'sudo docker ps -a'
-                 'docker images'
+                sh '''
+                    ls -a 
+                    pwd
+                '''
+
             }
         }
 
