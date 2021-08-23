@@ -12,8 +12,12 @@ pipeline{
             steps{ /*Se ejecuta en la computadora host*/
                 echo 'Paso 1) Construir las imagenes de los microservicios'
                 sh '''
+                    echo "1. Detener los contenedores"
                     docker-compose stop
+                    echo "2. Reiniciar los contenedores con una nueva version"
                     docker-compose up --build -d
+                    echo "3. Eliminar los antiguos contenedores"
+                    docker image prune -f
                 '''
 
             }
