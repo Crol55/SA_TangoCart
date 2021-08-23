@@ -10,12 +10,11 @@ pipeline{
 
         stage('Build'){
             steps{ /*Se ejecuta en la computadora host*/
-                echo 'Paso 1) Probar el docker-compose'
+                echo 'Paso 1) Construir las imagenes de los microservicios'
                 sh '''
-                    ls -a 
-                    pwd
-                    whoami
-                    docker ps
+                    docker images 
+                    docker build ./microservicio-authCliente
+                    docker build ./microservicio-authProveedor
                 '''
 
             }
