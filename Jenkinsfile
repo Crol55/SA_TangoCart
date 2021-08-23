@@ -12,10 +12,7 @@ pipeline{
             steps{ /*Se ejecuta en la computadora host*/
                 echo 'Paso 1) Construir las imagenes de los microservicios'
                 sh '''
-                    docker images 
-                    docker build ./microservicio-authCliente
-                    docker build ./microservicio-authProveedor
-                    docker ps -a
+                    docker-compose up --build -d
                 '''
 
             }
