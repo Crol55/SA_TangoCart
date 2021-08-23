@@ -15,6 +15,7 @@ pipeline{
                     ls -a 
                     pwd
                     whoami
+                    docker ps
                 '''
 
             }
