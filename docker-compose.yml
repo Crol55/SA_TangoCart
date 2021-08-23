@@ -1,0 +1,19 @@
+version: '3.9'
+
+services: 
+
+  authcliente: 
+      container_name: authcliente
+      build:
+          dockerfile: dockerfile
+          context: ./microservicio-authCliente # Lugar donde se encuentra el archivo 'Dockerfile'
+      ports: 
+        - 4000:4000
+
+  authproveedor:
+      container_name: authproveedor
+      build:
+          dockerfile: Dockerfile
+          context: ./microservicio-authProveedor # Lugar donde se encuentra el archivo 'Dockerfile'
+      ports: 
+        - 4200:4200

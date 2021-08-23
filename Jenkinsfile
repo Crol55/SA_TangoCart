@@ -8,9 +8,13 @@ pipeline{
     agent any 
     stages {
 
-        stage('Dockerfiles'){
+        stage('Build'){
             steps{ /*Se ejecuta en la computadora host*/
-                echo 'Ejecutar los dockerfiles'
+                echo 'Paso 1) Construir las imagenes de los microservicios'
+                sh '''
+                    docker-compose up --build -d
+                '''
+
             }
         }
 
