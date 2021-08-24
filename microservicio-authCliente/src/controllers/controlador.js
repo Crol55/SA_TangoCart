@@ -10,7 +10,7 @@ async function login(req, res){ // Idealmente tipo post
 
     //1) Verificar que el usuario y contraseña coincidan con la base de datos
     let userInfo = req.body;
-
+    //console.log(userInfo);
     let filtro = {
         "correo":userInfo['correo'], 
         "password":userInfo['password'], 
@@ -24,7 +24,7 @@ async function login(req, res){ // Idealmente tipo post
         // JWT: Se compone de 3 partes: header . payload . firma -> se codifica con (HMAC u otros) 
         jwt.sign( userInfo, jwtPass, (err, token)=>{
             console.log('token:',token);
-            res.status(200).send( {"Token":token} );
+            res.status(200).send( {"Token":token, "info":registro} );
         }) // asyncrona
 
     }else{
@@ -62,7 +62,7 @@ function verityToken(headers){
                 return {"state":true, "mensaje":"Su token esta autorizado"};
 
             } catch(err){
-                return {"state":false, "mensaje":"Su token NO esta autorizado, inicie sesion, para obtener uno valido, si ya tiene una cuenta"};
+                return {"state":false, "mensaje":"Su token NO esta autorizado, inicie sesion, para obtener uno valido."};
             }
             
         }else {
