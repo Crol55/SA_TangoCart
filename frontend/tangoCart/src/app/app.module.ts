@@ -2,7 +2,7 @@ import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { DataTablesModule } from "angular-datatables";
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
@@ -74,7 +74,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
-    
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   entryComponents:[
       DialogComponent
@@ -88,9 +90,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     OrderService,
     OverlayModule
   ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
