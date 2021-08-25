@@ -8,6 +8,6 @@ copy . .
 # RUN: Se ejecuta exclusivamente al  construir la imagen
 RUN npm install
 # Exponer el puerto donde escuchara nuestro servidor
-EXPOSE 4200
+EXPOSE 4001
 #CMD: Se ejecuta cada vez que se inicie el contenedor
 CMD npm start
