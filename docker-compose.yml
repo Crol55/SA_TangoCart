@@ -16,4 +16,4 @@ services:
           dockerfile: Dockerfile
           context: ./microservicio-authProveedor # Lugar donde se encuentra el archivo 'Dockerfile'
       ports: 
-        - 4200:4200
+        - 4001:4001
