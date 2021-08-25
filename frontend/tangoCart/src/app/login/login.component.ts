@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../servicios/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,31 +11,70 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   
   form = new FormGroup({
-    email:    new FormControl('',Validators.required), 
+    correo:    new FormControl('',Validators.required), 
     password: new FormControl('',Validators.required),
+    tipo: new FormControl('',Validators.required),
   })
-  constructor(private router: Router) { }
+  constructor(private router: Router, public auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
- get email(){
-   return this.form.get("email")
+ get correo(){
+   return this.form.get("correo")
  }
 
  get password(){
    return this.form.get('password')
  }
 
+ get tipo(){
+  return this.form.get('tipo')
+}
+
  login(){
-     console.log(this.form.value)
      if(this.form.valid){
-      this.router.navigate(['/'])
-     }else{
-      this.form.setErrors({
-        invalidLogin: true
-    });
-     }
+
+        if(this.tipo?.value == 'c'){
+            this.auth.login(this.form.value)
+            .subscribe( usuario =>{
+              
+                localStorage.setItem('token', JSON.stringify(usuario))
+                this.router.navigate(['/products'])
+
+            }, err =>{ 
+              console.log(err) 
+              this.form.setErrors({
+                invalidLogin: true
+            });
+            })
+          }else{
+            
+            this.auth.login2(this.form.value)
+            .subscribe( usuario =>{
+                localStorage.setItem('token', JSON.stringify(usuario))
+                this.router.navigate(['admin/products'])
+            }, err =>{ 
+              console.log(err) 
+              this.form.setErrors({
+                invalidLogin: true
+            });
+            })
+          }  
+
+     
+      }else{
+            this.form.setErrors({
+              invalidLogin: true
+            });
+      }
+
+
+    
+
+
+
+
  }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../servicios/auth.service';
 import { OrderService } from '../servicios/order.service';
 
 @Component({
@@ -10,11 +11,12 @@ export class MyOrdersComponent implements OnInit {
   
   orders? : any
 
-  constructor(public  orderService: OrderService){ }
+  constructor(public  orderService: OrderService,
+              public  auth : AuthService){ }
 
   ngOnInit(): void {
-    if(this.currentUser != null){ 
-      this.getOrders(this.currentUser.user)
+    if(this.auth.currentUser != null){ 
+      this.getOrders(this.auth.currentUser[0]._id)
     }
   }
 

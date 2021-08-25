@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { Producto } from 'src/app/models/products';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { ShoppingCardService } from 'src/app/servicios/shopping-card.service';
 
@@ -20,7 +21,8 @@ export class ProductCardComponent implements OnInit {
   
   constructor(public shopping:ShoppingCardService,
               public ProductService: ProductoService,
-              public  dialog: MatDialog) { }
+              public  dialog: MatDialog,
+              public auth : AuthService) { }
   ngOnInit(): void {
      
   }
@@ -30,7 +32,7 @@ export class ProductCardComponent implements OnInit {
     if(p.stock == 0) { this.openDialog("Inventario Vacio, Intentelo más tarde") }
     else {
     let items = {
-         user:"usuario1",
+         user:this.auth.currentUser[0]._id,
          state: "active",
          items: [{_id: product?._id,
                   nombre: product?.nombre,
