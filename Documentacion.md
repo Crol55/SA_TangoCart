@@ -12,6 +12,7 @@ Cuenta con varias pantallas, entre las cuales se encuentran las funcionalidades 
 
 Para el versionamiento del proyecto se estara utilizando la herramienta de Github. Se creo un repositorio que seria "SA_Poyecto2021".
 En este se trabajo mediante las siguientes ramas :
+
     * feature/testing: Rama en la cual se realizan las purebas, entre ellas validaciones de dependencias, inicios de sesion.
     * feature/micro-cart : Rama en la cual se realiza la inicializacion del microservicio para la autenticacion de clientes, se definen controladores y rutas funcionales, se realiza la configuracion de envio y verificacion de token. Se realiza los modelos y conexiones a la BD
     * feature/DB_clientes: Rama en la que se crea modelo/tabla y conexion de la base de datos para los clientes. Tambien se realizan validaciones de inserciones y consutlas.
@@ -26,20 +27,20 @@ Para validar y realizar el versionamiento del proyecto se ralizan tres Tags a lo
 ## Lenguaje de programación
 
 Los lenguajes de programacion utilizados son los detallados acontinuacion:
-    Node JS v. 12.18.3
+    - ### Node JS v. 12.18.3
     - ### cors v. 2.8.5
     - ### express v 4.17.1
     - ### jsonwebtoken v. 8.5.1
     - ### mongoose v. 5.13.7
 
 ## Herramientas de desarrollo
-    * Jenkins
-    * Docker
-    * Ansible
-    * free tier
-    * AWS
-        * ### EC2
-        * ### S3
+    - ### Jenkins
+    - ### Docker
+    - ### Ansible
+    - ### free tier
+    - ### AWS
+        - ### EC2
+        - ### S3
 
 
 ## Metodología
