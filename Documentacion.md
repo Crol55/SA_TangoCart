@@ -12,14 +12,14 @@ Cuenta con varias pantallas, entre las cuales se encuentran las funcionalidades 
 
 Para el versionamiento del proyecto se estara utilizando la herramienta de Github. Se creo un repositorio que seria "SA_Poyecto2021".
 En este se trabajo mediante las siguientes ramas :
-    feature/testing: Rama en la cual se realizan las purebas, entre ellas validaciones de dependencias, inicios de sesion.
-    feature/micro-cart : Rama en la cual se realiza la inicializacion del microservicio para la autenticacion de clientes, se definen controladores y rutas funcionales, se realiza la configuracion de envio y verificacion de token. Se realiza los modelos y conexiones a la BD
-    feature/DB_clientes: Rama en la que se crea modelo/tabla y conexion de la base de datos para los clientes. Tambien se realizan validaciones de inserciones y consutlas.
-    feature/auth_clientes: Rama en la que se realiza la validaciones, modelos, controladores, rutas y la configuracion de envio y verificacion de token para los clientes.
-    feature/micro-producto: Rama en la que se encuentra los modulos, modelos, rutas de productos.
-    feature/frontend_home : Rama en la que se traba el abc de productos, pagina de inicio.
-    feature/frontend_producto : Rama en la que se encuentra la interfaz, serian los perfiles, creacion, abc productos.
-    develop : Integracion de todos los procesos validados con anterioridad.
+    * feature/testing: Rama en la cual se realizan las purebas, entre ellas validaciones de dependencias, inicios de sesion.
+    * feature/micro-cart : Rama en la cual se realiza la inicializacion del microservicio para la autenticacion de clientes, se definen controladores y rutas funcionales, se realiza la configuracion de envio y verificacion de token. Se realiza los modelos y conexiones a la BD
+    * feature/DB_clientes: Rama en la que se crea modelo/tabla y conexion de la base de datos para los clientes. Tambien se realizan validaciones de inserciones y consutlas.
+    * feature/auth_clientes: Rama en la que se realiza la validaciones, modelos, controladores, rutas y la configuracion de envio y verificacion de token para los clientes.
+    * feature/micro-producto: Rama en la que se encuentra los modulos, modelos, rutas de productos.
+    * feature/frontend_home : Rama en la que se traba el abc de productos, pagina de inicio.
+    * feature/frontend_producto : Rama en la que se encuentra la interfaz, serian los perfiles, creacion, abc productos.
+    * develop : Integracion de todos los procesos validados con anterioridad.
 
 Para validar y realizar el versionamiento del proyecto se ralizan tres Tags a lo largo del desarrollo, estos son generados estrategicamente para llevar una continuidad funcional y en caso de problemas con despliegues que contentan fallas.
 
@@ -33,13 +33,13 @@ Los lenguajes de programacion utilizados son los detallados acontinuacion:
     - ### mongoose v. 5.13.7
 
 ## Herramientas de desarrollo
-    - Jenkins
-    - Docker
-    - Ansible
-    - free tier
-    - AWS
-        - ### EC2
-        - ### S3
+    * Jenkins
+    * Docker
+    * Ansible
+    * free tier
+    * AWS
+        * ### EC2
+        * ### S3
 
 
 ## Metodología
@@ -68,7 +68,7 @@ Se implementara el modelo incremental ya que este modelo permite a nuestro model
 
 ## Arquitectura del sistema
 
-![](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
+![](https://github.com/Crol55/SA_Proyecto2021/Imagenes/Arquitectura.png)
 ## Microservicios
 
 ## Caso de uso
