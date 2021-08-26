@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cart } from '../models/cart';
+import { AuthService } from '../servicios/auth.service';
 import { ShoppingCardService } from '../servicios/shopping-card.service';
 
 @Component({
@@ -17,14 +18,15 @@ export class ShoppingCartSumaryComponent implements OnInit  {
   public total : number = 0;
 
 
-  constructor(public cartService: ShoppingCardService){
+  constructor(public cartService: ShoppingCardService,
+              public auth : AuthService){
     
   }
   
 
   ngOnInit() :void {
-    if(this.currentCart._id != null){
-     this.getCart(this.currentCart._id)
+    if(this.auth.currentUser != null){
+     this.getCart(this.auth.currentUser[0]._id)
     }
   }
 
