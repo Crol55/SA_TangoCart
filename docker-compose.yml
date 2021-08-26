@@ -21,7 +21,7 @@ services:
   cart_container:
       container_name: cart
       build:
-          dockerfile: Dockerfile
+          dockerfile: dockerfile
           context: ./cart # Lugar donde se encuentra el archivo 'Dockerfile'
       ports: 
         - 3001:3001
