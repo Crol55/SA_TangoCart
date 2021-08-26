@@ -6,7 +6,7 @@ import { ProductoService } from '../servicios/producto.service';
 import { MatDialog } from '@angular/material/dialog';
 
 
-describe('ProductsComponent', () => {
+describe('Compomente Producto', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
 
@@ -25,7 +25,7 @@ describe('ProductsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Deberia de crear el compomente products', () => {
     expect(component).toBeTruthy();
   });
 });

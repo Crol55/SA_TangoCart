@@ -10,11 +10,11 @@
       <div class="mb-3">
         <label>Email address</label>
         <input type="email"
-               formControlName = 'email' 
+               formControlName = 'correo' 
                class="form-control"
                placeholder="Enter email">
       </div>
-      <div *ngIf="email?.touched && email?.invalid"class="alert alert-danger">
+      <div *ngIf="correo?.touched && correo?.invalid"class="alert alert-danger">
           <div>Email is requiered.</div>
       </div>
       <div class="mb-3">
@@ -27,6 +27,17 @@
       <div *ngIf="password?.touched && password?.invalid"class="alert alert-danger">
         <div>Password is requiered.</div>
     </div>
+    <div class="mb-3">
+      <label   class="form-label">Tipo</label>
+      <select  formControlName = 'tipo' class="form-select" required>
+        <option value="">Selecciona</option>
+        <option value="p">Proveedor</option>
+        <option value="c">Cliente</option>
+      </select>
+    </div>
+    <div *ngIf="tipo?.touched && tipo?.invalid"class="alert alert-danger" >
+     <div>Tipo es requiered</div> 
+  </div>
       <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="login()" >Sign in</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
     </form>

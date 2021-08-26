@@ -16,4 +16,20 @@ services:
           dockerfile: Dockerfile
           context: ./microservicio-authProveedor # Lugar donde se encuentra el archivo 'Dockerfile'
       ports: 
-        - 4200:4200
+        - 4001:4001
+  
+  cart_container:
+      container_name: cart
+      build:
+          dockerfile: dockerfile
+          context: ./cart # Lugar donde se encuentra el archivo 'Dockerfile'
+      ports: 
+        - 3001:3001
+
+#   product_container:
+#       container_name: cart
+#       build:
+#           dockerfile: Dockerfile
+#           context: ./productos # Lugar donde se encuentra el archivo 'Dockerfile'
+#       ports: 
+#         - 3000:3000
