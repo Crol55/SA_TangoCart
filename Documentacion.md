@@ -1,7 +1,7 @@
 Universidad de San Carlos de Guatemala  
 Facultad de Ingeniería  
 Escuela de Ciencias y Sistemas  
-Redes de Computadoras 1        
+Software Avanzado       
 Sección O
 
 <br></br>
@@ -125,7 +125,7 @@ Se implementara el modelo incremental ya que este modelo permite a nuestro model
 
 ## Diagrama de secuencia
 
-![](Imagenes/CasoDeUso.PNG)
+![](Imagenes/Secuencia.PNG)
 
 ## Infraestructura como Código
 
