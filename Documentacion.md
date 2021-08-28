@@ -1,3 +1,29 @@
+Universidad de San Carlos de Guatemala  
+Facultad de Ingeniería  
+Escuela de Ciencias y Sistemas  
+Redes de Computadoras 1        
+Sección O
+
+<br></br>
+
+![](Imagenes/logo-fiusac2.png)
+
+<br></br>
+
+_____
+
+## **Grupo 4**
+
+| Integrante | Carnet |
+| -- | -- |
+| German Salguero  |  |
+| Marellyn Lisbeth Trejo Castro | 201313688 | 
+| Carlos Rene Orantes Lara | 201314172 |
+
+<br></br>
+
+_____
+
 # Documentacion Proyecto 1
 
 ## Aplicacion a desarrollar
@@ -87,14 +113,19 @@ Se implementara el modelo incremental ya que este modelo permite a nuestro model
 
 ## Arquitectura del sistema
 
-![](https://github.com/Crol55/SA_Proyecto2021/Imagenes/Arquitectura.png)
+![](Imagenes/Arquitectura.png)
+
 ## Microservicios
+
+![](Imagenes/Microservicios.PNG)
 
 ## Caso de uso
 
+![](Imagenes/CasoDeUso.PNG)
 
 ## Diagrama de secuencia
 
+![](Imagenes/CasoDeUso.PNG)
 
 ## Infraestructura como Código
 
