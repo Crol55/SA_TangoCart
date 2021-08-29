@@ -33,3 +33,11 @@ services:
           context: ./productos # Lugar donde se encuentra el archivo 'Dockerfile'
       ports: 
         - 3000:3000
+
+  frontend_container:
+      container_name: frontend
+      build:
+         dockerfile: dockerfile
+         context: ./frontend/tangoCart 
+      ports:
+        - 80:80 
