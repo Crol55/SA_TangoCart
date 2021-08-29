@@ -26,10 +26,10 @@ services:
      ports: 
        - 3001:3001
 
-#   product_container:
-#       container_name: productos
-#       build:
-#           dockerfile: DockerFile
-#           context: ./productos # Lugar donde se encuentra el archivo 'Dockerfile'
-#       ports: 
-#         - 3000:3000
+  product_container:
+      container_name: productos
+      build:
+          dockerfile: DockerFile
+          context: ./productos # Lugar donde se encuentra el archivo 'Dockerfile'
+      ports: 
+        - 3000:3000
