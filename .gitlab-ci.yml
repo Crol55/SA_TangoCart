@@ -1,0 +1,11 @@
+stages:
+    - build
+
+construir:
+  stage: build
+  script: "echo prueba desde github"
+  only:
+    refs:
+        - develop
+  tags:
+    - runner
