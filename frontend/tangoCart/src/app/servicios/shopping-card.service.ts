@@ -14,7 +14,7 @@ export class ShoppingCardService {
     items: []
   };
 
-  private api = 'http://localhost:3001/api'
+  private api = 'http://34.69.63.86:3001/api'
   
   public cartsItems?: any;
 

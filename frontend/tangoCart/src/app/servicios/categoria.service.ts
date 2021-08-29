@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CategoriaService {
-  private api = 'http://localhost:3000/api'
+  private api = 'http://34.69.63.86:3000/api'
 
   constructor(public http: HttpClient) {}
 
