@@ -3,7 +3,7 @@ stages:
 
 construir:
   stage: build
-  script: "echo prueba desde github"
+  script: "echo prueba desde github cambio para testear lo ultimo"
   only:
     refs:
         - develop
