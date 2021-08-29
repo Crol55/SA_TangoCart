@@ -24,6 +24,7 @@ pipeline{
                     docker image prune -f
                     echo "3. Impresion de docker luego de limpieza"
                     docker images
+                    docker ps
                 '''
 
             }
