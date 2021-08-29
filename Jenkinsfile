@@ -22,6 +22,8 @@ pipeline{
                     docker-compose up --build -d
                     echo "2. Eliminar los antiguos contenedores"
                     docker image prune -f
+                    echo "3. Impresion de docker luego de limpieza"
+                    docker images
                 '''
 
             }
