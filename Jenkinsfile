@@ -2,6 +2,7 @@ pipeline {
    agent any
    stages{
       stage('Build'){
+         timeout(unit: 'SECONDS', time: 120) { 
          steps{
             sh '''
             docker-compose build
@@ -11,6 +12,7 @@ pipeline {
             '''
          }
       }
+      } 
       stage('Test'){
          steps{
             echo 'testing appliacion' 
