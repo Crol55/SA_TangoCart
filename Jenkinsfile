@@ -29,6 +29,14 @@ pipeline{
             }
         }
 
+        stage('Test'){ /*Se ejecuta en la computadora host*/
+            dir("/frontend/tangoCart")
+            steps{
+                sh 'ng test'
+            }
+        }
+        
+
         stage('CI'){
             steps{ /*Se ejecuta en la computadora host*/
                 sh 'ls -a' 
@@ -37,11 +45,7 @@ pipeline{
             }
         }
 
-        stage('Test'){ /*Se ejecuta en la computadora host*/
-            steps{
-                echo 'prueba de testeo'
-            }
-        }
+        
     }
 }
 
