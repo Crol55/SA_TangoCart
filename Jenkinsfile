@@ -24,17 +24,15 @@ pipeline {
          }
       }
       stage('Deploy'){
+        steps { 
         dir('frontend/tangoCart'){
             echo 'testing appliacion'
             sh ''' 
              docker build -t deploy .
              docker run -d deploy
             ''' 
-            } 
+         } 
       }
-
-      
-
 
    }
 }
