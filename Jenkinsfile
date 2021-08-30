@@ -4,7 +4,6 @@ pipeline {
       stage('Build'){
          steps{
             sh '''
-            docker-compose down
             docker image prune -f
             docker-compose build
             docker images
