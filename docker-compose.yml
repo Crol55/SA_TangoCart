@@ -44,6 +44,6 @@ services:
       container_name: frontend
       build:
          dockerfile: dockerfile
-         context: ./frontend/tangoCart 
+         context: .testing/frontend/tangoCart 
       ports:
         - 80:80 
