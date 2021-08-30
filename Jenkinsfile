@@ -13,11 +13,13 @@ pipeline {
       } 
       stage('Test'){
          steps{
+            dir('testing/frontend/tangoCart'){
             echo 'testing appliacion'
             sh ''' 
-             docker-compose up -d
+             docker built -t testing:v1
+             docker run -d --name testingf testing:v1
             ''' 
-            
+            } 
          }
       }
       stage('Deploy'){
