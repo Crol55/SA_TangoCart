@@ -3,33 +3,32 @@ pipeline {
    stages{
       stage('Build'){
          steps{
-            sh 'echo Paso 1'
+            sh '''
+            docker-compose down
+            docker image prune -f
+            docker-compose build
+            docker images
+            docker-compose up -d
+            '''
          }
       }
-      stage('Verificando Docker'){
+      stage('Test'){
          steps{
-            sh 'docker images'
+            echo 'testing appliacion' 
+            sh ''' docker-compose exec npm install
+                   docker-compose exec npm run test
+               '''
+            
          }
       }
-      stage('Construir imagenes'){
+      stage('Deploy'){
          steps{
-            sh 'docker-compose down'
-            sh 'docker image prune -f'
-            sh 'docker-compose build'
-            sh 'docker images'
-         }
-      }
-      stage('Servicios Up'){
-         steps{
-            sh 'docker-compose up -d'
+            echo 'deploy' 
          }
       }
 
-      stage('testing appliacion'){
-         steps{
-            sh 'test/docker-compose up -d'
-         }
-      }
       
+
+
    }
 }
