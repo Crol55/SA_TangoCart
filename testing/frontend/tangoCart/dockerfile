@@ -1,4 +1,4 @@
-FROM germansalguero711/node-chrome:latest 
+FROM  germansalguero711/node-chrome
 
 WORKDIR /usr/src/testing
 
