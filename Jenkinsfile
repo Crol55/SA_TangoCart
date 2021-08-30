@@ -15,7 +15,8 @@ pipeline {
       stage('Test'){
          steps{
             echo 'testing appliacion' 
-            sh ''' docker exec testing npm install && npm run test
+            sh ''' 
+               docker-compose exec testing npm run test
                '''
             
          }
