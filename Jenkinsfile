@@ -16,8 +16,8 @@ pipeline {
             dir('testing/frontend/tangoCart'){
             echo 'testing appliacion'
             sh ''' 
-             docker built -t testing:v1
-             docker run -d --name testingf testing:v1
+             docker build -t testing:v1
+             docker run -d --name testing-karm testing:v1
             ''' 
             } 
          }
