@@ -2,7 +2,7 @@ pipeline {
    agent any
    stages{
       stage('Build'){
-         timeout(unit: 'SECONDS', time: 120) { 
+          
          steps{
             sh '''
             docker-compose build
@@ -11,13 +11,11 @@ pipeline {
             docker-compose up -d
             '''
          }
-      }
       } 
       stage('Test'){
          steps{
             echo 'testing appliacion' 
-            sh ''' docker exec testing npm install
-                   docker exec testing npm run test
+            sh ''' docker exec testing npm install && npm run test
                '''
             
          }
