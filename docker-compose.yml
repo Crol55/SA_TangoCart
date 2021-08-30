@@ -38,12 +38,12 @@ services:
       container_name: testing
       build:
          dockerfile: dockerfile
-         context: ./frontend/tangoCart 
+         context: ./testing/frontend/tangoCart 
      
   frontend_container:
       container_name: frontend
       build:
          dockerfile: dockerfile
-         context: .testing/frontend/tangoCart 
+         context: ./frontend/tangoCart 
       ports:
         - 80:80 
