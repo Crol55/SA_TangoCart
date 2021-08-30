@@ -17,22 +17,24 @@ pipeline {
             echo 'testing appliacion'
             sh ''' 
              docker build -t testing .
-             docker run -d testing
+             docker run -d  testing
              docker logs
             ''' 
             } 
          }
       }
       stage('Deploy'){
-        steps { 
-        dir('frontend/tangoCart'){
-            echo 'testing appliacion'
-            sh ''' 
-             docker build -t deploy .
-             docker run -d deploy
-            ''' 
-         } 
-      }
+         steps{
+            dir('frontend/tangoCart'){
+                  echo 'deploy appliacion'
+                  sh ''' 
+                  docker build -t deploy .
+                  docker run -d  deploy
 
+                  ''' 
+            }     
+         }
+      }  
    }
+      
 }
