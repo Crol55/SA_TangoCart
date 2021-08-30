@@ -18,14 +18,19 @@ pipeline {
             sh ''' 
              docker build -t testing .
              docker run -d testing
+             docker logs
             ''' 
             } 
          }
       }
       stage('Deploy'){
-         steps{
-            echo 'deploy' 
-         }
+        dir('frontend/tangoCart'){
+            echo 'testing appliacion'
+            sh ''' 
+             docker build -t deploy .
+             docker run -d deploy
+            ''' 
+            } 
       }
 
       

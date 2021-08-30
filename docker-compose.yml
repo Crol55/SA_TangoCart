@@ -40,10 +40,10 @@ services:
 #          dockerfile: dockerfile
 #          context: ./testing/frontend/tangoCart 
      
-  frontend_container:
-      container_name: frontend
-      build:
-         dockerfile: dockerfile
-         context: ./frontend/tangoCart 
-      ports:
-        - 80:80 
+  # frontend_container:
+  #     container_name: frontend
+  #     build:
+  #        dockerfile: dockerfile
+  #        context: ./frontend/tangoCart 
+  #     ports:
+  #       - 80:80 
