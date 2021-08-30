@@ -24,5 +24,12 @@ pipeline {
             sh 'docker-compose up -d'
          }
       }
+
+      stage('testing appliacion'){
+         steps{
+            sh 'test/docker-compose up -d'
+         }
+      }
+      
    }
 }
