@@ -18,7 +18,7 @@ pipeline {
             sh ''' 
              docker build -t testing .
              docker run -d  testing
-             docker logs
+             docker logs testing
             ''' 
             } 
          }
