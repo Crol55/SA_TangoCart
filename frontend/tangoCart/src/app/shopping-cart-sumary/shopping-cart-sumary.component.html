@@ -5,7 +5,7 @@
         {{currentItems}}
       </span>  in your shopping cart.</p>
       <ul class="list-group list-group-flush">
-          <li *ngFor="let item of shopping?.items" class="list-group-item fw-bold">
+          <li *ngFor="let item of this.shopping?.items" class="list-group-item fw-bold">
            {{ item.cantidad }} x {{ item.nombre }}
            <div class="float-end">
             {{ item.cantidad * item.precio | currency: 'USD' }}
