@@ -29,6 +29,15 @@ pipeline{
             }
         }
 
+        stage('Test'){ /*Se ejecuta en la computadora host*/
+            steps{
+                echo 'testing the application...'
+                sh '''
+                   docker-compose1 up --build -d
+                '''
+            }
+        } 
+
         stage('CI'){
             steps{ /*Se ejecuta en la computadora host*/
                 sh 'ls -a' 
@@ -37,11 +46,7 @@ pipeline{
             }
         }
 
-        stage('Test'){ /*Se ejecuta en la computadora host*/
-            steps{
-                echo 'prueba de testeo'
-            }
-        }
+        
     }
 }
 

@@ -1,0 +1,8 @@
+version: '3.9'
+
+services: 
+     testing_container:
+      container_name: testing
+      build:
+         dockerfile: dockerfile
+         context: ./testing/frontend/tangoCart 
