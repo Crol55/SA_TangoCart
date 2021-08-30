@@ -16,7 +16,7 @@ pipeline {
          steps{
             echo 'testing appliacion' 
             sh ''' 
-               docker-compose exec testing npm run test
+               docker-compose exec testing  /bin/bash npm run test
                '''
             
          }
