@@ -1,4 +1,4 @@
-FROM node:current-alpine3.12
+FROM node:latest
 RUN apk add chromium
 WORKDIR /app/testing
 
