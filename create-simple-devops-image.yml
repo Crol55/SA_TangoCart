@@ -3,8 +3,8 @@
   tasks:
   - name: create docker image 
     command: echo 'puta' #docker build -t cart-devops-image:latest .
-    args:
-      chdir: /cart
+    # args:
+    #   chdir: /cart
 
   # - name: create tag to image
   #   command: docker tag cart-devops-image germansalguero711/cart-devops-image
