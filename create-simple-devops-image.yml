@@ -4,7 +4,7 @@
   - name: create docker image 
     command: pwd  docker build -t cart-devops-image:latest .
     args:
-      chdir: /var/lib/jenkins/workspace/demo/cart
+      chdir: /cart
 
   # - name: create tag to image
   #   command: docker tag cart-devops-image germansalguero711/cart-devops-image
