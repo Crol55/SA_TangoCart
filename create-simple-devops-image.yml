@@ -4,7 +4,7 @@
   - name: create docker image 
     command: docker build -t cart-devops-image:latest .
     args:
-      chdir: /cart
+      chdir: Demo/cart
 
   - name: create tag to image
     command: docker tag cart-devops-image germansalguero711/cart-devops-image
