@@ -2,16 +2,16 @@
   become: true
   tasks:
   - name: create docker image 
-    command: docker build -t cart-devops-image:latest .
-    args:
-      chdir: var/lib/jenkins/demo/cart
+    command: pwd  #docker build -t cart-devops-image:latest .
+    # args:
+    #   chdir: var/lib/jenkins/demols/cart
 
-  - name: create tag to image
-    command: docker tag cart-devops-image germansalguero711/cart-devops-image
+  # - name: create tag to image
+  #   command: docker tag cart-devops-image germansalguero711/cart-devops-image
 
-  - name: push image on to dockerhub
-    command: docker push germansalguero711/cart-devops-image  
+  # - name: push image on to dockerhub
+  #   command: docker push germansalguero711/cart-devops-image  
     
-  - name: remove docker images from ansible server
-    command: docker rmi cart-devops-image:latest germansalguero711/cart-devops-image
-    ignore_errors: yes
+  # - name: remove docker images from ansible server
+  #   command: docker rmi cart-devops-image:latest germansalguero711/cart-devops-image
+  #   ignore_errors: yes
