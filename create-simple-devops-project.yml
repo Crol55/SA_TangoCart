@@ -1,0 +1,20 @@
+- hosts: all
+
+  tasks:
+  - name: stop current running container
+    command: docker stop cart-devops-container
+    ignore_errors: yes
+
+  - name: remove stopper container
+    command: docker rm cart-devops-container
+    ignore_errors: yes
+
+  - name: remove docker image
+    command: docker rmi cart-devops-image:latest
+    ignore_errors: yes
+
+  - name: pull docker image from dockerhub
+    command: docker pull germansalguero711/cart-devops-image:latest
+
+  - name: create contanier cart-devops-image
+    command: docker run -d --name cart-devops-container -p 3001:3001 germansalguero711/cart-devops-image:latest
