@@ -16,7 +16,7 @@ _____
 
 | Integrante | Carnet |
 | -- | -- |
-| German Salguero  |  |
+| German Salguero  | 201114496 |
 | Marellyn Lisbeth Trejo Castro | 201313688 | 
 | Carlos Rene Orantes Lara | 201314172 |
 
@@ -126,6 +126,12 @@ Se implementara el modelo incremental ya que este modelo permite a nuestro model
 ## Diagrama de secuencia
 
 ![](Imagenes/Secuencia.PNG)
+
+![](Imagenes/diagrama1.jpeg)
+
+![](Imagenes/Diagrama3.jpeg)
+
+
 
 ## Infraestructura como Código
 
