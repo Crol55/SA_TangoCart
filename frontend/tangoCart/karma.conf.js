@@ -32,24 +32,19 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    customLaunchers: {
-      ChromeHeadless: {
-        base: 'Chrome',
-        flags: [
-          '--no-sandbox',
-          '--disable-gpu',
-          '--headless',
-          '--remote-debugging-port=9222'
-        ]
-      }
-    },
+    
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['ChromeHeadless'],
-    singleRun: false,
-    restartOnFileChange: true
+    autoWatch: false,
+    browsers: ['ChromeHeadless', 'Chrome'],
+    customLaunchers: {
+      ChromeHeadless: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox',]
+      }
+    },
+    singleRun: true,
   });
 };
