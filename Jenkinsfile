@@ -4,8 +4,6 @@ pipeline {
       stage('Build'){
          steps{
             sh '''
-              
-            docker rmi $(docker images -a -q) -f
             docker-compose build
             '''
          }
