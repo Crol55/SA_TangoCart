@@ -5,11 +5,16 @@ pipeline {
          steps{
             sh '''
             docker-compose build
-            docker image prune -f
-            docker images
             '''
          }
-      } 
+      }
+      stage('Up Services'){
+         steps{
+            sh '''
+            docker-compose up -d
+            '''
+         }
+      }
    }
       
 }
