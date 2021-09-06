@@ -35,8 +35,7 @@ export class ShoppingCartSumaryComponent implements OnInit  {
       { 
         this.shopping = cart
         
-        console.log(this.shopping)
-        this.productos = this.shopping.items
+        this.productos = this.shopping[0].items
         if(this.productos?.length > 0){
            for(let p of this.productos) { this.total  =  this.total + (p.precio * p.cantidad) }
         }else{

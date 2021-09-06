@@ -2,7 +2,6 @@ pipeline {
    agent any
    stages{
       stage('Build'){
-          
          steps{
             sh '''
             docker-compose build
@@ -13,10 +12,10 @@ pipeline {
       } 
       stage('Test'){
          steps{
-            dir('testing/frontend/tangoCart'){
+            dir('frontend/tangoCart'){
             echo 'testing appliacion'
             sh ''' 
-             docker build -t testing .
+             docker build -t testing -f dockerfile.test .
              docker run -d  testing
              docker logs testing
             ''' 
@@ -28,9 +27,8 @@ pipeline {
             dir('frontend/tangoCart'){
                   echo 'deploy appliacion'
                   sh ''' 
-                  docker build -t deploy .
+                  docker build -t deploy -f dockerfile.production .
                   docker run -d  deploy
-
                   ''' 
             }     
          }
