@@ -38,7 +38,7 @@ services:
       container_name: testing
       build:
          dockerfile: dockerfile.test
-         context: ./testing/frontend/tangoCart
+         context: ./frontend/tangoCart
      
   frontend_container:
       container_name: frontend
