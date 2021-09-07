@@ -33,6 +33,7 @@ export class ShoppingCartComponent implements OnInit {
   .subscribe(cart => 
     { 
       this.shopping = cart
+     
       this.productos = this.shopping[0].items 
       if(this.productos?.length > 0){
          for(let p of this.productos) { this.total  =  this.total + (p.precio * p.cantidad) }
@@ -49,7 +50,6 @@ export class ShoppingCartComponent implements OnInit {
        items: [item],
        state: "active"
     }
-
     this.cartService.updateCart(items, this.currentCart._id )
     .subscribe( i => {
       this.shopping.cartsItems = i
@@ -61,6 +61,7 @@ export class ShoppingCartComponent implements OnInit {
       localStorage.setItem('NoItems',JSON.stringify(NoItems))
       this.getCart(this.auth.currentUser[0]._id)
       this.UpdateStock(item._id,item.cantidad)
+      this.total = 0;
     })
     
   }
@@ -79,6 +80,8 @@ export class ShoppingCartComponent implements OnInit {
     if(!token) return null;
     return  JSON.parse(token)
   }
+
+
 
 
 

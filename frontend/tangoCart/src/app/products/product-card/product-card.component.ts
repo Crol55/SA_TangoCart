@@ -42,10 +42,10 @@ export class ProductCardComponent implements OnInit {
                   cantidad: this.cantidad
                 }]
     }
-
     this.shopping.addToCart(items)
      .subscribe( i => { 
          this.shopping.cartsItems = i
+         console.log("arq" ,this.shopping.cartsItems['data'])
          localStorage.setItem('IdCart', JSON.stringify(this.shopping.cartsItems['data']))
          let NoItems = 0
          for(let p of this.shopping.cartsItems['data'].items) { 

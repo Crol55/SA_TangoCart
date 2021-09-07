@@ -22,22 +22,27 @@ export class ShoppingCardService {
 
 
   addToCart(product: any) {
+
     const path = `${this.api}/cart`;
+    console.log(product)
     return  this.http.post(path, product)
   }
 
   getCart(id: any): Observable<Cart> {
+   
     const path = `${this.api}/cart/${id}`;
     return  this.http.get<Cart>(path)
   }
 
   updateCart(items: any, id: any){
+    console.log(id)
     const path = `${this.api}/cart/${id}`;
     return  this.http.put(path, items) 
   }
    
   deleteCart( id: any){
     const path = `${this.api}/cart/${id}`;
+    
     return  this.http.delete(path) 
   }
 
