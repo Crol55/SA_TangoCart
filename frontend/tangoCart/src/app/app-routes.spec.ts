@@ -1,7 +1,6 @@
 import { routes } from './app-routing.module';
 import { AuthGuardService } from './Guard/guard';
 import { AuthGuardService2 } from './Guard/guard2';
-import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 
