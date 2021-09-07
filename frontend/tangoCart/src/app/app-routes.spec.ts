@@ -6,10 +6,6 @@ import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 
 describe('Routes', () => {
-    it('Debe contener la ruta /login', ()=>{
-         expect(routes).toContain({ path: 'login', component: LoginComponent, canActivate: [AuthGuardService2]})
-    })
-
     it('Debe contener la ruta /registro', ()=>{
         expect(routes).toContain( { path: 'register', component: RegisterComponent, canActivate: [AuthGuardService2]})
     })
