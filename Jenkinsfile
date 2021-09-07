@@ -4,9 +4,7 @@ pipeline {
       stage('Build'){
          steps{
             sh '''
-            docker-compose stop
-            docker-compose rm
-            docker-compose rmi
+        
             docker-compose build
             '''
          }
