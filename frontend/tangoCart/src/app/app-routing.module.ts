@@ -14,6 +14,7 @@ import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
+
  export const routes: Routes = [
    { path: '', component: LoginComponent,  canActivate: [AuthGuardService2]  },
    { path: 'products', component: ProductsComponent, canActivate: [AuthGuardService] },
