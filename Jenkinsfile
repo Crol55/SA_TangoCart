@@ -6,6 +6,7 @@ pipeline {
             sh ''' 
              docker-compose build
             '''
+            
          }
       }
       stage('Up Services'){
