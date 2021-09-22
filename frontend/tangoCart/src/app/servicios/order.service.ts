@@ -9,6 +9,7 @@ import { Order } from '../models/order';
 export class OrderService {
   
   private api = 'http://34.69.63.86:3001/api'
+ // private api = 'http://localhost:3001/api'
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +25,11 @@ export class OrderService {
 
   getOrder(id:any): Observable<Order> {
     const path = `${this.api}/order/${id}`;
+    return this.http.get<Order>(path)
+  }
+
+  getOrderUser(id:any): Observable<Order> {
+    const path = `${this.api}/order/user/${id}`;
     return this.http.get<Order>(path)
   }
 

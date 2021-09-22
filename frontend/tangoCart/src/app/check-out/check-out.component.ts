@@ -27,7 +27,8 @@ export class CheckOutComponent implements OnInit, OnDestroy {
               public auth :AuthService){}
 
   async ngOnInit(){
-    this.cart =  await this.shoppingCartService.getCart(this.currentCart._id).toPromise();
+    this.cart =  await this.shoppingCartService.getCart(this.auth.currentUser[0]._id).toPromise();
+    console.log(this.cart[0].items)
   
   }
   ngOnDestroy(){
@@ -38,8 +39,9 @@ export class CheckOutComponent implements OnInit, OnDestroy {
      let order = {
        user: this.auth.currentUser[0]._id,
        shipping: this.shipping,
-       items: this.cart.items 
+       items: this.cart[0].items
      }
+    console.log(order) 
     let order$ = await this.OrderService.postOrder(order).toPromise();
     this.shoppingCartService.deleteCart(this.currentCart._id)
     .subscribe( c => {

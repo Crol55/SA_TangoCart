@@ -48,7 +48,6 @@ async function addCart(req,res){
 
 //Crear get
 async function getCart(req,res){
-
         const cart = await Cart.find({"user": req.params.id});
         res.status(200).json(cart);        
 }

@@ -4,7 +4,8 @@ const express = require('express');
 // importamos todas las funciones creadas en el controlador en el archivo de categoria
 const { addOrder,
         getOrder,
-        getOrders
+        getOrders,
+        getOrderUser
 } = require('../controllers/order');
 
 //hacemos uso del metodod Router para crear las rutas 
@@ -18,6 +19,12 @@ router
 router
     .route('/:id')
         .get(getOrder)
+       
+router
+    .route('/user/:id')
+        .get(getOrderUser)
+        
+
 
 // finalmente se exporta la variable router donde definimos las rutas de categoria
 module.exports = router;

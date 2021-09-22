@@ -22,7 +22,7 @@ export class ProductFormComponent implements OnInit{
   base64? : string | any 
   ext?:string | any
   ocultar : boolean = true;
-  categories$?: Observable<Categoria[]>;;
+  categories$?: Observable<Categoria[]>;
   product? : any;  
   id : any;
   

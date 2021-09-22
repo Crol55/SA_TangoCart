@@ -52,10 +52,11 @@ export class ProductsComponent implements OnInit {
     this.cartService.getCart(id)
     .subscribe(cart => 
     { 
-      console.log(cart)
+     
       this.shopping = cart
       let NoItems = 0
       localStorage.setItem('IdCart', JSON.stringify(this.shopping))
+      if (!this.shopping[0]) return
       for(let p of this.shopping[0].items) { 
            NoItems  =  NoItems + p.cantidad
       }
