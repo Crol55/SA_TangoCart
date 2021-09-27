@@ -12,6 +12,9 @@ export class AuthService {
   private api = 'http://34.69.63.86:4000'
   private api2 = 'http://34.69.63.86:4001'
 
+  //private api = 'http://localhost:4000'
+  //private api2 = 'http://localhost:4001'
+
   constructor(public http: HttpClient, public router: Router ){ }
   
 
@@ -42,6 +45,17 @@ export class AuthService {
     return this.http.post(path,usuario)
   }
 
+  sendNotifyCliente(notificacion: any){
+    const path = `${this.api}/notify`;
+    return this.http.post(path,notificacion)
+  }
+
+  sendNotifyProveedor(notificacion: any){
+    const path = `${this.api2}/notify`;
+    return this.http.post(path,notificacion)
+  }
+
+
   isLoggedIn() {
     let token = localStorage.getItem('token')
     if(!token) return false;
@@ -53,5 +67,7 @@ export class AuthService {
     if(!token) return null;
     return  JSON.parse(token).info
   }
+
+ 
   
 }

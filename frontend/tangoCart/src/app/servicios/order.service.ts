@@ -8,8 +8,8 @@ import { Order } from '../models/order';
 })
 export class OrderService {
   
-  private api = 'http://34.69.63.86:3001/api'
- // private api = 'http://localhost:3001/api'
+ private api = 'http://34.69.63.86:3001/api'
+ //private api = 'http://localhost:3001/api'
 
   constructor(private http: HttpClient) { }
 
