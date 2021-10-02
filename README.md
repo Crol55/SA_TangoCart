@@ -212,3 +212,18 @@ Por medio de este archivo, se realiza la construcción de los contenedores de mi
     	- 3002:3000
  
 
+# Fase 2
+
+## Factura
+
+### Diagrama de Actividad
+![](Imagenes/DiagramaDeActividadFactura.png)
+
+### Diagrama de Caso de Uso
+![](Imagenes/DiagramaDeCasoDeUso.png)
+
+### Diagrama de Clases
+![](Imagenes/DiagramaDeClasesFacturacion.png)
+
+### Diagrama de Flujo
+![](Imagenes/DiagramaDeFlujo.png)
