@@ -2,6 +2,7 @@ import { Component,AfterViewInit,  ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Producto } from 'src/app/models/products';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
 
 
@@ -17,7 +18,8 @@ export class AdminProductsComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator | any;
 
   
-  constructor(private ProductService: ProductoService ) {
+  constructor(private ProductService: ProductoService, 
+              public auth: AuthService) {
   
    }
   ngAfterViewInit(): void {
@@ -25,9 +27,9 @@ export class AdminProductsComponent implements AfterViewInit {
   }
 
   getAll(){
-    this.ProductService.getProducts()
+    this.ProductService.getProductUser(this.auth.currentUser[0]._id)
     .subscribe( p => {
-      let ELEMENT_DATA :Producto[]  = p ;
+      let ELEMENT_DATA: Producto[]  = p ;
       this.dataSource = new MatTableDataSource(ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
     })

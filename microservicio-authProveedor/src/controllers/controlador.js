@@ -4,7 +4,7 @@
 const jwt = require('jsonwebtoken'); // Para autenticar con JWT el inicio de sesion de un usuario (https://www.npmjs.com/package/jsonwebtoken)
 const jwtPass = 'ProveedoresSA2021';
 const mongoDB = require('../DB/Mongo_DB');
-
+const nodemailer = require("nodemailer");
 
 async function login(req, res){ // Idealmente tipo post
 
@@ -123,8 +123,40 @@ async function create_usuario(req,res){
 
 //create_usuario();
 
+async function sendEmail(req,res) {
+   
+    let { user, message }= req.body
+    const usuario = await mongoDB.usuarioModel.find({"_id":user} );
+    let transporter = nodemailer.createTransport({
+      host: "smtp-mail.outlook.com",
+      port: 587,
+      secure: false, 
+      auth: {
+        user: 'servicewater2020@outlook.com',
+        pass: 'servicioagua123'
+      },
+      tls: {
+        ciphers:'SSLv3'
+      }
+    });
+  
+    let info = await transporter.sendMail({
+        from: 'servicewater2020@outlook.com',
+        to: usuario[0].correo, 
+        subject: "Hello ✔, No replay Notify", 
+        text: "TangoCart", 
+        html: `<b>${message}</b>`, 
+      });
+
+    console.log("Message sent: %s", info.messageId);
+    res.json({message:"Notificación enviada"});
+
+
+  }
+
 module.exports = {
     login, 
     verify: verifyAuth, 
-    signup: create_usuario
+    signup: create_usuario,
+    sendEmail: sendEmail
 };

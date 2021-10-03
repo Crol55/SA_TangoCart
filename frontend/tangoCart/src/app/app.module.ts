@@ -35,7 +35,6 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ShoppingCartSumaryComponent } from './shopping-cart-sumary/shopping-cart-sumary.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
-import { Router } from '@angular/router';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 
@@ -57,7 +56,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     OrderSuccessComponent,
     ShoppingCartSumaryComponent,
     MyOrdersComponent,
-    ManageOrdersComponent
+    ManageOrdersComponent,
+   
   ],
   imports: [
     BrowserModule,

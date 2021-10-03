@@ -12,4 +12,6 @@ router.post('/verify', controlador.verify);
 
 router.post('/signup',controlador.signup);
 
+router.post('/notify',controlador.sendEmail);
+
 module.exports = router;

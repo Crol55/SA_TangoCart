@@ -15,7 +15,7 @@ var fs = require('fs');
 
 //Crear Producto
 async function addProduct(req,res){
-    var {titulo,precio,descripcion,categoria,stock,foto,ext} = req.body
+    var {user,titulo,precio,descripcion,categoria,stock,foto,ext} = req.body
     
     let  idb = uuidv4();
     let ruta = `fotos/${idb}${ext}`
@@ -37,6 +37,7 @@ async function addProduct(req,res){
     if(result == 'err') return  res.send(JSON.stringify( {status:"400", success:"false"} )); 
 
     campos = {
+        user: user,
         nombre: titulo,
         precio: precio,
         descripcion : descripcion,
@@ -60,6 +61,12 @@ async function getProducts(req,res){
 // Obtener un producto en especifico
  async function getProduct(req,res){
     const product = await Product.findById(req.params.id);
+    res.json(product);
+}
+
+// Obtener productos por usuario
+async function getProductUser(req,res){
+    const product = await Product.find({user: req.params.id});
     res.json(product);
 }
 
@@ -144,6 +151,7 @@ module.exports = {
     addProduct: addProduct,
     getProducts: getProducts,
     getProduct: getProduct,
+    getProductUser:getProductUser,
     updateProduct: updateProduct,
     deleteProduct: deleteProduct,
     uploadPhoto : uploadPhoto

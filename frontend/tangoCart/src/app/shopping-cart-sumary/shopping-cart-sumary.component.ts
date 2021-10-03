@@ -26,7 +26,7 @@ export class ShoppingCartSumaryComponent implements OnInit  {
 
   ngOnInit() :void {
     if(this.auth.currentUser != null){
-     this.getCart(this.auth.currentUser[0]._id)
+      this.getCart(this.auth.currentUser[0]._id)
     }
   }
 
@@ -34,7 +34,8 @@ export class ShoppingCartSumaryComponent implements OnInit  {
     this.cartService.getCart(id).subscribe( cart => 
       { 
         this.shopping = cart
-        this.productos = this.shopping.items
+        
+        this.productos = this.shopping[0].items
         if(this.productos?.length > 0){
            for(let p of this.productos) { this.total  =  this.total + (p.precio * p.cantidad) }
         }else{

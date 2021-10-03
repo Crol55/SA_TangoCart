@@ -29,7 +29,25 @@ export class ProductCardComponent implements OnInit {
   addToCart(product:any){
      this.ProductService.getProduct(product?._id)
      .subscribe(p => {
-    if(p.stock == 0) { this.openDialog("Inventario Vacio, Intentelo más tarde") }
+    if(p.stock == 0) { 
+      if(this.auth.currentUser.tipo == 'C'){
+          
+          let notificacion = {
+              user : product.user,
+              message: `Inventario Vacio, Producto: ${product.nombre}`
+          }
+          this.auth.sendNotifyCliente(notificacion)
+          .subscribe( send =>{ console.log(send) })
+      }else{
+        let notificacion = {
+          user :  product.user,
+          message: `Inventario Vacio, Producto: ${product.nombre}`
+        }
+        this.auth.sendNotifyProveedor(notificacion)
+        .subscribe( send =>{ console.log(send) })  
+      }
+      this.openDialog("Inventario Vacio, Intentelo más tarde")
+    }
     else {
     let items = {
          user:this.auth.currentUser[0]._id,
@@ -42,10 +60,10 @@ export class ProductCardComponent implements OnInit {
                   cantidad: this.cantidad
                 }]
     }
-
     this.shopping.addToCart(items)
      .subscribe( i => { 
          this.shopping.cartsItems = i
+         console.log("arq" ,this.shopping.cartsItems['data'])
          localStorage.setItem('IdCart', JSON.stringify(this.shopping.cartsItems['data']))
          let NoItems = 0
          for(let p of this.shopping.cartsItems['data'].items) { 

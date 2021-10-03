@@ -21,7 +21,7 @@ export class MyOrdersComponent implements OnInit {
   }
 
   getOrders(id: any){
-     this.orderService.getOrder(id)
+     this.orderService.getOrderUser(id)
      .subscribe( o =>{ this.orders = o });
   }
 

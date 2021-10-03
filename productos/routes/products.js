@@ -3,7 +3,8 @@ const express = require('express');
 
 // importamos todas las funciones creadas en el controlador del archivo products.js
 const { getProducts,
-        getProduct, 
+        getProduct,
+        getProductUser, 
         addProduct, 
         updateProduct,
         deleteProduct, 
@@ -28,6 +29,10 @@ router
 router
      .route('/:id/photo')
      .post(uploadPhoto)
+
+router
+     .route('/user/:id')
+     .get(getProductUser)
 
 // finalmente se exporta la variable router donde definimos las rutas de categoria
 module.exports = router;

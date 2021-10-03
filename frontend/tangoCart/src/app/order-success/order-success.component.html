@@ -1,1 +1,49 @@
 <h1>order-success works!</h1>
+
+<div class="container">
+    <div class="row">
+  
+      <div class="col-md-8" id="htmlData" #htmlData>
+        <div class="center"><h2>TangoCart</h2></div>  
+        <h2>Factura: {{ this.serie }}</h2>
+        <p> 
+           Date: {{ this.fecha | date}}<br>
+           Customer:  {{ this.nombre }}<br>
+           City: {{ this.city }}<br>
+           Address1: {{ this.add1 }}<br>
+           Address2: {{ this.add2 }}<br>
+        </p>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>SubTotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of this.orden">
+                    <td>{{ p.nombre }}</td>
+                    <td>{{ p.cantidad}}</td>
+                    <td>{{ p.precio  | currency: 'USD'}}</td>
+                    <td>{{ p.cantidad * p.precio | currency: 'USD' }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+              <tr> 
+                  <td><h1>Total</h1></td>
+                  <td></td>
+                  <td></td>
+                  <td> {{this.total + this.total*0.1 | currency: 'USD'  }} </td>
+              </tr>
+            </tfoot>
+        </table>
+      </div>
+
+      <div class="col-md-3 text-right">
+        <button class="btn btn-success btn-block" (click)="openPDF()">Descargar Factura</button>
+      </div>
+  
+  

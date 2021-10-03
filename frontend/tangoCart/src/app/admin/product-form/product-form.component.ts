@@ -6,6 +6,7 @@ import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from 'src/app/models/categories';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 
 
@@ -21,7 +22,7 @@ export class ProductFormComponent implements OnInit{
   base64? : string | any 
   ext?:string | any
   ocultar : boolean = true;
-  categories$?: Observable<Categoria[]>;;
+  categories$?: Observable<Categoria[]>;
   product? : any;  
   id : any;
   
@@ -30,7 +31,9 @@ export class ProductFormComponent implements OnInit{
     private route: ActivatedRoute,
     private Categoryservice: CategoriaService, 
     public  Productservice: ProductoService,
-    public  dialog: MatDialog ){
+    public  dialog: MatDialog,
+    public  auth: AuthService
+    ){
     this.categories$ = this.Categoryservice.getCategories();
                     
     this.id = this.route.snapshot.paramMap.get('id')
@@ -67,6 +70,7 @@ export class ProductFormComponent implements OnInit{
      }else if(this.base64)
          {
             let saveProduct = {
+                user: this.auth.currentUser[0]._id,  
                 titulo: product.nombre,
                 precio: product.precio,
                 descripcion: product.descripcion,
@@ -75,6 +79,7 @@ export class ProductFormComponent implements OnInit{
                 foto: this.base64,
                 ext: this.ext
             }
+             console.log(saveProduct)
              this.Productservice.postProducts(saveProduct)
             .subscribe(result => {
               this.openDialog("Producto Agregado exitosamente!!")

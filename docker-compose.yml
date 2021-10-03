@@ -17,19 +17,41 @@ services:
           context: ./microservicio-authProveedor # Lugar donde se encuentra el archivo 'Dockerfile'
       ports: 
         - 4001:4001
+
+    lista_deseos:
+      container_name: listadeseos
+      build:
+          dockerfile: Dockerfile
+          context: ./lista_deseos # Lugar donde se encuentra el archivo 'Dockerfile'
+      ports: 
+        - 5001:5001
   
   cart_container:
-      container_name: cart
-      build:
-          dockerfile: dockerfile
-          context: ./cart # Lugar donde se encuentra el archivo 'Dockerfile'
-      ports: 
-        - 3001:3001
+     container_name: cart
+     build:
+         dockerfile: DockerFile
+         context: ./cart # Lugar donde se encuentra el archivo 'Dockerfile'
+     ports: 
+       - 3001:3001
 
-#   product_container:
-#       container_name: cart
-#       build:
-#           dockerfile: Dockerfile
-#           context: ./productos # Lugar donde se encuentra el archivo 'Dockerfile'
-#       ports: 
-#         - 3000:3000
+  product_container:
+      container_name: productos
+      build:
+          dockerfile: DockerFile
+          context: ./productos # Lugar donde se encuentra el archivo 'Dockerfile'
+      ports: 
+        - 3000:3000
+
+  testing_container:
+      container_name: testing
+      build:
+         dockerfile: dockerfile.test
+         context: ./frontend/tangoCart
+     
+  frontend_container:
+      container_name: frontend
+      build:
+         dockerfile: dockerfile.production
+         context: ./frontend/tangoCart
+      ports:
+        - 80:80 
