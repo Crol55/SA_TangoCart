@@ -3,7 +3,7 @@ const cors = require('cors');
 const rutas = require('./src/routes/rutas');
 const Mongo_DB = require('./src/DB/Mongo_DB');
 
-const puerto = process.env.PORT || 4000;
+const puerto = process.env.PORT || 4080;
 
 // Conectarse a la base de datos globalmente ( configuracion )
 Mongo_DB.connectDB();

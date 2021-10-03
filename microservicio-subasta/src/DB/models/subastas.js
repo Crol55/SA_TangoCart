@@ -5,6 +5,9 @@ const {Schema} = mongoose;
 // Creacion del schema/tabla para almacenar las subastas
 
 const schema_subasta = new Schema({
+    propietario: { 
+        type: mongoose.Types.ObjectId, required:true
+    },
     usuarios: { 
         type: mongoose.Types.ObjectId, required:true
     },
@@ -18,9 +21,6 @@ const schema_subasta = new Schema({
         type:Number, required:true
     },
     fecha_final:{
-        type: Date, required:true
-    },
-    fecha_inicial:{
         type: Date, required:true
     },
     createdAt: {

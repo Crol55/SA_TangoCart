@@ -3,6 +3,46 @@
 const mongoDB = require('../DB/Mongo_DB');
 const mongoose = require('mongoose');
 
+async function get_auctions(req, res){    
+    // subastas
+    const data = await mongoDB.subastaModel.aggregate(
+        [
+            {
+                $lookup:
+                {
+                    from: "usuarios", // 2
+                    localField: "usuarios", // 1
+                    foreignField: "_id", // 2
+                    as: "usuarios"
+                }
+            },
+            { $unwind: "$usuarios" },
+            {
+                $lookup:
+                {
+                    from: "products", // 2
+                    localField: "products", // 1
+                    foreignField: "_id", // 2
+                    as: "products"
+                }
+            },
+            { $unwind: "$products" },
+            {
+                $lookup:
+                {
+                    from: "usuarios", // 2
+                    localField: "propietario", // 1
+                    foreignField: "_id", // 2
+                    as: "propietario"
+                }
+            },
+            { $unwind: "$propietario" },
+            { $match: { estado: "Activa" } }
+        ]
+    );
+    res.status(200).send(data);
+}
+
 async function get_auction(req, res){    
     // subastas
     const data = await mongoDB.subastaModel.aggregate(
@@ -26,21 +66,32 @@ async function get_auction(req, res){
                     as: "products"
                 }
             },
-            { $unwind: "$products" }
+            { $unwind: "$products" },
+            {
+                $lookup:
+                {
+                    from: "usuarios", // 2
+                    localField: "propietario", // 1
+                    foreignField: "_id", // 2
+                    as: "propietario"
+                }
+            },
+            { $unwind: "$propietario" },
+            { $match: { _id: mongoose.Types.ObjectId(req.query._id) } }
         ]
     );
     res.status(200).send(data);
 }
 
 async function add_auction(req, res){
-    const {usuarios, products, estado, oferta, fecha_final, fecha_inicial} = req.body;
+    const {propietario, usuarios, products, estado, oferta, fecha_final} = req.body;
     let newAuction = {
+        "propietario" : mongoose.Types.ObjectId(propietario),
         "usuarios" : mongoose.Types.ObjectId(usuarios),
         "products" : mongoose.Types.ObjectId(products),
         "estado" : estado,
         "oferta" : oferta,
-        "fecha_final" : fecha_final,
-        "fecha_inicial" : fecha_inicial
+        "fecha_final" : fecha_final
     };
 
     //console.log(newAuction);
@@ -58,18 +109,18 @@ async function add_auction(req, res){
 }
 
 async function update_auction(req, res){
-    const {_id, usuarios, products, estado, oferta, fecha_final, fecha_inicial} = req.body;
+    const {_id, propietario, usuarios, products, estado, oferta, fecha_final} = req.body;
     let newAuction = {
+        "propietario" : mongoose.Types.ObjectId(propietario),
         "usuarios" : mongoose.Types.ObjectId(usuarios),
         "products" : mongoose.Types.ObjectId(products),
         "estado" : estado,
         "oferta" : oferta,
-        "fecha_final" : fecha_final,
-        "fecha_inicial" : fecha_inicial
+        "fecha_final" : fecha_final
     };
 
     try{
-        const data = await mongoDB.subastaModel.findByIdAndUpdate(_id, newAuction, {
+        const data = await mongoDB.subastaModel.findByIdAndUpdate(mongoose.Types.ObjectId(_id), newAuction, {
             new: true,
             runValidators: true
         });
@@ -95,6 +146,7 @@ async function delete_auction(req, res){
 
 module.exports = {
     get_auction: get_auction, 
+    get_auctions: get_auctions,
     add_auction: add_auction,
     update_auction: update_auction,
     delete_auction: delete_auction
