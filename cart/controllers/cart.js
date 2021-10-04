@@ -57,8 +57,8 @@ async function getCart(req,res){
 //Actualizar producto
 async function updateCart(req,res){
         
-       
         cart    = await Cart.findById(req.params.id)
+        
         product =  cart.items.find(p => p._id === req.body.items[0]._id)
         index =  cart.items.indexOf(product)
         cart.items.splice(index, 1);
@@ -74,6 +74,7 @@ async function updateCart(req,res){
 async function deleteCart(req,res){
        
     const cart = await Cart.findById(req.params.id);
+    console.log(cart)
     if(cart){
       await cart.remove();  
       return res.status(200).json({

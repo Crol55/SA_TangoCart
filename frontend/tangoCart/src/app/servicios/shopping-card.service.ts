@@ -14,8 +14,8 @@ export class ShoppingCardService {
     items: []
   };
 
-  private api = 'http://34.69.63.86:3001/api'
-  //private api = 'http://localhost:3001/api'
+  //private api = 'http://34.69.63.86:3001/api'
+  private api = 'http://localhost:3001/api'
   public cartsItems?: any;
 
   constructor( private http: HttpClient ) { }
@@ -41,10 +41,9 @@ export class ShoppingCardService {
   }
    
   deleteCart( id: any){
+    console.log(id)
     const path = `${this.api}/cart/${id}`;
-    
     return  this.http.delete(path) 
   }
-
 
 }
