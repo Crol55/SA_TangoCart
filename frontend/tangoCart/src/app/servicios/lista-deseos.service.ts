@@ -12,10 +12,10 @@ export class ListaDeseosService {
 
   constructor(private http:HttpClient) { }
 
-  getProductsFromWishList(userID:any){
+  getProductsFromWishList(id_usuario:any){
     //window.alert("me estoy ejecutando?");
     const url = `${this.listaDeseos_API}/fetchwishlist`;
-    let queryParams = new HttpParams().set("id_usuario", "61185295a79c651d40667682");
+    let queryParams = new HttpParams().set("id_usuario", id_usuario);
     return this.http.get( url, { params: queryParams})
   }
 
