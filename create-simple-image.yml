@@ -1,0 +1,66 @@
+- hosts: all
+
+  tasks:
+  # cart
+  - name: create docker image cart
+    command: docker build -t cart-image:latest .
+    args:
+      chdir: /opt/docker/cart
+
+  - name: create tag to image
+    command: docker tag cart-image germansalguero711/cart-image
+
+  - name: push image on to dockerhub
+    command: docker push germansalguero711/cart-image  
+    
+  - name: remove docker images from ansible server
+    command: docker rmi cart-image:latest germansalguero711/cart-image
+    ignore_errors: yes
+  
+  # producto
+  - name: create docker image productos
+    command: docker build -t productos-image:latest .
+    args:
+      chdir: /opt/docker/productos
+
+  - name: create tag to image
+    command: docker tag productos-image germansalguero711/productos-image
+
+  - name: push image on to dockerhub
+    command: docker push germansalguero711/productos-image  
+    
+  - name: remove docker images from ansible server
+    command: docker rmi productos-image:latest germansalguero711/productos-image
+    ignore_errors: yes  
+  
+  #proveedores
+  - name: create docker image proveedores
+    command: docker build -t prov-image:latest .
+    args:
+      chdir: /opt/docker/microservicio-authProveedor
+
+  - name: create tag to image
+    command: docker tag prov-image germansalguero711/prov-image
+
+  - name: push image on to dockerhub
+    command: docker push germansalguero711/prov-image  
+    
+  - name: remove docker images from ansible server
+    command: docker rmi prov-image:latest germansalguero711/prov-image
+    ignore_errors: yes  
+
+  #clientes 
+  - name: create docker image client
+    command: docker build -t client-image:latest .
+    args:
+      chdir: /opt/docker/microservicio-authCliente
+
+  - name: create tag to image
+    command: docker tag client-image germansalguero711/client-image
+
+  - name: push image on to dockerhub
+    command: docker push germansalguero711/client-image  
+    
+  - name: remove docker images from ansible server
+    command: docker rmi client-image:latest germansalguero711/client-image
+    ignore_errors: yes   
