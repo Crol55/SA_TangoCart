@@ -1,10 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subasta } from 'src/app/models/subasta';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { OrderService } from 'src/app/servicios/order.service';
 import { SubastaService } from 'src/app/servicios/subasta.service';
 
 @Component({
@@ -132,7 +133,7 @@ export class ProductoComponent implements OnInit {
   }
 
   ofertar(){
-    console.log("ofertar")
+    //console.log("ofertar")
     //CONFIRMAR
     this.subastaService.getSubasta(this._id).subscribe(res =>{
       this.subasta.oferta = res[0].oferta;
@@ -155,7 +156,7 @@ export class ProductoComponent implements OnInit {
       }
       
       this.subastaService.putSubasta(actualizar).subscribe(p => {
-        console.log(p);
+        //console.log(p);
         // OBTENER DATOS ACTUALIZADOS
         this.subastaService.getSubasta(this._id).subscribe(res =>{
           this.subasta._id = res[0]._id;
@@ -179,7 +180,8 @@ export class ProductoComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogMessage, {
       data: {
         producto: this.subasta.products,
-        precio: this.subasta.oferta
+        precio: this.subasta.oferta,
+        subasta: this.subasta
       }
     });
   }
@@ -194,23 +196,56 @@ export class ProductoComponent implements OnInit {
 })
 export class DialogMessage  implements OnInit {
   form = new FormGroup({
-    ciudad: new FormControl(''),
-    direccion1: new FormControl(''),
-    direccion2: new FormControl('')
+    ciudad: new FormControl('',Validators.required),
+    direccion1: new FormControl('',Validators.required),
+    direccion2: new FormControl('',Validators.required)
   })
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any) {
-
+  constructor(public subastaService: SubastaService, public router: Router, public dialogRef: MatDialogRef<DialogMessage>, @Inject(MAT_DIALOG_DATA) public data:any, private snackBar: MatSnackBar, public auth :AuthService, public orderService: OrderService) {
   }
   ngOnInit(): void {
-    this.data.producto.precio = this.data.precio;
-    console.log(this.data.producto.precio);
+    //this.data.producto.precio = this.data.precio;
+    //console.log(this.data.producto.precio);
   }
 
-  finalizar(){
-    if (this.form.value.ciudad || this.form.value.direccion1 || this.form.value.direccion2){
+  async finalizar(){
+    if (this.form.value.ciudad == "" || this.form.value.direccion1 == "" || this.form.value.direccion2 == ""){
+      this.snackBar.open("Debe completar el formulario!", "Ok", {duration:2000});
+    }
+    else{
+      let shipping = {
+        name: this.auth.currentUser[0].nombre + " " + this.auth.currentUser[0].apellido,
+        city: this.form.value.ciudad,
+        addressLine1 : this.form.value.direccion1,
+        addressLine2 : this.form.value.direccion2
+      }
+      let order = {
+        user: this.auth.currentUser[0]._id,
+        shipping: shipping,
+        items: this.data.producto
+      }
+      this.data.producto.precio = this.data.precio;
       
-      //this._snackBar.open("Debe completar el formulario!", "Ok", {duration:2000});
+      //let order$ = await this.orderService.postOrder(order).toPromise();
+
+      const actualizar = {
+        _id: this.data.subasta._id,
+        propietario: this.data.subasta.propietario._id,
+        usuarios: this.auth.currentUser[0]._id,
+        products: this.data.subasta.products._id,
+        estado: 'Inactiva',
+        oferta: this.form.value.oferta,
+        fecha_final: this.data.subasta.fecha_final
+      }
+
+
+      let espera = await this.subastaService.putSubasta(actualizar).toPromise();
+
+      this.snackBar.open("Orden generada con éxito!", "Ok", {duration:2000});
+
+      this.dialogRef.close();
+      this.router.navigate(['/auction']);
+
     }
   }
 }

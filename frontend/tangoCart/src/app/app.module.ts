@@ -19,7 +19,7 @@ import { RegisterComponent } from './register/register.component';
 import { MyPerfilComponent } from './my-perfil/my-perfil.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminProductsComponent, DialogSubasta } from './admin/admin-products/admin-products.component';
 import { CategoriaService } from './servicios/categoria.service';
 import { ProductoService } from './servicios/producto.service';
 import { DialogComponent } from './dialog/dialog.component';
@@ -36,6 +36,8 @@ import { ShoppingCartSumaryComponent } from './shopping-cart-sumary/shopping-car
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MyPerfilComponent,
     ProductFormComponent,
     AdminProductsComponent,
+    DialogSubasta,
     DialogComponent,
     ProductFilterComponent,
     ProductCardComponent,
@@ -74,6 +77,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
