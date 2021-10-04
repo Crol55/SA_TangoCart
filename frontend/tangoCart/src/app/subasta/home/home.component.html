@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-3">
+        <app-filtro [categoria]="categoria"></app-filtro>
+    </div>
+    <div class="col">
+        <div class="row">
+            <ng-container *ngFor="let p of this.filteredAuctions; let i = index" >
+                <div class="col">
+                   <app-detalle [subasta]="p"></app-detalle>
+                </div>
+                    <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+            </ng-container>
+        </div>
+    </div>
+</div>

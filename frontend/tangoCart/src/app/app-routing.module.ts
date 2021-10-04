@@ -28,8 +28,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
    { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuardService] },
    { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
    { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService]},
-   { path: 'admin/products/:id', component: ProductFormComponent,canActivate: [AuthGuardService] }
-   
+   { path: 'admin/products/:id', component: ProductFormComponent,canActivate: [AuthGuardService] },
+   { path: 'auction', loadChildren: () => import('./subasta/subasta.module').then(x => x.SubastaModule)}
 
  ];
 

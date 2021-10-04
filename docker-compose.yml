@@ -18,6 +18,14 @@ services:
       ports: 
         - 4001:4001
   
+  subasta_container:
+      container_name: subasta
+      build:
+          dockerfile: DockerFile
+          context: ./microservicio-subasta # Lugar donde se encuentra el archivo 'Dockerfile'
+      ports: 
+        - 4080:4080
+
   cart_container:
      container_name: cart
      build:
