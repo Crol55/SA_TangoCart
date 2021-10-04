@@ -1,5 +1,11 @@
 <div *ngIf="product.nombre" class="card" style="width: 18rem;" >
-    <img  *ngIf="product.foto" [src]="product.foto" class="card-img-top" alt="{{ product.foto }}">
+    
+    <div >
+      <img  *ngIf="product.foto" [src]="product.foto" class="card-img-top" alt="{{ product.foto }}">
+      <button (click)="saveInto_wishList()" type="button" class="btn btn-default wishlist" data-toggle="tooltip" data-placement="right" title="Wishlist" >
+        <mat-icon>star_border</mat-icon>
+      </button>
+    </div>
     <div class="card-body">
       <h5 class="card-title">{{product.nombre}}</h5>
       <p class="card-text">{{product.precio | currency: 'USD'}}</p>

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { Producto } from 'src/app/models/products';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { ListaDeseosService } from 'src/app/servicios/lista-deseos.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { ShoppingCardService } from 'src/app/servicios/shopping-card.service';
 
@@ -20,7 +21,7 @@ export class ProductCardComponent implements OnInit {
   public producto?  : Producto;
   
   constructor(public shopping:ShoppingCardService,
-              public ProductService: ProductoService,
+              public ProductService: ProductoService, public httpListaDeseos: ListaDeseosService,
               public  dialog: MatDialog,
               public auth : AuthService) { }
   ngOnInit(): void {
@@ -98,6 +99,28 @@ export class ProductCardComponent implements OnInit {
   }
 
 
+  saveInto_wishList(){
+    //window.alert("si me clickearin jiji"+ this.product._id);
+    let userInfo = this.getUserinfo();
+    const id_usuario = userInfo[0]['_id'];
+
+    let http_body = {
+      "id_usuario": id_usuario,
+      "id_producto": this.product._id
+    }
+
+    this.httpListaDeseos.saveProductsToWishList(http_body).subscribe( server_response => {
+      window.alert(server_response);
+    });
+    
+  }
+
+  getUserinfo(){
+    let token = "" ; 
+    token += localStorage.getItem('token');
+    return JSON.parse(token).info
+    //console.log(val.info);
+  }
 
    
 }

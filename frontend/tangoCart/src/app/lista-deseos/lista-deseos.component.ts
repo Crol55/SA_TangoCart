@@ -13,6 +13,17 @@ export class ListaDeseosComponent implements OnInit {
 
   public id_usuario = "";
 
+  /*private wishList_body = {
+    "id_usuario": "", 
+    "id_producto": ""
+  }
+  this.wishList_body.id_usuario = this.id_usuario; 
+    this.wishList_body.id_producto = "615a7beaa1733e045cec3253";
+    this.httpService.saveProductsToWishList( this.wishList_body ).subscribe( val => {
+      window.alert(val);
+    });*/
+  
+
   constructor(public httpService: ListaDeseosService) { 
 
     let userInfo = this.getUserinfo();
@@ -39,6 +50,7 @@ export class ListaDeseosComponent implements OnInit {
       //console.log(this.array_lista_deseos['mensaje']);
     });
 
+    
   }
 
   getUserinfo(){

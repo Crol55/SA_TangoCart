@@ -6,7 +6,7 @@ let {listaDeseosModel, productsModel} = require('../DB/Mongo_DB');
 
 async function guardar_producto(req, res) { // Almacena un producto en la tabla lista_deseos
     
-
+    console.log("lista_deseos.js -> save product");
     let {id_usuario, id_producto} = req.body;
     
     try{
@@ -80,9 +80,9 @@ async function fetch_listaDeseos(req, res){
         registro_listaDeseos.lista_idProducto.filter( registro => {
             array_of_idProducto.push( registro.id_producto ); //mongoose.Types.ObjectId (registro.id_producto)
         } );
-        console.log("Que hay ", array_of_idProducto);
+        //console.log("Que hay ", array_of_idProducto);
         let products_documents = await productsModel.find( { "_id": { $in: array_of_idProducto } } ); // filtrar los registros
-        console.log(products_documents);
+        //console.log(products_documents);
         res.status(200).send( JSON.stringify({ mensaje: products_documents, state: true}) );
     }else{
 

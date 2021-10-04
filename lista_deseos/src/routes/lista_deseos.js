@@ -7,5 +7,10 @@ var controlador = require('../controladores/lista_deseos');
 router.post('/saveWishlist', controlador.guardar_producto);
 router.get('/fetchwishlist', controlador.fetch_listaDeseos);
 
+router.post("/testing", (req,res)=>{
 
+    let vals = req.body; 
+    console.log("Lo enviado por el frontend is:", vals);
+    res.send("below behrybnone");
+});
 module.exports = router;

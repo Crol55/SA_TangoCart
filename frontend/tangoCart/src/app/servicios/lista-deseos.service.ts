@@ -12,6 +12,13 @@ export class ListaDeseosService {
 
   constructor(private http:HttpClient) { }
 
+  saveProductsToWishList(body:any){
+    const url = `${this.listaDeseos_API}/saveWishlist`;
+    
+    return this.http.post(url, body);
+  }
+
+
   getProductsFromWishList(id_usuario:any){
     //window.alert("me estoy ejecutando?");
     const url = `${this.listaDeseos_API}/fetchwishlist`;
