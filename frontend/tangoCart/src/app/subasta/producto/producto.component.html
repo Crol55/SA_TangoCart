@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-3">
+        <app-filtro [categoria]="categoria"></app-filtro>
+    </div>
+    <div class="col">
+        <div class="row">
+            <mat-card style="background-color:#E5E9EC;">
+                <form [formGroup]="form" style="color: #41463D;">
+                    <mat-grid-list cols="4" rowHeight="28px">
+                        <mat-grid-tile [colspan]="2" [rowspan]="14" rowHeight="10px">
+                            <img src="{{subasta.products.foto}}" class="card-img-top" style="border-radius: 8px;"> 
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                            {{ofertaP}}
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="2">
+                            <mat-label style="position: absolute; left: 22px;">Producto: {{subasta.products.nombre}}</mat-label>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                            <mat-label style="position: absolute; left: 22px;">Tiempo restante: {{tiempoRestante}}</mat-label>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                            <mat-label style="position: absolute; left: 133px;">{{devolverFecha(subasta.fecha_final)}}</mat-label>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                        </mat-grid-tile>                        
+                        <mat-grid-tile [colspan]="2" [rowspan]="2">
+                            <mat-label style="position: absolute; left: 22px;">Oferta de subasta actual: $ {{subasta.oferta}}</mat-label>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                        </mat-grid-tile> 
+                        <mat-grid-tile [colspan]="2" [rowspan]="2">
+                            <input matInput type="number" formControlName = 'oferta' class="form-control" style="width: 150px; border-radius: 8px; position: absolute; left: 22px;">
+                            <button mat-raised-button  [disabled]="estado" color="primary" style="width: 100px; background-color: #212529; border-radius: 8px; position: absolute; left: 195px;" (click)="ofertar()">Ofertar</button>
+                        </mat-grid-tile> 
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                            <mat-label style="position: absolute; left: 22px;">Introduce : $ {{comprobarValor(subasta.oferta)}} o más</mat-label>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                            <mat-label style="position: absolute; left: 5px;">Categoria: {{subasta.products.categoria}}</mat-label>
+                        </mat-grid-tile>  
+                        <mat-grid-tile [colspan]="2" [rowspan]="1" *ngIf="finalizarCompra">
+                            <button mat-raised-button  color="primary" style="width: 150px; background-color: #212529; border-radius: 8px; position: absolute; left: 95px;" (click)="finalizar()">Finalizar Orden</button>
+                        </mat-grid-tile>           
+                        <mat-grid-tile [colspan]="4" [rowspan]="1">
+                        </mat-grid-tile>             
+                        <mat-grid-tile [colspan]="4" [rowspan]="1">
+                            <mat-label style="position: absolute; left: 5px;">Descripcion: {{subasta.products.descripcion}}</mat-label>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>

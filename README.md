@@ -266,14 +266,26 @@ Por medio de este archivo, se realiza la construcción de los contenedores de mi
 |POST   | http://34.69.63.86:4001/signup             |
 |POST   | http://34.69.63.86:4001/notify             |
 
+<br></br>
+
+| Tipo  | users consumers                            |
+| ----- | ------------------------------------------ |
+|GET 	|http://34.69.63.86:4080/auctions	     |
+|GET 	|http://34.69.63.86:4080/auction	     |
+|POST 	|http://34.69.63.86:4080/auction	     |
+|UPDATE |http://34.69.63.86:4080/auction	     | 
+|DELETE |http://34.69.63.86:4080/auction             |
+
 
 ## Factura
 
 ### Diagrama de Actividad
 ![](Imagenes/DiagramaDeActividadFactura.png)
+![](Imagenes/DiagramaDeActividades3.PNG)
 
 ### Diagrama de Caso de Uso
 ![](Imagenes/DiagramaDeCasoDeUso.png)
+![](Imagenes/DiagramaDeCasosDeUsos3.PNG)
 
 ### Diagrama de Clases
 ![](Imagenes/DiagramaDeClasesFacturacion.png)

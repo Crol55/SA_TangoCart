@@ -29,9 +29,8 @@ import { ListaDeseosComponent} from './lista-deseos/lista-deseos.component';
    { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
    { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService]},
    { path: 'admin/products/:id', component: ProductFormComponent,canActivate: [AuthGuardService] },
-   { path: 'client/Wishlist', component: ListaDeseosComponent }
-
-   
+   { path: 'client/Wishlist', component: ListaDeseosComponent },   
+   { path: 'auction', loadChildren: () => import('./subasta/subasta.module').then(x => x.SubastaModule)}
 
  ];
 

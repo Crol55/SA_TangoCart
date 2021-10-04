@@ -8,7 +8,8 @@ async function addOrder(req,res){
 
 async function getOrders(req,res){
     const order = await Order.findById(req.params.id);
-    res.status(200).json(order);        
+    res.status(200).json(order);   
+         
 }
 
 async function getOrderUser(req,res){

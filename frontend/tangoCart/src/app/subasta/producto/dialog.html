@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Finalizar Orden</h1>
+<div mat-dialog-content class="mat-typography">
+	<form [formGroup]="form">
+		<h3>Ciudad</h3>
+		<input matInput type="text" formControlName = 'ciudad' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 250px;" required>
+		<h3>Dirección 1</h3>
+		<input matInput type="text" formControlName = 'direccion1' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 250px;" required>
+		<h3>Dirección 2</h3>
+		<input matInput type="text" formControlName = 'direccion2' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 250px;" required>
+	</form>
+</div>
+<div mat-dialog-actions align="end">
+	<button mat-button color="primary" style="margin-top: 15px;" (click)="finalizar()">Finalizar Orden</button>
+</div>

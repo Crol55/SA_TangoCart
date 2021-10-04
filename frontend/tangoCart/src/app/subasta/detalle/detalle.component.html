@@ -1,0 +1,16 @@
+<div *ngIf="subasta.products.nombre" class="card" style="width: 18rem;" >
+  <img  *ngIf="subasta.products.foto" [src]="subasta.products.foto" class="card-img-top" alt="{{ subasta.products.foto }}">
+  <div class="card-body">
+    <h5 class="card-title"><b>{{subasta.products.nombre}} {{comprobar(subasta.usuarios._id)}}</b></h5>
+    <h5 class="card-title">Finaliza: {{comprobarfecha()}}</h5>
+    <p class="card-text">{{subasta.oferta | currency: 'USD'}}</p>
+    
+  </div>
+  <div class="card-footer">
+      <div class="d-grid gap-2">
+         <button 
+         (click)="ofertar()" 
+         class="btn btn-primary">Ofertar</button>
+      </div>
+  </div>
+</div>
