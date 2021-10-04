@@ -45,11 +45,13 @@ export class ShoppingCartComponent implements OnInit {
   }
   
   deleteItem(item :any){
+    console.log(item)
     let items = {
        user:  this.currentCart._id,
        items: [item],
        state: "active"
     }
+   
     this.cartService.updateCart(items, this.currentCart._id )
     .subscribe( i => {
       this.shopping.cartsItems = i
