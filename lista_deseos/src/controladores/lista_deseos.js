@@ -65,10 +65,11 @@ async function guardar_producto(req, res) { // Almacena un producto en la tabla 
 
 
 async function fetch_listaDeseos(req, res){
-
+    console.log("fetch a lista deseos");
     let {id_usuario} = req.query; 
 
     let registros =  await listaDeseosModel.find( {"id_usuario":id_usuario} ); // retorna array
+    
     if (registros.length > 0){
 
         //console.log("Que trajo", id_usuario, registros);
@@ -79,9 +80,9 @@ async function fetch_listaDeseos(req, res){
         registro_listaDeseos.lista_idProducto.filter( registro => {
             array_of_idProducto.push( registro.id_producto ); //mongoose.Types.ObjectId (registro.id_producto)
         } );
-        
+        console.log("Que hay ", array_of_idProducto);
         let products_documents = await productsModel.find( { "_id": { $in: array_of_idProducto } } ); // filtrar los registros
-        //console.log(products_documents);
+        console.log(products_documents);
         res.status(200).send( JSON.stringify({ mensaje: products_documents, state: true}) );
     }else{
 

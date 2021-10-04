@@ -36,6 +36,8 @@ import { ShoppingCartSumaryComponent } from './shopping-cart-sumary/shopping-car
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { ListaDeseosComponent } from './lista-deseos/lista-deseos.component';
+import { ListaDeseosService } from './servicios/lista-deseos.service';
 
 
 @NgModule({
@@ -57,6 +59,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     ShoppingCartSumaryComponent,
     MyOrdersComponent,
     ManageOrdersComponent,
+    ListaDeseosComponent,
    
   ],
   imports: [
@@ -88,7 +91,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     DialogService,
     { provide: DialogService, useClass: DialogService },
     OrderService,
-    OverlayModule
+    OverlayModule, 
+    ListaDeseosService
   ],
   
   bootstrap: [AppComponent]
