@@ -85,7 +85,7 @@
   - name: create docker image test
     command: docker build -t test-image:latest --file ./dockerfile.test
     args:
-      chdir: /opt/docker/frontend
+      chdir: /opt/docker/frontend/tangoCart
 
   - name: create tag to image
     command: docker tag test-image germansalguero711/test-image
@@ -102,7 +102,7 @@
   - name: create docker image front
     command: docker build -t front-image:latest --file ./dockerfile.production
     args:
-      chdir: /opt/docker/frontend
+      chdir: /opt/docker/frontend/tangoCart
 
   - name: create tag to image
     command: docker tag front-image germansalguero711/front-image
