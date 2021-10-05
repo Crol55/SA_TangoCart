@@ -64,3 +64,52 @@
   - name: remove docker images from ansible server
     command: docker rmi client-image:latest germansalguero711/client-image
     ignore_errors: yes   
+  
+   #subasta 
+  - name: create docker image subasta
+    command: docker build -t subasta-image:latest .
+    args:
+      chdir: /opt/docker/microservicio-subasta
+
+  - name: create tag to image
+    command: docker tag subasta-image germansalguero711/subasta-image
+
+  - name: push image on to dockerhub
+    command: docker push germansalguero711/subasta-image  
+    
+  - name: remove docker images from ansible server
+    command: docker rmi client-image:latest germansalguero711/subasta-image
+    ignore_errors: yes   
+
+  #frontend.test
+  - name: create docker image test
+    command: docker build -t test-image:latest --file ./dockerfile.test
+    args:
+      chdir: /opt/docker/frontend
+
+  - name: create tag to image
+    command: docker tag test-image germansalguero711/test-image
+
+  - name: push image on to dockerhub
+    command: docker push germansalguero711/test-image  
+    
+  - name: remove docker images from ansible server
+    command: docker rmi test-image:latest germansalguero711/test-image
+    ignore_errors: yes 
+
+
+  #frontend.production
+  - name: create docker image front
+    command: docker build -t front-image:latest --file ./dockerfile.production
+    args:
+      chdir: /opt/docker/frontend
+
+  - name: create tag to image
+    command: docker tag front-image germansalguero711/front-image
+
+  - name: push image on to dockerhub
+    command: docker push germansalguero711/front-image  
+    
+  - name: remove docker images from ansible server
+    command: docker rmi front-image:latest germansalguero711/front-image
+    ignore_errors: yes   
