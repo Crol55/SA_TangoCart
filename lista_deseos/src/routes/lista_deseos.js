@@ -6,6 +6,7 @@ var controlador = require('../controladores/lista_deseos');
 
 router.post('/saveWishlist', controlador.guardar_producto);
 router.get('/fetchwishlist', controlador.fetch_listaDeseos);
+router.delete('/deleteWishlist', controlador.delete_producto);
 
 router.post("/testing", (req,res)=>{
 

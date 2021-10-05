@@ -34,6 +34,20 @@ export class ListaDeseosComponent implements OnInit {
    
   ngOnInit(): void {
 
+    this.getWishList();
+
+    
+  }
+
+  getUserinfo(){
+    let token = "" ; 
+    token += localStorage.getItem('token');
+    return JSON.parse(token).info
+    //console.log(val.info);
+  }
+
+  getWishList(){
+
     this.httpService.getProductsFromWishList(this.id_usuario).subscribe( (data:any) =>{
       //window.alert(data);
       console.log(data);
@@ -49,15 +63,18 @@ export class ListaDeseosComponent implements OnInit {
       //this.array_lista_deseos = data;
       //console.log(this.array_lista_deseos['mensaje']);
     });
-
-    
   }
 
-  getUserinfo(){
-    let token = "" ; 
-    token += localStorage.getItem('token');
-    return JSON.parse(token).info
-    //console.log(val.info);
+  eliminar_de_wishlist(id_producto:string){
+    //window.alert("si va a jalar chato"+id_producto);
+    const http_body = {
+      "id_usuario": this.id_usuario, 
+      "id_producto": id_producto
+    }
+    this.httpService.removeProductFromWishList(http_body).subscribe( server_response => {
+      //window.alert("Que respondio el server?"+ server_response);
+      this.getWishList(); // para refrezcar
+    });
   }
 
 }

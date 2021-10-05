@@ -32,4 +32,9 @@ export class ListaDeseosService {
     return this.http.get(url, { headers: {}, params: queryParams})
     
   }
+
+  removeProductFromWishList(http_body:any){
+    const url = `${this.listaDeseos_API}/deleteWishlist`;
+    return this.http.delete(url, { body: http_body});
+  }
 }

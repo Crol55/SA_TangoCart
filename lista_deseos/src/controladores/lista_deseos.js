@@ -90,6 +90,16 @@ async function fetch_listaDeseos(req, res){
 
 }
 
+async function delete_producto_from_listaDeseos(req, res){
+
+    let {id_usuario, id_producto} = req.body;
+    console.log("si llego ?", id_usuario, id_producto);
+    // documentacion https://mongoosejs.com/docs/documents.html -> https://docs.mongodb.com/manual/reference/operator/update/
+    let resultado = await listaDeseosModel.updateOne( {id_usuario: id_usuario}, { $pull: { "lista_idProducto": {"id_producto":id_producto} } } )
+    console.log(resultado);
+    res.status(200).send(JSON.stringify( {state: true}));
+}
+
 // ********* Funciones extras *******
 function buscar_producto(array, id_producto){
 
@@ -106,5 +116,6 @@ function buscar_producto(array, id_producto){
 
 module.exports = {
     guardar_producto, 
-    fetch_listaDeseos
+    fetch_listaDeseos, 
+    delete_producto: delete_producto_from_listaDeseos
 };
