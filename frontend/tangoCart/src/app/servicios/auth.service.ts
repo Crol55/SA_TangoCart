@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private api = 'http://34.69.63.86:4000'
-  private api2 = 'http://34.69.63.86:4001'
+  private api = 'http://35.192.90.40:4000'
+  private api2 = 'http://35.192.90.40:4001'
 
   //private api = 'http://localhost:4000'
   //private api2 = 'http://localhost:4001'

@@ -7,7 +7,7 @@ import { Subasta } from '../models/subasta';
   providedIn: 'root'
 })
 export class SubastaService {
-  private api = 'http://34.69.63.86:4080'
+  private api = 'http://35.192.90.40:4080'
   //private api = 'http://localhost:4080'
     
   constructor(public http: HttpClient) {}

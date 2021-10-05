@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class ListaDeseosService {
 
   // 'http://34.69.63.86:3000'
-  private listaDeseos_API = 'http://localhost:5001';
+  private listaDeseos_API = 'http://35.192.90.40:5001';
 
   constructor(private http:HttpClient) { }
 
