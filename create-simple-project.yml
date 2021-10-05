@@ -36,7 +36,7 @@
   - name: pull docker image from dockerhub
     command: docker pull germansalguero711/productos-image:latest
    
-  - name: create contanier using cart-images
+  - name: create contanier using productos-images
     command: docker run -d --name productos-container -p 3000:3000 germansalguero711/productos-image:latest
   
   #cliente-container
