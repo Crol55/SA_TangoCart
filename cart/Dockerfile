@@ -1,7 +1,7 @@
 FROM node:latest
 
 WORKDIR /usr/cart  
-#ruta
+
 COPY package.json .
 
 RUN npm install
