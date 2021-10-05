@@ -1,6 +1,6 @@
 FROM node:latest
 
-WORKDIR /usr/product
+WORKDIR /usr/productos
 
 COPY package.json .
 
