@@ -78,12 +78,12 @@
     command: docker push germansalguero711/subasta-image  
     
   - name: remove docker images from ansible server
-    command: docker rmi client-image:latest germansalguero711/subasta-image
+    command: docker rmi subasta-image:latest germansalguero711/subasta-image
     ignore_errors: yes   
 
   #frontend.test
   - name: create docker image test
-    command: docker build -t test-image:latest -f dockerfile.test
+    command: docker build -t test-image:latest -f dockerfile.test .
     args:
       chdir: /opt/docker/frontend/tangoCart
 
@@ -100,7 +100,7 @@
 
   #frontend.production
   - name: create docker image front
-    command: docker build -t front-image:latest -f dockerfile.production
+    command: docker build -t front-image:latest -f dockerfile.production .
     args:
       chdir: /opt/docker/frontend/tangoCart
 
