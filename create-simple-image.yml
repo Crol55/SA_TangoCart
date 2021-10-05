@@ -83,7 +83,7 @@
 
   #frontend.test
   - name: create docker image test
-    command: docker build -t test-image:latest --file ./dockerfile.test
+    command: docker build -t test-image:latest -f dockerfile.test
     args:
       chdir: /opt/docker/frontend/tangoCart
 
@@ -100,7 +100,7 @@
 
   #frontend.production
   - name: create docker image front
-    command: docker build -t front-image:latest --file ./dockerfile.production
+    command: docker build -t front-image:latest -f dockerfile.production
     args:
       chdir: /opt/docker/frontend/tangoCart
 
