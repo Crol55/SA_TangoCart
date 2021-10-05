@@ -2,11 +2,11 @@
 
   tasks:
   #cart-container
-  - name: stop current running container
+  - name: stop current running cart-container
     command: docker stop cart-container
     ignore_errors: yes
 
-  - name: remove stopper container
+  - name: remove stopper cart-container
     command: docker rm cart-container
     ignore_errors: yes
 
@@ -19,3 +19,119 @@
    
   - name: create contanier using cart-images
     command: docker run -d --name cart-container -p 3001:3001 germansalguero711/cart-image:latest
+
+  #producto-container
+  - name: stop current running productos-container
+    command: docker stop productos-container
+    ignore_errors: yes
+
+  - name: remove stopper productos-container
+    command: docker rm productos-container
+    ignore_errors: yes
+
+  - name: remove docker image
+    command: docker rmi germansalguero711/productos-image:latest
+    ignore_errors: yes
+
+  - name: pull docker image from dockerhub
+    command: docker pull germansalguero711/productos-image:latest
+   
+  - name: create contanier using cart-images
+    command: docker run -d --name productos-container -p 3000:3000 germansalguero711/productos-image:latest
+  
+  #cliente-container
+  - name: stop current running cliente-container
+    command: docker stop cliente-container
+    ignore_errors: yes
+
+  - name: remove stopper cliente-container
+    command: docker rm cliente-container
+    ignore_errors: yes
+
+  - name: remove docker image
+    command: docker rmi germansalguero711/client-image:latest
+    ignore_errors: yes
+
+  - name: pull docker image from dockerhub
+    command: docker pull germansalguero711/client-image:latest
+   
+  - name: create contanier using client-images
+    command: docker run -d --name cliente-container -p 4000:4000 germansalguero711/client-image:latest
+
+   #proveedor-container
+  - name: stop current running proveedor-container
+    command: docker stop proveedor-container
+    ignore_errors: yes
+
+  - name: remove stopper proveedor-container
+    command: docker rm proveedor-container
+    ignore_errors: yes
+
+  - name: remove docker image
+    command: docker rmi germansalguero711/prov-image:latest
+    ignore_errors: yes
+
+  - name: pull docker image from dockerhub
+    command: docker pull germansalguero711/prov-image:latest
+   
+  - name: create contanier using prov-images
+    command: docker run -d --name proveedor-container -p 4001:4001 germansalguero711/prov-image:latest
+
+   #subasta-container
+  - name: stop current running subasta-container
+    command: docker stop subasta-container
+    ignore_errors: yes
+
+  - name: remove stopper subasta-container
+    command: docker rm subasta-container
+    ignore_errors: yes
+
+  - name: remove docker image
+    command: docker rmi germansalguero711/subasta-image:latest
+    ignore_errors: yes
+
+  - name: pull docker image from dockerhub
+    command: docker pull germansalguero711/subasta-image:latest
+   
+  - name: create contanier using lista-images
+    command: docker run -d --name subasta-container -p  4080:4080 germansalguero711/subasta-image:latest
+
+   #lista-container
+  - name: stop current running lista-container
+    command: docker stop lista-container
+    ignore_errors: yes
+
+  - name: remove stopper lista-container
+    command: docker rm lista-container
+    ignore_errors: yes
+
+  - name: remove docker image
+    command: docker rmi germansalguero711/lista-image:latest
+    ignore_errors: yes
+
+  - name: pull docker image from dockerhub
+    command: docker pull germansalguero711/lista-image:latest
+   
+  - name: create contanier using lista-image
+    command: docker run -d --name lista-container -p  5001:5001 germansalguero711/lista-image:latest
+
+   #front-container
+  - name: stop current running front-container
+    command: docker stop front-container
+    ignore_errors: yes
+
+  - name: remove stopper front-container
+    command: docker rm front-container
+    ignore_errors: yes
+
+  - name: remove docker image
+    command: docker rmi germansalguero711/front-image:latest
+    ignore_errors: yes
+
+  - name: pull docker image from dockerhub
+    command: docker pull germansalguero711/front-image:latest
+   
+  - name: create contanier using front-image
+    command: docker run -d --name front-container -p  80:80 germansalguero711/front-image:latest
+
+  
