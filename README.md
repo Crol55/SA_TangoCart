@@ -281,11 +281,13 @@ Por medio de este archivo, se realiza la construcción de los contenedores de mi
 
 ### Diagrama de Actividad
 ![](Imagenes/DiagramaDeActividadFactura.png)
-![](Imagenes/DiagramaDeActividades3.PNG)
+
+![](Imagenes/DiagramaDeActividades3.jpeg)
 
 ### Diagrama de Caso de Uso
 ![](Imagenes/DiagramaDeCasoDeUso.png)
-![](Imagenes/DiagramaDeCasosDeUsos3.PNG)
+
+![](Imagenes/DiagramaDeCasosDeUsos3.jpeg)
 
 ### Diagrama de Clases
 ![](Imagenes/DiagramaDeClasesFacturacion.png)
