@@ -20,6 +20,15 @@
                 </span>
               </a>
             </li>
+            <!-- adding Wishlist into navbar -->
+            <li class="nav-item" *ngIf ="auth.isLoggedIn() &&  auth.currentUser[0].tipo == 'C'">
+              <a class="nav-link" href="client/Wishlist">WishList
+                <span class="badge bg-warning text-dark">
+                  wl
+                </span>
+              </a>
+            </li>
+
             <li ngbDropdown class="nav-item dropdown" *ngIf ="auth.isLoggedIn()">
               <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ auth.currentUser[0].nombre}}

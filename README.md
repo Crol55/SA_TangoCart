@@ -216,65 +216,64 @@ Por medio de este archivo, se realiza la construcción de los contenedores de mi
 ## EndPoints 
 | Tipo  | Produt                                    |
 | ----- | ------------------------------------------|
-|GET    | http://34.69.63.86:3000/api/product       |
-|POST   | http://34.69.63.86:3000/api/product       | 
-|UPDATE | http://34.69.63.86:3000/api/product/:id   |
-|DELETE | http://34.69.63.86:3000/api/product/:id   |
+|GET    | http://35.192.90.40:3000/api/product       |
+|POST   | http://35.192.90.40:3000/api/product       | 
+|UPDATE | http://35.192.90.40:3000/api/product/:id   |
+|DELETE | http://35.192.90.40:3000/api/product/:id   |
 
 <br></br>
 
 | Tipo  | Categories                                 |
 | ----- | ------------------------------------------ |
-|GET    | http://34.69.63.86:3000/api/category       |
-|POST   | http://34.69.63.86:3000/api/category       | 
-|UPDATE | http://34.69.63.86:3000/api/category/:id   |
-|DELETE | http://34.69.63.86:3000/api/category/:id   |
+|GET    | http://35.192.90.40:3000/api/category       |
+|POST   | http://35.192.90.40:3000/api/category       | 
+|UPDATE | http://35.192.90.40:3000/api/category/:id   |
+|DELETE | http://35.192.90.40:3000/api/category/:id   |
 
 <br></br>
 
 | Tipo  | cart                                      |
 | ----- | ------------------------------------------|
-|GET    | http://34.69.63.86:3001/api/cart          |
-|POST   | http://34.69.63.86:3001/api/cart          | 
-|UPDATE | http://34.69.63.86:3001/api/cart/:id      |
-|DELETE | http://34.69.63.86:3001/api/cart/:id      |
+|POST   | http://35.192.90.40:3001/api/cart          | 
+|UPDATE | http://35.192.90.40:3001/api/cart/:id      |
+|DELETE | http://35.192.90.40:3001/api/cart/:id      |
 
 <br></br>
 
 | Tipo  | Order                                      |
 | ----- | ------------------------------------------ |
-|GET    | http://34.69.63.86:3001/api/order          |
-|POST   | http://34.69.63.86:3001/api/order          | 
-|UPDATE | http://34.69.63.86:3001/api/order/:id      |
-|DELETE | http://34.69.63.86:3001/api/order/:id      |
+|GET    | http://35.192.90.40:3001/api/order          |
+|POST   | http://35.192.90.40:3001/api/order          | 
+|UPDATE | http://35.192.90.40:3001/api/order/:id      |
+|DELETE | http://35.192.90.40:3001/api/order/:id      |
 
 <br></br>
 
 | Tipo  | users consumers                            |
 | ----- | ------------------------------------------ |
-|POST   | http://34.69.63.86:4000/login              |
-|POST   | http://34.69.63.86:4000/verify             | 
-|POST   | http://34.69.63.86:4000/signup             |
-|POST   | http://34.69.63.86:4000/notify             |
+|POST   | http://35.192.90.40:4000/login              |
+|POST   | http://35.192.90.40:4000/verify             | 
+|POST   | http://35.192.90.40:4000/signup             |
+|POST   | http://35.192.90.40:4000/notify             |
 
 <br></br>
 
 | Tipo  | users consumers                            |
 | ----- | ------------------------------------------ |
-|POST   | http://34.69.63.86:4001/login              |
-|POST   | http://34.69.63.86:4001/verify             | 
-|POST   | http://34.69.63.86:4001/signup             |
-|POST   | http://34.69.63.86:4001/notify             |
+|POST   | http://35.192.90.40:4001/login              |
+|POST   | http://35.192.90.40:4001/verify             | 
+|POST   | http://35.192.90.40:4001/signup             |
+|POST   | http://35.192.90.40:4001/notify             |
 
 <br></br>
 
 | Tipo  | users consumers                            |
 | ----- | ------------------------------------------ |
-|GET 	|http://34.69.63.86:4080/auctions	     |
-|GET 	|http://34.69.63.86:4080/auction	     |
-|POST 	|http://34.69.63.86:4080/auction	     |
-|UPDATE |http://34.69.63.86:4080/auction	     | 
-|DELETE |http://34.69.63.86:4080/auction             |
+|GET 	  |http://35.192.90.40:4080/auctions	     |
+|GET 	  |http://35.192.90.40:4080/auction	     |
+|POST 	|http://35.192.90.40:4080/auction	     |
+|UPDATE |http://35.192.90.40:4080/auction	     | 
+|DELETE |http://35.192.90.40:4080/auction      |
 
 
 ## Factura

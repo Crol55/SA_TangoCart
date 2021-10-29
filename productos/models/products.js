@@ -47,4 +47,4 @@ const ProductsSchema = new mongoose.Schema({
 
 /* Finalmente se exporta el Schema con un nomgre definido 
   "Product" este será el nombre de la tabla/Schema */
-module.exports = mongoose.model('Product',ProductsSchema);
+module.exports = mongoose.model('product',ProductsSchema);

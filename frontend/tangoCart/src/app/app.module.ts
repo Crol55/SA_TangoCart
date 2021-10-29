@@ -36,6 +36,8 @@ import { ShoppingCartSumaryComponent } from './shopping-cart-sumary/shopping-car
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { ListaDeseosComponent } from './lista-deseos/lista-deseos.component';
+import { ListaDeseosService } from './servicios/lista-deseos.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -60,6 +62,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ShoppingCartSumaryComponent,
     MyOrdersComponent,
     ManageOrdersComponent,
+    ListaDeseosComponent,
    
   ],
   imports: [
@@ -93,7 +96,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DialogService,
     { provide: DialogService, useClass: DialogService },
     OrderService,
-    OverlayModule
+    OverlayModule, 
+    ListaDeseosService
   ],
   
   bootstrap: [AppComponent]

@@ -17,6 +17,14 @@ services:
           context: ./microservicio-authProveedor # Lugar donde se encuentra el archivo 'Dockerfile'
       ports: 
         - 4001:4001
+
+    lista_deseos:
+      container_name: listadeseos
+      build:
+          dockerfile: Dockerfile
+          context: ./lista_deseos # Lugar donde se encuentra el archivo 'Dockerfile'
+      ports: 
+        - 5001:5001
   
   subasta_container:
       container_name: subasta

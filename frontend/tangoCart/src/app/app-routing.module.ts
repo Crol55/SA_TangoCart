@@ -13,7 +13,7 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-
+import { ListaDeseosComponent} from './lista-deseos/lista-deseos.component';
 
  export const routes: Routes = [
    { path: '', component: LoginComponent,  canActivate: [AuthGuardService2]  },
@@ -29,6 +29,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
    { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
    { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService]},
    { path: 'admin/products/:id', component: ProductFormComponent,canActivate: [AuthGuardService] },
+   { path: 'client/Wishlist', component: ListaDeseosComponent,canActivate: [AuthGuardService]  },   
    { path: 'auction', loadChildren: () => import('./subasta/subasta.module').then(x => x.SubastaModule)}
 
  ];

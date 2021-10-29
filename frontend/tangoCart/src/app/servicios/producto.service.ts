@@ -8,7 +8,7 @@ import { Producto } from '../models/products';
 })
 export class ProductoService {
   
-  private api = 'http://34.69.63.86:3000/api'
+  private api = 'http://35.192.90.40:3000/api'
   //private api = 'http://localhost:3000/api'
   
   public selectedProduct: Producto = {

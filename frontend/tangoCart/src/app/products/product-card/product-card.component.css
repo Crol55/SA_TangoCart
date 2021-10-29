@@ -6,3 +6,20 @@
 .card-footer {
     padding: 0;
 }
+
+
+
+.wishlist {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #37bc9b
+}
+
+.wishlist:hover {
+    background: #33b091
+}
+
+ .wishlist {
+    display: block
+}
