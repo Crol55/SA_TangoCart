@@ -18,6 +18,10 @@ const OrderSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    estado:{
+        type: String,
+        trim: true
+    },
     createdAt: {
         type: Date,
         default: Date.now

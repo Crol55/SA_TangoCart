@@ -5,4 +5,5 @@ export interface Order {
     shipping?: {};
     createdAt?: string;
     tipo?: string;
+    estado?: string;
 }
