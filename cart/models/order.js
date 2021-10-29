@@ -12,11 +12,15 @@ const OrderSchema = new mongoose.Schema({
     items:{
         type: Array,
         trim: true,
-        required: [true, 'Please add a cart items']
+        required: [true, 'Please add a order items']
+    },
+    tipo:{
+        type: String,
+        trim: true
     },
     createdAt: {
         type: Date,
         default: Date.now
-      },
+    },
 })
 module.exports = mongoose.model('Order',OrderSchema);

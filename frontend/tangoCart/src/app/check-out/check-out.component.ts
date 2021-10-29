@@ -16,7 +16,8 @@ export class CheckOutComponent implements OnInit, OnDestroy {
      name: '',
      city: '',
      addressLine1 : '',
-     addressLine2 : ''
+     addressLine2 : '',
+     tipo: ''
   }
   public cart? : any;
   subscription?: Subscription
