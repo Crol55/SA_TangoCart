@@ -38,8 +38,8 @@ export class CheckOutComponent implements OnInit, OnDestroy {
 
   async placeOrder(){
      //aqui tendrias que modificar el estado de "tipo" porque aqui se Guarda
-     //Ejemplo this.shipping.tipo = "el valor que vayas a utilizar"  
      let order = {
+       tipo: '',  // aqui se agrega el tipo que me pediste
        user: this.auth.currentUser[0]._id,
        shipping: this.shipping,   
        items: this.cart[0].items
