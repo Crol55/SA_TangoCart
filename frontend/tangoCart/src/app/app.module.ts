@@ -7,7 +7,10 @@ import { DataTablesModule } from "angular-datatables";
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { MatPaginatorModule } from '@angular/material/paginator'
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +43,7 @@ import { ListaDeseosComponent } from './lista-deseos/lista-deseos.component';
 import { ListaDeseosService } from './servicios/lista-deseos.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { OrdersComponent } from './admin/orders/orders.component';
 
 
 @NgModule({
@@ -63,6 +67,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MyOrdersComponent,
     ManageOrdersComponent,
     ListaDeseosComponent,
+    OrdersComponent,
    
   ],
   imports: [
@@ -79,6 +84,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DataTablesModule,
     MatIconModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     MatPaginatorModule,
     MatTooltipModule,
     MatSnackBarModule

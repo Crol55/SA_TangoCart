@@ -8,8 +8,8 @@ import { Order } from '../models/order';
 })
 export class OrderService {
   
- private api = 'http://35.192.90.40:3001/api'
- //private api = 'http://localhost:3001/api'
+ //private api = 'http://35.192.90.40:3001/api'
+ private api = 'http://localhost:3001/api'
 
   constructor(private http: HttpClient) { }
 
@@ -33,5 +33,9 @@ export class OrderService {
     return this.http.get<Order>(path)
   }
 
+  getAllOrders():Observable<Order[]>{
+    const path = `${this.api}/order/get/all`;
+    return  this.http.get<Order[]>(path);
+  }
 
 }
