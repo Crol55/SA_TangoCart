@@ -38,4 +38,9 @@ export class OrderService {
     return  this.http.get<Order[]>(path);
   }
 
+  putOrder(id:string, estado:string){
+    const path = `${this.api}/order/${id}/${estado}`;
+    return  this.http.put(path, {});
+  }
+
 }

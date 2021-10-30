@@ -55,7 +55,7 @@
                     {{row.estado}}
                 </div>
                 <ng-template #elseBlock>
-                    <mat-select  [(value)]="row.estado" class="form-control" #t (change)="changeStatus(t.value,row._id)">
+                    <mat-select  [(value)]="row.estado" class="form-control" #t (selectionChange)="changeStatus(t.value,row._id)">
                         <mat-option value="Pedido realizado">Pedido realizado</mat-option>
                         <mat-option value="Necesita aprobación">Necesita aprobación</mat-option>
                         <mat-option value="Empacado">Empacado</mat-option>

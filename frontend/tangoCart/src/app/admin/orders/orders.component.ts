@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Order } from 'src/app/models/order';
@@ -18,7 +19,7 @@ export class OrdersComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
-  constructor(public orderService: OrderService) { 
+  constructor(public orderService: OrderService, private _snackBar: MatSnackBar) { 
   }
 
   ngOnInit(): void {
@@ -53,7 +54,10 @@ export class OrdersComponent implements OnInit, AfterViewInit {
   }
 
   changeStatus(status:any,order:any){
-    console.log(status, order);
+
+    this.orderService.putOrder(order, status).subscribe(msg=>{
+      this._snackBar.open(`La orden: ${order} se actualizó con éxito!`, "Ok", {duration:3500});
+    });
     
   }
 
