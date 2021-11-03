@@ -45,6 +45,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatPaginatorModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    FontAwesomeModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

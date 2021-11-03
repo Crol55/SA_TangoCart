@@ -37,6 +37,8 @@ export class CheckOutComponent implements OnInit, OnDestroy {
   }
 
   async placeOrder(){
+    
+    console.log(this.currentCart);
      //aqui tendrias que modificar el estado de "tipo" porque aqui se Guarda
      let order = {
        user: this.auth.currentUser[0]._id,
@@ -47,14 +49,12 @@ export class CheckOutComponent implements OnInit, OnDestroy {
      }
     console.log(order) 
     let order$ = await this.OrderService.postOrder(order).toPromise();
-    this.shoppingCartService.deleteCart(this.currentCart._id)
-    .subscribe( c => {
-        localStorage.removeItem('IdCart')
-        localStorage.setItem('NoItems',JSON.stringify(0))
-    })
-    this.router.navigate(['/order-success',order$._id])
-    
+    await this.shoppingCartService.deleteCart(this.currentCart._id).toPromise();
+    localStorage.removeItem('IdCart');
+    localStorage.setItem('NoItems',JSON.stringify(0));
+    this.router.navigate(['/order-success',order$._id]);
   }
+  
   get currentCart() {
     let token = localStorage.getItem('IdCart')
     if(!token) return null;
