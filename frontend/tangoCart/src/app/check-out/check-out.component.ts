@@ -11,7 +11,7 @@ import { ShoppingCardService } from '../servicios/shopping-card.service';
   styleUrls: ['./check-out.component.css']
 })
 export class CheckOutComponent implements OnInit, OnDestroy {
-  
+  tipoEnvio!: String;
   public shipping = {
      name: '',
      city: '',
@@ -39,10 +39,11 @@ export class CheckOutComponent implements OnInit, OnDestroy {
   async placeOrder(){
      //aqui tendrias que modificar el estado de "tipo" porque aqui se Guarda
      let order = {
-       tipo: '',  // aqui se agrega el tipo que me pediste
        user: this.auth.currentUser[0]._id,
        shipping: this.shipping,   
-       items: this.cart[0].items
+       items: this.cart[0].items,
+       tipo: this.tipoEnvio,  // aqui se agrega el tipo que me pediste
+       estado: (this.tipoEnvio == 'Envío') ? 'Pedido realizado' : 'En Tienda'
      }
     console.log(order) 
     let order$ = await this.OrderService.postOrder(order).toPromise();

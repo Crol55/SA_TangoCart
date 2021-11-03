@@ -44,7 +44,7 @@ import { ListaDeseosService } from './servicios/lista-deseos.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { OrdersComponent } from './admin/orders/orders.component';
-
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -89,7 +89,8 @@ import { OrdersComponent } from './admin/orders/orders.component';
     MatSelectModule,
     MatPaginatorModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

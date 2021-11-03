@@ -103,6 +103,9 @@ export class ProductoComponent implements OnInit {
     if(valor._id == this.auth.currentUser[0]._id){
       this.ofertaP = 'Tienes la oferta principal!';
     }
+    else{
+      this.ofertaP = '';
+    }
     //console.log(valor._id);
   }
 
@@ -136,44 +139,44 @@ export class ProductoComponent implements OnInit {
     //console.log("ofertar")
     //CONFIRMAR
     this.subastaService.getSubasta(this._id).subscribe(res =>{
+      this.comprobarEstado(res[0].usuarios);
       this.subasta.oferta = res[0].oferta;
-    }); 
-
-    //ACTUALIZAR DATOS
-    if(this.form.value.oferta == ""){
-      this._snackBar.open("Debe ingresar una oferta!", "Ok", {duration:2000});
-    }
-    else if(parseInt(this.form.value.oferta) >= parseInt(this.subasta.oferta)+5){
-      
-      const actualizar = {
-        _id: this.subasta._id,
-        propietario: this.subasta.propietario._id,
-        usuarios: this.auth.currentUser[0]._id,
-        products: this.subasta.products._id,
-        estado: this.subasta.estado,
-        oferta: this.form.value.oferta,
-        fecha_final: this.subasta.fecha_final
+      //ACTUALIZAR DATOS
+      if(this.form.value.oferta == ""){
+        this._snackBar.open("Debe ingresar una oferta!", "Ok", {duration:2000});
       }
-      
-      this.subastaService.putSubasta(actualizar).subscribe(p => {
-        //console.log(p);
-        // OBTENER DATOS ACTUALIZADOS
-        this.subastaService.getSubasta(this._id).subscribe(res =>{
-          this.subasta._id = res[0]._id;
-          this.subasta.propietario = res[0].propietario;
-          this.subasta.usuarios = res[0].usuarios;
-          this.subasta.products = res[0].products;
-          this.subasta.estado = res[0].estado;
-          this.subasta.oferta = res[0].oferta;
-          this.subasta.fecha_final = res[0].fecha_final;
-          this.comprobarEstado(this.subasta.usuarios);
-        }); 
-      });
-    }
-    else{
-      this._snackBar.open("La oferta tiene que se mayor a $ " + (parseInt(this.subasta.oferta)+5), "Ok", {duration:2000});
-    }    
-    this.form.reset();
+      else if(parseInt(this.form.value.oferta) >= parseInt(this.subasta.oferta)+5){
+        
+        const actualizar = {
+          _id: this.subasta._id,
+          propietario: this.subasta.propietario._id,
+          usuarios: this.auth.currentUser[0]._id,
+          products: this.subasta.products._id,
+          estado: this.subasta.estado,
+          oferta: this.form.value.oferta,
+          fecha_final: this.subasta.fecha_final
+        }
+        
+        this.subastaService.putSubasta(actualizar).subscribe(p => {
+          //console.log(p);
+          // OBTENER DATOS ACTUALIZADOS
+          this.subastaService.getSubasta(this._id).subscribe(res =>{
+            this.subasta._id = res[0]._id;
+            this.subasta.propietario = res[0].propietario;
+            this.subasta.usuarios = res[0].usuarios;
+            this.subasta.products = res[0].products;
+            this.subasta.estado = res[0].estado;
+            this.subasta.oferta = res[0].oferta;
+            this.subasta.fecha_final = res[0].fecha_final;
+            this.comprobarEstado(this.subasta.usuarios);
+          }); 
+        });
+      }
+      else{
+        this._snackBar.open("La oferta tiene que se mayor a $ " + (parseInt(this.subasta.oferta)+5), "Ok", {duration:2000});
+      }    
+      this.form.reset();
+    });     
   }
   
   finalizar(){
@@ -193,12 +196,14 @@ export class ProductoComponent implements OnInit {
 @Component({
   selector: 'app-mensaje',
   templateUrl: 'dialog.html',
+  styleUrls: ['./producto.component.css']
 })
 export class DialogMessage  implements OnInit {
   form = new FormGroup({
     ciudad: new FormControl('',Validators.required),
     direccion1: new FormControl('',Validators.required),
-    direccion2: new FormControl('',Validators.required)
+    direccion2: new FormControl('',Validators.required),
+    opcion: new FormControl('',Validators.required)
   })
 
   constructor(public subastaService: SubastaService, public router: Router, public dialogRef: MatDialogRef<DialogMessage>, @Inject(MAT_DIALOG_DATA) public data:any, private snackBar: MatSnackBar, public auth :AuthService, public orderService: OrderService) {
@@ -209,7 +214,8 @@ export class DialogMessage  implements OnInit {
   }
 
   async finalizar(){
-    if (this.form.value.ciudad == "" || this.form.value.direccion1 == "" || this.form.value.direccion2 == ""){
+    console.log("Opcion: "+this.form.value.opcion);
+    if (this.form.value.ciudad == "" || this.form.value.direccion1 == "" || this.form.value.direccion2 == "" || this.form.value.opcion == ""){
       this.snackBar.open("Debe completar el formulario!", "Ok", {duration:2000});
     }
     else{
@@ -222,12 +228,12 @@ export class DialogMessage  implements OnInit {
       let order = {
         user: this.auth.currentUser[0]._id,
         shipping: shipping,
-        items: this.data.producto
+        items: this.data.producto,
+        tipo: this.form.value.opcion,
+        estado: (this.form.value.opcion == 'Envío') ? 'Pedido realizado' : 'En Tienda'
       }
       this.data.producto.precio = this.data.precio;
       
-      //let order$ = await this.orderService.postOrder(order).toPromise();
-
       const actualizar = {
         _id: this.data.subasta._id,
         propietario: this.data.subasta.propietario._id,
@@ -244,7 +250,8 @@ export class DialogMessage  implements OnInit {
       this.snackBar.open("Orden generada con éxito!", "Ok", {duration:2000});
 
       this.dialogRef.close();
-      this.router.navigate(['/auction']);
+      let order$ = await this.orderService.postOrder(order).toPromise();
+      this.router.navigate(['/order-success',order$._id])
 
     }
   }

@@ -40,6 +40,13 @@
        </div>
       </div>
       <div class="row mb-3">
+        <label for="">Tipo de Envío</label>
+        <mat-radio-group aria-label="Select an option" name="tipoEnvio" [(ngModel)]="tipoEnvio" required>
+          <mat-radio-button value="Envío">Delivery</mat-radio-button>
+          <mat-radio-button value="En Tienda">Retiro en Punto</mat-radio-button>
+        </mat-radio-group>	
+      </div>
+      <div class="row mb-3">
         <div class="col-sm-10"> 
         <button 
          [disabled]="!f.valid"

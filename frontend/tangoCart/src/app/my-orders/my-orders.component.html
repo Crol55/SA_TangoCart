@@ -4,13 +4,15 @@
     <tr>
       <th>Customer</th>
       <th>Date</th>
-      <th></th>
+      <th>Estado</th>
+      <th>Detalles</th>
     </tr>
   </thead> 
   <tbody>
     <tr *ngFor="let order of orders">
       <td>{{ order.shipping.name }}</td>
       <td>{{ order.createdAt | date}}</td>
+      <td>{{ order.estado }}</td>
       <td>
         <a  [routerLink]="['/order-success/',order._id]">View</a>
       </td>
