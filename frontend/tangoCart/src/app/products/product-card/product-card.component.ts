@@ -50,8 +50,10 @@ export class ProductCardComponent implements OnInit {
       this.openDialog("Inventario Vacio, Intentelo más tarde")
     }
     else {
+    
     let items = {
          user:this.auth.currentUser[0]._id,
+         correo: this.auth.currentUser[0].correo,
          state: "active",
          items: [{_id: product?._id,
                   nombre: product?.nombre,
@@ -64,7 +66,6 @@ export class ProductCardComponent implements OnInit {
     this.shopping.addToCart(items)
      .subscribe( i => { 
          this.shopping.cartsItems = i
-         console.log("arq" ,this.shopping.cartsItems['data'])
          localStorage.setItem('IdCart', JSON.stringify(this.shopping.cartsItems['data']))
          let NoItems = 0
          for(let p of this.shopping.cartsItems['data'].items) { 
