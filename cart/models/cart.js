@@ -6,6 +6,10 @@ const CartSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
+    correo:{
+      type: String,
+      trim: true,
+    },
     items:{
         type: Array,
         trim: true,

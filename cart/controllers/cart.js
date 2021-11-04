@@ -1,9 +1,10 @@
 // importacion de la tabla o modelo categoria
 const Cart = require('../models/cart');
-
-
+const nodemailer = require("nodemailer");
+const cron = require('node-cron'); 
 //Crear Cart
 async function addCart(req,res){
+        
         usuario  = await Cart.find({"user":req.body.user})
         if(usuario[0]){
              product =  usuario[0].items.find( p => p._id === req.body.items[0]._id)
@@ -53,7 +54,6 @@ async function getCart(req,res){
 }
 
 
-
 //Actualizar producto
 async function updateCart(req,res){
         
@@ -88,9 +88,102 @@ async function deleteCart(req,res){
 
 }
 
+async function algoritmo(){
+     
+        cart = await Cart.find()
+        let correos = []
+        cart.forEach(element => {
+             if(element.items){ 
+                correos.push(element.correo)  
+             }   
+        });
+        if(correos){
+        let transporter = nodemailer.createTransport({
+                host: "smtp-mail.outlook.com",
+                port: 587,
+                secure: false, 
+                auth: {
+                  user: 'servicewater2020@outlook.com',
+                  pass: 'servicioagua123'
+                },
+                tls: {
+                  ciphers:'SSLv3'
+                }
+        });
+
+        let info = await transporter.sendMail({
+                from: 'servicewater2020@outlook.com',
+                to: correos, 
+                subject: "TangoCart ✔, No replay Notify", 
+                text: "TangoCart", 
+                html: `<h1>TantoCart</h1>
+                      <p>Tienes Productos Olvidados En Tu Carrito de Compras</p>
+                `, 
+        });
+        }
+
+}
+
+
+async function carritoAbandonado(req, res){ 
+        try {  
+                let {second,minute,hour,day, status}= req.body
+               
+                 cron.schedule('* */2 * * * * *', async () =>{
+
+                        cart = await Cart.find()
+                        let correos = []
+                        cart.forEach(element => {
+                        if(element.items){ 
+                                correos.push(element.correo)  
+                        }   
+                        });
+                        if(correos){
+                        let transporter = nodemailer.createTransport({
+                                host: "smtp-mail.outlook.com",
+                                port: 587,
+                                secure: false, 
+                                auth: {
+                                user: 'servicewater2020@outlook.com',
+                                pass: 'servicioagua123'
+                                },
+                                tls: {
+                                ciphers:'SSLv3'
+                                }
+                        });
+
+                        let info = await transporter.sendMail({
+                                from: 'servicewater2020@outlook.com',
+                                to: correos, 
+                                subject: "TangoCart ✔, No replay Notify", 
+                                text: "TangoCart", 
+                                html: `<h1>TantoCart</h1>
+                                <p>Tienes Productos Olvidados En Tu Carrito de Compras</p>
+                                `, 
+                        });
+
+
+                        }
+
+
+
+                })    
+                return res.status(200).json({
+                        success: true,
+                        message: "Notificaciones Activadas"
+                }); 
+        } catch (error) {
+                return res.status(400).json({
+                     success: false,
+                     data: error
+                });
+        }
+}
+
 module.exports = {
         addCart: addCart,
         getCart: getCart,
         updateCart: updateCart,
-        deleteCart: deleteCart
+        deleteCart: deleteCart,
+        carritoAbandonado:carritoAbandonado
 }
