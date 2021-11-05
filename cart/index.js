@@ -4,12 +4,14 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 const connectDB = require('./config/db');
+const carritoAbandonado = require('./controllers/algoritmo')
 const cors = require('cors');
 
 //load env vars
 dotenv.config({ path: './config/config.env'});
 
-  
+//cronometro
+carritoAbandonado();
 
 
 //connect to database

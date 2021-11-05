@@ -20,9 +20,6 @@ router
         .post(addCart)
         
 
-router
-    .route('/notify')
-    .post(carritoAbandonado)
 
   
 router
