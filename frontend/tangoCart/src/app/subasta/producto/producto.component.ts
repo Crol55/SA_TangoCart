@@ -206,7 +206,7 @@ export class DialogMessage  implements OnInit {
     opcion: new FormControl('',Validators.required)
   })
 
-  constructor(public subastaService: SubastaService, public router: Router, public dialogRef: MatDialogRef<DialogMessage>, @Inject(MAT_DIALOG_DATA) public data:any, private snackBar: MatSnackBar, public auth :AuthService, public orderService: OrderService) {
+  constructor(public subastaService: SubastaService, public router: Router, public dialogRef: MatDialogRef<DialogMessage>, @Inject(MAT_DIALOG_DATA) public data:any, private snackBar: MatSnackBar, public auth :AuthService, public orderService: OrderService, public OrderService: OrderService) {
   }
   ngOnInit(): void {
     //this.data.producto.precio = this.data.precio;
@@ -245,12 +245,28 @@ export class DialogMessage  implements OnInit {
       }
 
 
-      let espera = await this.subastaService.putSubasta(actualizar).toPromise();
+      await this.subastaService.putSubasta(actualizar).toPromise();
 
       this.snackBar.open("Orden generada con éxito!", "Ok", {duration:2000});
 
       this.dialogRef.close();
       let order$ = await this.orderService.postOrder(order).toPromise();
+
+      if(this.form.value.opcion == "En Tienda"){
+        let orderBody = {
+          name: this.auth.currentUser[0].nombre,
+          lastName: this.auth.currentUser[0].apellido,
+          address1: this.form.value.direccion1, 
+          address2: this.form.value.direccion2, 
+          orderID: order$._id, 
+          total: this.data.precio, 
+          items: [this.data.producto],
+          correo: this.auth.currentUser[0].correo
+        }  
+        await this.OrderService.postEmail(orderBody).toPromise();
+        this.snackBar.open(`Se ha enviado el correo con éxito!`, "Ok", {duration:3500});
+      }
+
       this.router.navigate(['/order-success',order$._id])
 
     }

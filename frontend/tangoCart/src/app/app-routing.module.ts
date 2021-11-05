@@ -31,8 +31,7 @@ import { OrdersComponent } from './admin/orders/orders.component';
    { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService]},
    { path: 'admin/products/:id', component: ProductFormComponent,canActivate: [AuthGuardService] },
    { path: 'client/Wishlist', component: ListaDeseosComponent,canActivate: [AuthGuardService]  },   
-   //{ path: 'admin/orders', component: OrdersComponent,canActivate: [AuthGuardService]},
-   { path: 'admin/orders', component: OrdersComponent},
+   { path: 'admin/orders', component: OrdersComponent,canActivate: [AuthGuardService]},
    { path: 'auction', loadChildren: () => import('./subasta/subasta.module').then(x => x.SubastaModule)}
 
  ];

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../servicios/auth.service';
 import { OrderService } from '../servicios/order.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ShoppingCardService } from '../servicios/shopping-card.service';
 
 @Component({
@@ -25,7 +26,8 @@ export class CheckOutComponent implements OnInit, OnDestroy {
   constructor(public router: Router,
               public shoppingCartService: ShoppingCardService,
               public OrderService: OrderService,
-              public auth :AuthService){}
+              public auth :AuthService,
+              private _snackBar: MatSnackBar){}
 
   async ngOnInit(){
     this.cart =  await this.shoppingCartService.getCart(this.auth.currentUser[0]._id).toPromise();
@@ -37,9 +39,11 @@ export class CheckOutComponent implements OnInit, OnDestroy {
   }
 
   async placeOrder(){
-    
-    console.log(this.currentCart);
-     //aqui tendrias que modificar el estado de "tipo" porque aqui se Guarda
+    let precioFinal = 0;
+    for(let i = 0; i < this.cart[0].items.length; i++){
+      precioFinal += this.cart[0].items[i].precio*this.cart[0].items[i].cantidad;
+    }
+    //aqui tendrias que modificar el estado de "tipo" porque aqui se Guarda
      let order = {
        user: this.auth.currentUser[0]._id,
        shipping: this.shipping,   
@@ -52,6 +56,20 @@ export class CheckOutComponent implements OnInit, OnDestroy {
     await this.shoppingCartService.deleteCart(this.currentCart._id).toPromise();
     localStorage.removeItem('IdCart');
     localStorage.setItem('NoItems',JSON.stringify(0));
+    if(this.tipoEnvio == "En Tienda"){
+      let orderBody = {
+        name: this.auth.currentUser[0].nombre,
+        lastName: this.auth.currentUser[0].apellido,
+        address1: this.shipping.addressLine1, 
+        address2: this.shipping.addressLine2, 
+        orderID: order$._id, 
+        total: (precioFinal + (precioFinal*0.1)), 
+        items: this.cart[0].items,
+        correo: this.auth.currentUser[0].correo
+      }  
+      await this.OrderService.postEmail(orderBody).toPromise();
+      this._snackBar.open(`Se ha enviado el correo con éxito!`, "Ok", {duration:3500});
+    }
     this.router.navigate(['/order-success',order$._id]);
   }
   

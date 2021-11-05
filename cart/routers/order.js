@@ -7,7 +7,8 @@ const { addOrder,
         getOrders,
         getOrderUser,
         getAllOrders,
-        putOrder
+        putOrder,
+        sendEmail
 } = require('../controllers/order');
 
 //hacemos uso del metodod Router para crear las rutas 
@@ -34,6 +35,10 @@ router
 router
     .route('/get/all')
         .get(getAllOrders)
+
+router
+    .route('/send-email')
+        .post(sendEmail)
 
 
 // finalmente se exporta la variable router donde definimos las rutas de categoria

@@ -71,19 +71,16 @@ export class LoginComponent implements OnInit {
           }
           else if(this.tipo?.value == 'a'){
             this.router.navigate(['admin/orders'])
-            /*
             this.auth.login2(this.form.value)
             .subscribe( usuario =>{
                 localStorage.setItem('token', JSON.stringify(usuario))
-                console.log("buscar carrito")
-                this.router.navigate(['admin/products'])
+                this.router.navigate(['/admin/orders'])
             }, err =>{ 
               console.log(err) 
               this.form.setErrors({
                 invalidLogin: true
             });
             })
-            */
            console.log("login admin");
           }
 

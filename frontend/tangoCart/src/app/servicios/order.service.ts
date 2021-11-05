@@ -8,8 +8,8 @@ import { Order } from '../models/order';
 })
 export class OrderService {
   
- //private api = 'http://35.192.90.40:3001/api'
- private api = 'http://localhost:3001/api'
+ private api = 'http://35.192.90.40:3001/api'
+ //private api = 'http://localhost:3001/api'
 
   constructor(private http: HttpClient) { }
 
@@ -41,6 +41,11 @@ export class OrderService {
   putOrder(id:string, estado:string){
     const path = `${this.api}/order/${id}/${estado}`;
     return  this.http.put(path, {});
+  }
+
+  postEmail(order: any){
+    const path = `${this.api}/order/send-email`;
+    return  this.http.post(path,order);
   }
 
 }
