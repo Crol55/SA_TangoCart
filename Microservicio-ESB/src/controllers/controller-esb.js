@@ -56,9 +56,26 @@ function log_login (req, res){
 
 }
 
+function log_default ( req, res){
+
+    let microservice_metaData = req.body;
+    console.log("siu", );
+    if ( typeof(microservice_metaData) === 'object' ){
+
+        // ##### Almacenar la informacion en el ESB
+        log.saveLog(microservice_metaData); 
+        // ##### 
+        res.status(200).send( {"info": "Saved info into log"}); 
+
+    }else {
+        res.status(404).send( {"info":"None"} );
+    }
+}
+
 module.exports = {
     log_signup, 
-    log_login
+    log_login,
+    log_default
 }
 
 
