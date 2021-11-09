@@ -23,20 +23,18 @@ export class RegisterComponent implements OnInit {
   }
 
   registrar( form: NgForm){
-    
-    
-
+   
    let usuario = {
          nombre: form.value.nombre,
          apellido: form.value.apellido,
          tipo: form.value.tipo,
          correo: form.value.correo,
          password: form.value.password,
-         tarjetas: {
-           titular:form.value.titular,
-           numero:form.value.tarjeta,
-           vencimiento:form.value.fechav
-         }
+         tarjetas: [{
+           titular: form.value.titular,
+           numero:  form.value.tarjeta,
+           vencimiento: form.value.fechav
+         }]
         
     }
     console.log(usuario)

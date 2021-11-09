@@ -68,18 +68,13 @@
         <div class="col-md-6"> 
             <div class="mb-3">
                 <label class="form-label">No. Tarjeta</label>
-                <input  #tarjeta="ngModel" ngModel name="tarjeta" type="text" class="form-control" id="tarjeta" required>
-                <div class="alert alert-danger"*ngIf="tarjeta.touched && tarjeta.invalid">
-                    Tarjeta es requerido
-                </div>
+                <input  #tarjeta="ngModel" ngModel name="tarjeta" type="text" class="form-control" id="tarjeta">
+                
             </div> 
         </div>
                 <div class="col-md-6">
                 <label class="form-label">Titular</label>
-                <input  #titular="ngModel" ngModel name="titular" type="text" class="form-control" id="titular" required>
-                <div class="alert alert-danger"*ngIf="titular.touched && titular.invalid">
-                    Titular es requerido
-                </div>
+                <input  #titular="ngModel" ngModel name="titular" type="text" class="form-control" id="titular">
                 </div>
         </div> 
         
@@ -87,10 +82,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                 <label class="form-label">Fecha de vencimiento</label>
-                <input  #fechav="ngModel" ngModel name="fechav" type="text" class="form-control" id="fechav" required>
-                <div class="alert alert-danger"*ngIf="fechav.touched && fechav.invalid">
-                    Fecha de vencimiento es requerido
-                </div>
+                <input  #fechav="ngModel" ngModel name="fechav" type="text" class="form-control" id="fechav">
             </div>
             </div>
         </div>

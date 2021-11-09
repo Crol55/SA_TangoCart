@@ -5,6 +5,7 @@ import { Producto } from '../models/products';
 import { HttpHeaders } from '@angular/common/http';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,16 +14,14 @@ export class ProductoService {
   public EndPoint = {
      getAll : ""
   }
-
-  // public httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type':  'application/json',
-  //     authorization: this.obtenerAutorizacion.Token
-  //   })
-  // };
   
-  private api = 'http://35.192.90.40:3000/api'
-  //private api = 'http://localhost:3000/api'
+  headers = new HttpHeaders({
+     'token': this.obtenerAutorizacion
+  });
+  
+  
+  //private api = 'http://35.192.90.40:3000/api'
+  private api = 'http://localhost:3000/api'
   
   public selectedProduct: Producto = {
     _id: '',
@@ -41,16 +40,18 @@ export class ProductoService {
   
   postProducts(product: any){
     const path = `${this.api}/product`;
-    return  this.http.post(path,product)
+    return  this.http.post(path,product,{headers:this.headers})
   }
 
   getProducts() {
+   
+
     if(this.EndPoint.getAll !=""){
       const path = this.EndPoint.getAll;
       return  this.http.get<Producto[]>(path)
     }
     const path = `${this.api}/product`;
-    return  this.http.get<Producto[]>(path)
+    return  this.http.get<Producto[]>(path,{headers:this.headers})
   }
 
   getProduct(id:any): Observable<Producto> {
@@ -76,7 +77,7 @@ export class ProductoService {
   get obtenerAutorizacion() {
     let token = localStorage.getItem('token')
     if(!token) return null;
-    return  JSON.parse(token)
+    return  JSON.parse(token).Token
   }
 
   

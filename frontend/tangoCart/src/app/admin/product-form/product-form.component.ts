@@ -59,7 +59,7 @@ export class ProductFormComponent implements OnInit{
           nombre : product.nombre,
           precio : product.precio,
           descripcion: product.descripcion,
-          categoria: product.categoria,
+          categorias: product.categoria,
           stock: product.stock,
       }
       this.Productservice.updateProduct(this.id,producto)
@@ -67,17 +67,15 @@ export class ProductFormComponent implements OnInit{
         this.openDialog("Producto Actualizado exitosamente!!")
       })
       this.router.navigate(['/admin/products'])
-     }else if(this.base64)
-         {
+     }else{
             let saveProduct = {
                 user: this.auth.currentUser.id,  
-                titulo: product.nombre,
+                nombre: product.nombre,
                 precio: product.precio,
                 descripcion: product.descripcion,
-                categoria:product.categoria,
+                categorias:[product.categoria],
                 stock: product.stock,
-                foto: this.base64,
-                ext: this.ext
+                foto: product.foto,
             }
              console.log(saveProduct)
              this.Productservice.postProducts(saveProduct)
@@ -85,11 +83,8 @@ export class ProductFormComponent implements OnInit{
               this.openDialog("Producto Agregado exitosamente!!")
               this.router.navigate(['/admin/products'])
             })
-        }else{
-          this.openDialog("Error Verifique La Información")
         }
 
-    
 
   }
 

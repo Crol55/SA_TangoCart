@@ -7,7 +7,7 @@ const ProductsSchema = new mongoose.Schema({
     user: {
         type: String,
         trim: true,
-        required: [true, 'Please add a product user']
+        required: [false, 'Please add a product user']
     }, 
     nombre:{
         type: String,
@@ -24,9 +24,8 @@ const ProductsSchema = new mongoose.Schema({
         trim: true,
         required: [true, 'Please add a product descripcion']
     },
-    categoria:{
-        type: String,
-        trim: true,
+    categorias:{
+        type: Array,
         required: [true, 'Please add a product categoria']
     },
     foto:{

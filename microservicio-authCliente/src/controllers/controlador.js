@@ -35,7 +35,7 @@ async function login(req, res){ // Idealmente tipo post
                 "nombre": registro.nombre,
                 "tipo": registro.tipo, 
                 "correo": registro.correo, 
-                "Token":token
+                "token":token
             } );
             // Guardar en el ESB 
             controler_esb_conexion.ESB_login_authCliente('auth_cliente', registro.correo, registro.tipo);
