@@ -7,13 +7,13 @@
             TangoCart
           </a>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item" *ngIf ="auth.isLoggedIn()  && auth.currentUser[0].tipo == 'C'">
+            <li class="nav-item" *ngIf ="auth.isLoggedIn()  && auth.currentUser.tipo == 'C'">
               <a class="nav-link active" aria-current="page" routerLink="/products">Home</a>
             </li>
-            <li class="nav-item" *ngIf ="auth.isLoggedIn()  && auth.currentUser[0].tipo == 'C'">
+            <li class="nav-item" *ngIf ="auth.isLoggedIn()  && auth.currentUser.tipo == 'C'">
               <a class="nav-link active" aria-current="page" routerLink="/auction">Auctions</a>
             </li>
-            <li class="nav-item" *ngIf ="auth.isLoggedIn() &&  auth.currentUser[0].tipo == 'C'">
+            <li class="nav-item" *ngIf ="auth.isLoggedIn() &&  auth.currentUser.tipo == 'C'">
               <a class="nav-link" href="/shopping-cart">ShoppingCart
                 <span class="badge bg-warning text-dark">
                   {{currentNoItems}}
@@ -21,7 +21,7 @@
               </a>
             </li>
             <!-- adding Wishlist into navbar -->
-            <li class="nav-item" *ngIf ="auth.isLoggedIn() &&  auth.currentUser[0].tipo == 'C'">
+            <li class="nav-item" *ngIf ="auth.isLoggedIn() &&  auth.currentUser.tipo == 'C'">
               <a class="nav-link" href="client/Wishlist">WishList
                 <span class="badge bg-warning text-dark">
                   wl
@@ -35,8 +35,8 @@
               </a>
               <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" routerLink="/my-perfil">My Perfil</a></li>
-                <li><a class="dropdown-item" *ngIf="auth.currentUser[0].tipo == 'C'"  href="/my-orders">My Orders</a></li>
-                <li><a class="dropdown-item" *ngIf="auth.currentUser[0].tipo == 'P'" href="/manage-orders">Manage Orders </a></li>
+                <li><a class="dropdown-item" *ngIf="auth.currentUser.tipo == 'C'"  href="/my-orders">My Orders</a></li>
+                <li><a class="dropdown-item" *ngIf="auth.currentUser.tipo == 'P'" href="/manage-orders">Manage Orders </a></li>
                 <li><a class="dropdown-item"  routerLink="admin/products">Manage Products</a></li>
                 <li><a class="dropdown-item" (click)="logout()">Log Out</a></li>
               </ul>

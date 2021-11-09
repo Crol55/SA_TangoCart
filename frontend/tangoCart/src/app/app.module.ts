@@ -40,6 +40,7 @@ import { ListaDeseosComponent } from './lista-deseos/lista-deseos.component';
 import { ListaDeseosService } from './servicios/lista-deseos.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ConexionesComponent } from './conexiones/conexiones.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MyOrdersComponent,
     ManageOrdersComponent,
     ListaDeseosComponent,
+    ConexionesComponent,
    
   ],
   imports: [
