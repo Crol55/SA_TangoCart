@@ -7,6 +7,10 @@ const jwtPass = 'clienteSA';
 const mongoDB = require('../DB/Mongo_DB');
 const nodemailer = require("nodemailer");
 
+const controler_esb_conexion =  require('./controller_ESB_conexion');
+
+
+
 async function login(req, res){ // Idealmente tipo post
 
     //1) Verificar que el usuario y contraseña coincidan con la base de datos
@@ -25,7 +29,17 @@ async function login(req, res){ // Idealmente tipo post
         // JWT: Se compone de 3 partes: header . payload . firma -> se codifica con (HMAC u otros) 
         jwt.sign( userInfo, jwtPass, (err, token)=>{
             console.log('token:',token);
-            res.status(200).send( {"Token":token, "info":registro} );
+            registro = registro[0]
+            res.status(200).send( { 
+                "id": registro._id, 
+                "nombre": registro.nombre,
+                "tipo": registro.tipo, 
+                "correo": registro.correo, 
+                "Token":token
+            } );
+            // Guardar en el ESB 
+            controler_esb_conexion.ESB_login_authCliente('auth_cliente', registro.correo, registro.tipo);
+            
         }) // asyncrona
 
     }else{
@@ -77,7 +91,8 @@ function verityToken(headers){
 /********************* FUNCIONES PAR BASE DE DATOS ************ */
 
 async function get_usuario(filtro){
-    let registro = await mongoDB.usuarioModel.find( filtro);
+    
+    let registro = await mongoDB.usuarioModel.find(filtro);
     return registro;
 }
 
@@ -92,14 +107,16 @@ async function create_usuario(req,res){
         //_id: "carlosorantesgmail.com",
         "nombre": nombre,
         "apellido": apellido,
-        "foto": foto,
+        "foto": foto || 'no_url',
         "correo": correo, 
         "password": password,
         "tipo": tipo,
         "tarjetas": tarjetas//[ {titular:'Carlos O. lara', numero:123456, vencimiento:'08/8/2021'}] 
     };
     //await mongoDB.connectDB();
-    
+    //console.log(typeof(newUser.tarjetas), newUser.tarjetas);
+    //res.send(newUser);
+    //return;
     try{
         //1) Antes de crear un usuario, verificar que el correo no se repita
         const usuario = await mongoDB.usuarioModel.find( {"correo":correo} );
@@ -107,15 +124,19 @@ async function create_usuario(req,res){
         if(usuario.length === 0){
         
             const data = await mongoDB.usuarioModel.create(newUser);
-            res.status(201).send( JSON.stringify({ mensaje: "Nuevo usuario insertado a la base de datos."}) );
+            res.status(200).send( JSON.stringify({ info: "Su usuario ha sido registrado correctamente."}) );
             console.log("Nuevo usuario insertado a la base de datos:", data);
+
+            // Almacenar en el ESB 
+            controler_esb_conexion.ESB_signup_authCliente( (nombre +' '+ apellido), 'authCliente', correo, tipo)
+        
         }else {
-            res.status(409).send( JSON.stringify( { mensaje: "El usuario con dicho correo ya existe."}) );
+            res.status(409).send( JSON.stringify( { info: "El usuario con dicho correo ya existe."}) );
             console.log("El usuario que desea insertar es repetido");
         }
         
     }catch(e){
-        console.log("Posible ERROR en base de datos(funcion:create_usuario)");
+        console.log("Posible ERROR en base de datos(funcion:create_usuario)",e);
         res.status(500).send("Internal problem.");
     }   
         
