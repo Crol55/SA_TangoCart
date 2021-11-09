@@ -1,15 +1,20 @@
 <h1 mat-dialog-title>Subastar Producto</h1>
 <div mat-dialog-content class="mat-typography">
 	<form [formGroup]="form">
-		<h3>Oferta Inicial</h3>
+		<h3>Oferta Inicial:</h3>
 		<input matInput type="number" placeholder="0.0" formControlName = 'precio' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 250px;" required>
-		<h3>Duración</h3>
-		<mat-form-field appearance="fill">
-			<mat-label style="padding-right: 110px;">Días</mat-label> <mat-label style="padding-right: 90px;">Horas</mat-label> <mat-label >Minutos</mat-label>
+		<h3>Duración:</h3>
+		<mat-form-field appearance="fill" style="width: 390px;">
+			<div class="padre1" style="text-align: center;">
+				<mat-label style="margin-bottom: 15px; margin-right: 40px; display: inline-block;">Días</mat-label> 
+				<mat-label style="margin-bottom: 15px; margin-right: 40px; display: inline-block;">Horas</mat-label> 
+				<mat-label style="margin-bottom: 15px; display: inline-block;">Minutos</mat-label>
+			</div>
+
 			<div class="padre" style="text-align: center;">
-				<input matInput type="number" placeholder="0" formControlName = 'dia' class="form-control" style="margin-top: 15px; margin-bottom: 15px; margin-right: 60px; width: 75px; display: inline-block;" required>
-				<input matInput type="number" placeholder="12" formControlName = 'hora' class="form-control" style="margin-top: 15px; margin-bottom: 15px; margin-right: 60px; width: 75px; display: inline-block;" required>
-				<input matInput type="number" placeholder="0" formControlName = 'minuto' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 75px; display: inline-block;" required>
+				<input matInput type="number" placeholder="0" formControlName = 'dia' class="form-control" style="margin-top: 15px; margin-bottom: 15px; margin-right: 40px; width: 75px; display: inline-block;">
+				<input matInput type="number" placeholder="12" formControlName = 'hora' class="form-control" style="margin-top: 15px; margin-bottom: 15px; margin-right: 40px; width: 75px; display: inline-block;">
+				<input matInput type="number" placeholder="0" formControlName = 'minuto' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 75px; display: inline-block;">
 			</div>
 		</mat-form-field>
 	</form>

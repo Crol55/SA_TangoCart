@@ -2,11 +2,16 @@
 <div mat-dialog-content class="mat-typography">
 	<form [formGroup]="form">
 		<h3>Ciudad</h3>
-		<input matInput type="text" formControlName = 'ciudad' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 250px;" required>
+		<input matInput type="text" formControlName = 'ciudad' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 260px;" required>
 		<h3>Dirección 1</h3>
-		<input matInput type="text" formControlName = 'direccion1' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 250px;" required>
+		<input matInput type="text" formControlName = 'direccion1' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 260px;" required>
 		<h3>Dirección 2</h3>
-		<input matInput type="text" formControlName = 'direccion2' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 250px;" required>
+		<input matInput type="text" formControlName = 'direccion2' class="form-control" style="margin-top: 15px; margin-bottom: 15px; width: 260px;" required>
+		<h3>Tipo de Envío</h3>
+		<mat-radio-group aria-label="Select an option"  formControlName = 'opcion' class="example-radio-group" required>
+			<mat-radio-button value="Envío" class="example-radio-button">Delivery</mat-radio-button>
+			<mat-radio-button value="En Tienda" class="example-radio-button">Retiro en Punto</mat-radio-button>
+		</mat-radio-group>		  
 	</form>
 </div>
 <div mat-dialog-actions align="end">

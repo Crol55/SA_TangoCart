@@ -1,4 +1,46 @@
-<h1>order-success works!</h1>
+<div *ngIf="data != 'En Tienda'">
+  <h2 style="text-align: center;">Estado de la orden</h2>  
+  <div class="cuerpo">
+    <div class="contenedor">
+        <div class="progress-contenedor">
+            <div class="progress" id="progress" #progress></div>
+            <div>
+                <div class="circle active" #circle>
+                    <i class="fa icono" #fa><fa-icon [icon]="faBoxOpen"></fa-icon></i>
+                </div>
+                <div>Pedido</div>
+                <div>realizado</div>
+            </div>
+            <div>
+                <div class="circle" #circle>
+                    <i class="fa" #fa><fa-icon [icon]="faClipboardCheck"></fa-icon></i>
+                </div>
+                <div>Necesita</div>
+                <div>aprobación</div>
+            </div>
+            <div>
+                <div class="circle" #circle>
+                    <i class="fa" #fa><fa-icon [icon]="faBox"></fa-icon></i>
+                </div>
+                <div>Empacado</div>
+            </div>
+            <div>
+                <div class="circle" #circle>
+                    <i class="fa" #fa><fa-icon [icon]="faTruck"></fa-icon></i>
+                </div>
+                <div>Enviado</div>
+            </div>
+            <div>
+                <div class="circle" #circle>
+                    <i class="fa" #fa><fa-icon [icon]="faHome"></fa-icon></i>
+                </div>
+                <div>Entregado</div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="container">
     <div class="row">
@@ -45,5 +87,5 @@
       <div class="col-md-3 text-right">
         <button class="btn btn-success btn-block" (click)="openPDF()">Descargar Factura</button>
       </div>
-  
-  
+
+

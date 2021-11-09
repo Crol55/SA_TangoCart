@@ -1,0 +1,83 @@
+
+    <div>
+        <h2>Ordenes</h2>
+    </div>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Buscador</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ingresar ID de la Orden" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="ID">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+            <td mat-cell *matCellDef="let row">{{row._id}} </td>
+        </ng-container>
+    
+        <!-- Productos Column -->
+        <ng-container matColumnDef="Productos">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Cliente/Productos</th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.shipping.name}}:
+                <div *ngFor = "let item of row.items">
+                    • {{item.nombre}}
+                </div>
+            </td>
+        </ng-container>
+    
+        <!-- Direcciones Column -->
+        <ng-container matColumnDef="Direcciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Direcciones</th>
+            <td mat-cell *matCellDef="let row">• {{row.shipping.addressLine1}}<br/>• {{row.shipping.addressLine2}}</td>
+            
+        </ng-container>
+    
+        <!-- Tipo Column -->
+        <ng-container matColumnDef="Tipo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td mat-cell *matCellDef="let row">{{row.tipo}}</td>
+        </ng-container>
+        
+        <!-- Total Column -->
+        <ng-container matColumnDef="Total">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
+            <td mat-cell *matCellDef="let row">Q {{total(row.items)}}</td>
+        </ng-container>
+
+        <!-- Editar Column -->
+        <ng-container matColumnDef="Editar">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Editar Estado</th>
+            <td mat-cell *matCellDef="let row"> 
+                <div *ngIf="row.estado == 'En Tienda'; else elseBlock">
+                    {{row.estado}}
+                </div>
+                <ng-template #elseBlock>
+                    <mat-select  [(value)]="row.estado" class="form-control" #t (selectionChange)="changeStatus(t.value,row._id)">
+                        <mat-option value="Pedido realizado">Pedido realizado</mat-option>
+                        <mat-option value="Necesita aprobación">Necesita aprobación</mat-option>
+                        <mat-option value="Empacado">Empacado</mat-option>
+                        <mat-option value="Enviado">Enviado</mat-option>
+                        <mat-option value="Entregado">Entregado</mat-option>
+                    </mat-select>
+                </ng-template>
+                
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+        </table>
+    
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+  
+
+    
