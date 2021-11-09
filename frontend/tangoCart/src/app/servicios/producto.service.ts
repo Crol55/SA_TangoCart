@@ -12,7 +12,8 @@ import { HttpHeaders } from '@angular/common/http';
 export class ProductoService {
 
   public EndPoint = {
-     getAll : ""
+     getAll : "",
+     postProduct: ""
   }
   
   headers = new HttpHeaders({
@@ -39,6 +40,11 @@ export class ProductoService {
   }
   
   postProducts(product: any){
+    if(this.EndPoint.postProduct !=""){
+      const path = this.EndPoint.postProduct;
+      return  this.http.post(path,product,{headers:this.headers})
+    }
+
     const path = `${this.api}/product`;
     return  this.http.post(path,product,{headers:this.headers})
   }
@@ -47,7 +53,7 @@ export class ProductoService {
    
     if(this.EndPoint.getAll !=""){
       const path = this.EndPoint.getAll;
-      return  this.http.get<Producto[]>(path)
+      return  this.http.get<Producto[]>(path,{headers:this.headers})
     }
     const path = `${this.api}/product`;
     return  this.http.get<Producto[]>(path,{headers:this.headers})
