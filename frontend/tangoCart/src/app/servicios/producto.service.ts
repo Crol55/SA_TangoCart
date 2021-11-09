@@ -45,7 +45,6 @@ export class ProductoService {
 
   getProducts() {
    
-
     if(this.EndPoint.getAll !=""){
       const path = this.EndPoint.getAll;
       return  this.http.get<Producto[]>(path)
