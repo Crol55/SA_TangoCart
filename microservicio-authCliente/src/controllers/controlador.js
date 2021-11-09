@@ -124,14 +124,14 @@ async function create_usuario(req,res){
         if(usuario.length === 0){
         
             const data = await mongoDB.usuarioModel.create(newUser);
-            res.status(201).send( JSON.stringify({ mensaje: "Nuevo usuario insertado a la base de datos."}) );
+            res.status(200).send( JSON.stringify({ info: "Su usuario ha sido registrado correctamente."}) );
             console.log("Nuevo usuario insertado a la base de datos:", data);
 
             // Almacenar en el ESB 
             controler_esb_conexion.ESB_signup_authCliente( (nombre +' '+ apellido), 'authCliente', correo, tipo)
         
         }else {
-            res.status(409).send( JSON.stringify( { mensaje: "El usuario con dicho correo ya existe."}) );
+            res.status(409).send( JSON.stringify( { info: "El usuario con dicho correo ya existe."}) );
             console.log("El usuario que desea insertar es repetido");
         }
         
