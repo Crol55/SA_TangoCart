@@ -59,7 +59,7 @@ function log_login (req, res){
 function log_default ( req, res){
 
     let microservice_metaData = req.body;
-    console.log("siu", );
+    
     if ( typeof(microservice_metaData) === 'object' ){
 
         // ##### Almacenar la informacion en el ESB
