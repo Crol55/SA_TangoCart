@@ -30,7 +30,7 @@ export class CheckOutComponent implements OnInit, OnDestroy {
               private _snackBar: MatSnackBar){}
 
   async ngOnInit(){
-    this.cart =  await this.shoppingCartService.getCart(this.auth.currentUser[0]._id).toPromise();
+    this.cart =  await this.shoppingCartService.getCart(this.auth.currentUser.id).toPromise();
     console.log(this.cart[0].items)
   
   }
@@ -45,7 +45,7 @@ export class CheckOutComponent implements OnInit, OnDestroy {
     }
     //aqui tendrias que modificar el estado de "tipo" porque aqui se Guarda
      let order = {
-       user: this.auth.currentUser[0]._id,
+       user: this.auth.currentUser.id,
        shipping: this.shipping,   
        items: this.cart[0].items,
        tipo: this.tipoEnvio,  // aqui se agrega el tipo que me pediste

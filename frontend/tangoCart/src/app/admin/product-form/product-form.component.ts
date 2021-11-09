@@ -70,7 +70,7 @@ export class ProductFormComponent implements OnInit{
      }else if(this.base64)
          {
             let saveProduct = {
-                user: this.auth.currentUser[0]._id,  
+                user: this.auth.currentUser.id,  
                 titulo: product.nombre,
                 precio: product.precio,
                 descripcion: product.descripcion,

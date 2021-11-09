@@ -14,11 +14,11 @@ export class AuthService {
      login: ""
   }
 
-  private api = 'http://35.192.90.40:4000'
-  private api2 = 'http://35.192.90.40:4001'
+  //private api = 'http://35.192.90.40:4000'
+  //private api2 = 'http://35.192.90.40:4001'
 
-  //private api = 'http://localhost:4000'
-  //private api2 = 'http://localhost:4001'
+  private api = 'http://localhost:4000'
+  private api2 = 'http://localhost:4001'
 
   constructor(public http: HttpClient, public router: Router ){ }
   

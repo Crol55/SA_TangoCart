@@ -14,12 +14,12 @@ export class ProductoService {
      getAll : ""
   }
 
-  public httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      authorization: this.obtenerAutorizacion.Token
-    })
-  };
+  // public httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type':  'application/json',
+  //     authorization: this.obtenerAutorizacion.Token
+  //   })
+  // };
   
   private api = 'http://35.192.90.40:3000/api'
   //private api = 'http://localhost:3000/api'
@@ -47,7 +47,7 @@ export class ProductoService {
   getProducts() {
     if(this.EndPoint.getAll !=""){
       const path = this.EndPoint.getAll;
-      return  this.http.get<Producto[]>(path,this.httpOptions)
+      return  this.http.get<Producto[]>(path)
     }
     const path = `${this.api}/product`;
     return  this.http.get<Producto[]>(path)

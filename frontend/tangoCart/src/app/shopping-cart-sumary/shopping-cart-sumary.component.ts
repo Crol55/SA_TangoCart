@@ -26,7 +26,7 @@ export class ShoppingCartSumaryComponent implements OnInit  {
 
   ngOnInit() :void {
     if(this.auth.currentUser != null){
-      this.getCart(this.auth.currentUser[0]._id)
+      this.getCart(this.auth.currentUser.id)
     }
   }
 

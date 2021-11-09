@@ -52,8 +52,8 @@ export class ProductCardComponent implements OnInit {
     else {
     
     let items = {
-         user:this.auth.currentUser[0]._id,
-         correo: this.auth.currentUser[0].correo,
+         user:this.auth.currentUser.id,
+         correo: this.auth.currentUser.correo,
          state: "active",
          items: [{_id: product?._id,
                   nombre: product?.nombre,

@@ -34,7 +34,7 @@ export class AdminProductsComponent implements AfterViewInit {
   }
 
   getAll(){
-    this.ProductService.getProductUser(this.auth.currentUser[0]._id)
+    this.ProductService.getProductUser(this.auth.currentUser.id)
     .subscribe( p => {
       let ELEMENT_DATA: Producto[]  = p ;
       this.dataSource = new MatTableDataSource(ELEMENT_DATA);

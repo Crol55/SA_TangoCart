@@ -31,7 +31,7 @@
 
             <li ngbDropdown class="nav-item dropdown" *ngIf ="auth.isLoggedIn()">
               <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ auth.currentUser[0].nombre}}
+                {{ auth.currentUser.nombre}}
               </a>
               <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" routerLink="/my-perfil">My Perfil</a></li>

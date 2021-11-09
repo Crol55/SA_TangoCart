@@ -44,7 +44,7 @@ export class ProductsComponent implements OnInit {
 
     
   ngOnInit(): void {
-    this.getCart(this.auth.currentUser[0]._id)
+    this.getCart(this.auth.currentUser.id)
 
   }
 
