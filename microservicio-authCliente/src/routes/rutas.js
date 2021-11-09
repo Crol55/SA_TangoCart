@@ -6,11 +6,11 @@ var router = express.Router(); // Para manejar los 'Endopoints' a los que respon
 
 router.get('/test', (req, res)=>{ res.send('Todo bien'); });
 
-router.post('/login', controlador.login);
+router.post('/api/users/signin', controlador.login);
 
 router.post('/verify', controlador.verify);
 
-router.post('/signup',controlador.signup);
+router.post('/api/users/signup',controlador.signup);
 
 router.post('/notify',controlador.sendEmail);
 

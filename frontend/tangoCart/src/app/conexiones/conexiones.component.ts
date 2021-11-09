@@ -21,21 +21,25 @@ export class ConexionesComponent implements OnInit {
   Grupo2 = {
     mensaje:   "Tienda 2 en linea",
     registro:  "http://174.138.109.46/api/users/signup",
-    login:     "http://174.138.109.46/api/users/signig",
+    login:     "http://174.138.109.46/api/users/signin",
     getProducts: "http://174.138.109.46/api/providers/allProducts",
-    postProduct: "http://174.138.109.46/api/providers/newProduct"  
+    postProducts: "http://174.138.109.46/api/providers/newProduct"  
   }
 
   Grupo3 = {
-    mensaje: "Tienda 3 en linea",
+    mensaje:   "Tienda 3 en linea",
+    registro:  "http://174.138.109.46/api/users/signup",
+    login:     "http://174.138.109.46/api/users/signin",
+    getProducts: "http://174.138.109.46/api/providers/allProducts",
+    postProducts: "http://174.138.109.46/api/providers/newProduct"  
   };
 
   Grupo4 = {
     mensaje: "Tienda 4 en linea",
-    registro: "http://35.192.90.40:4000/signup",
-    login: "http://35.192.90.40:4000/login",
-    getProducts: "http://35.192.90.40:3000/api/product",
-    postProduct: "http://35.192.90.40:3000/api/product"
+    registro: "http://35.192.90.40:4000/api/users/signin",
+    login: "http://35.192.90.40:4000/api/users/signup",
+    getProducts: "http://35.192.90.40:3000/api/providers/allProducts",
+    postProducts: "http://35.192.90.40:3000/api/newProduct"
   }
 
 
@@ -44,21 +48,20 @@ export class ConexionesComponent implements OnInit {
       registro: "http://34.125.95.83:4000/esb/api/users/signup",
       login: "http://34.125.95.83:4000/esb/api/users/signin",
       getProducts: "http://34.125.95.83:4000/esb/api/providers/products",
-      postProduct: "http://34.125.95.83:4000/esb/api/providers/newProduct"
+      postProducts: "http://34.125.95.83:4000/esb/api/providers/newProduct"
   };
 
   
   Grupo6 = {
     mensaje:  "Tienda 6 en linea",
     registro: "http://sa-g6.herokuapp.com/api/users/signup",
-    login:    "http://sa-g6.herokuapp.com/api/users/signig", 
+    login:    "http://sa-g6.herokuapp.com/api/users/signin", 
     getProducts: "http://sa-g6.herokuapp.com/api/providers/allProducts",
-    postProduct: "http://sa-g6.herokuapp.com/api/providers/newProduct"
+    postProducts: "http://sa-g6.herokuapp.com/api/providers/newProduct"
   }
   Grupo7 = {
     mensaje: "Tienda 7 en linea",
   }
-
 
   Grupo8 = {
     mensaje: "Tienda 8 en linea",
@@ -81,18 +84,9 @@ export class ConexionesComponent implements OnInit {
   getCheckboxesValue() {
 
     if(this.template){
-      
+     
       this.objetoActual = this.template
-      let valores = JSON.parse(JSON.stringify(this.objetoActual));
-      
-      // login y registro
-      this.auth.EndPoint.login= valores.login
-      this.auth.EndPoint.registro= valores.registro
-      this.auth.EndPoint.mensaje= valores.mensaje
-      
-      // Productos
-      this.product.EndPoint.getAll = valores.getProducts
-
+      localStorage.setItem('conexion',JSON.stringify(this.objetoActual))
       console.log("Nueva Conexión", this.auth.EndPoint);
 
     }

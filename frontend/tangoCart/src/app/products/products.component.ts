@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   public products?: Producto[] = [];
   public filteredProducts? : Producto[] = []; 
   public shopping? : Observable<Cart> | any;
-  public categoria?: string | null;
+  public categorias: any ;
 
   constructor(
     public route: ActivatedRoute,
@@ -31,11 +31,10 @@ export class ProductsComponent implements OnInit {
     this.productService
     .getProducts().subscribe(p => {  
       this.products = p
-      
       route.queryParamMap.subscribe(params =>{
-        this.categoria = params.get('categoria');
-        this.filteredProducts = (this.categoria) ?
-        this.products?.filter(p => p.categoria == this.categoria) : this.products
+        this.categorias = params.get('categorias');
+        this.filteredProducts = (this.categorias) ?
+        this.products?.filter(p => p.categorias[0] == this.categorias) : this.products
       });
   
     });

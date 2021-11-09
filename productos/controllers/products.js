@@ -1,7 +1,7 @@
 // importación de la tabla producto o modelo producto
 const Product = require('../models/products');
 const path = require('path');
-
+const controler_esb_conexion =  require('./controller_ESB_conexion');
 // s3
 const AWS = require('aws-sdk');
 const aws_keys = require('./credenciales-aws');
@@ -46,6 +46,9 @@ async function addProduct(req,res){
     }
 
     const product = await Product.create(req.body);
+    
+    controler_esb_conexion.ESB_crear_producto('Productos', 'Crear Producto',req.body);
+
     return res.status(200).json({
         mgs : "Producto registrado con exito"
     });
@@ -54,6 +57,7 @@ async function addProduct(req,res){
 // Obtener todos los productos
 async function getProducts(req,res){
     const products = await Product.find();
+    controler_esb_conexion.ESB_get_productos('Productos', 'Obtener Productos',products);
     res.status(200).json(products);
 }
 // Obtener un producto en especifico

@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
       this.subastas = subasta;        
       route.queryParamMap.subscribe(params =>{
         this.categoria = params.get('categoria');
-        this.filteredAuctions = (this.categoria) ? this.subastas.filter(item => item.products.categoria == this.categoria) : this.subastas;
+        this.filteredAuctions = (this.categoria) ? this.subastas.filter(item => item.products.categorias == this.categoria) : this.subastas;
       });
     });
   }

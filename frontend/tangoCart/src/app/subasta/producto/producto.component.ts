@@ -37,7 +37,7 @@ export class ProductoComponent implements OnInit {
       nombre: "",
       precio: 0,
       descripcion: "",
-      categoria: "",
+      categorias: "",
       stock: 0,
       foto: "",
       createdAt: "",

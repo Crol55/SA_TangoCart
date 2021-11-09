@@ -12,17 +12,18 @@ import { HttpHeaders } from '@angular/common/http';
 export class ProductoService {
 
   public EndPoint = {
-     getAll : "",
-     postProduct: ""
+     getAll: "",
+     postProducts: ""
   }
   
   headers = new HttpHeaders({
-     'token': this.obtenerAutorizacion
+    'Content-Type': 'application/json',
+    'token': this.obtenerAutorizacion
   });
   
   
-  //private api = 'http://35.192.90.40:3000/api'
-  private api = 'http://localhost:3000/api'
+  private api = 'http://35.192.90.40:3000/api/providers'
+  //private api = 'http://localhost:3000/api/providers'
   
   public selectedProduct: Producto = {
     _id: '',
@@ -30,60 +31,69 @@ export class ProductoService {
     nombre: '',
     precio: 0,
     descripcion: '',
-    categoria: '',
+    categorias: '',
     stock: 0,
     foto: '',
   };
   productos? : Producto[];
 
-  constructor(private http: HttpClient){
+  constructor(public http: HttpClient){
+
+        console.log(this.EndPoint)
   }
   
   postProducts(product: any){
-    if(this.EndPoint.postProduct !=""){
-      const path = this.EndPoint.postProduct;
+    
+    if(this.conexion.postProducts !=""){
+      const path = this.conexion.postProducts;
       return  this.http.post(path,product,{headers:this.headers})
     }
 
-    const path = `${this.api}/product`;
+    const path = `${this.api}/newProduct`;
     return  this.http.post(path,product,{headers:this.headers})
   }
 
   getProducts() {
-   
-    if(this.EndPoint.getAll !=""){
-      const path = this.EndPoint.getAll;
+    
+    if(this.conexion !=null){
+      const path = this.conexion.getProducts;
       return  this.http.get<Producto[]>(path,{headers:this.headers})
     }
-    const path = `${this.api}/product`;
+    const path = `${this.api}/allProducts`;
     return  this.http.get<Producto[]>(path,{headers:this.headers})
   }
 
   getProduct(id:any): Observable<Producto> {
-    const path = `${this.api}/product/${id}`;
+    const path = `${this.api}/${id}`;
     return this.http.get<Producto>(path)
   }
 
   getProductUser(id:any) {
-    const path = `${this.api}/product/user/${id}`;
+    const path = `${this.api}/user/${id}`;
     return this.http.get<Producto[]>(path)
   }
 
   updateProduct(id : any , product: any){
-    const path = `${this.api}/product/${id}`;
+    const path = `${this.api}/${id}`;
     return this.http.put(path,product)
   }
 
   delete(id:any){
-    const path = `${this.api}/product/${id}`;
+    const path = `${this.api}/${id}`;
     return this.http.delete(path)
   }
 
   get obtenerAutorizacion() {
     let token = localStorage.getItem('token')
     if(!token) return null;
-    return  JSON.parse(token).Token
+    return  JSON.parse(token).token
   }
+
+  get conexion(){
+    let conexion = localStorage.getItem('conexion')
+    if(!conexion) return null
+    return JSON.parse(conexion)
+ }
 
   
 }

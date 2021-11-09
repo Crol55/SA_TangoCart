@@ -47,6 +47,7 @@ import { OrdersComponent } from './admin/orders/orders.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ConexionesComponent } from './conexiones/conexiones.component';
+import { LogService } from './servicios/log.service';
 
 @NgModule({
   declarations: [
@@ -110,6 +111,7 @@ import { ConexionesComponent } from './conexiones/conexiones.component';
     OrderService,
     OverlayModule, 
     ListaDeseosService
+    
   ],
   
   bootstrap: [AppComponent]
