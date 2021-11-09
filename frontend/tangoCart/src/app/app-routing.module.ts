@@ -14,7 +14,7 @@ import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ListaDeseosComponent} from './lista-deseos/lista-deseos.component';
-import { OrdersComponent } from './admin/orders/orders.component';
+import { ConexionesComponent } from './conexiones/conexiones.component';
 
  export const routes: Routes = [
    { path: '', component: LoginComponent,  canActivate: [AuthGuardService2]  },
@@ -30,10 +30,10 @@ import { OrdersComponent } from './admin/orders/orders.component';
    { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
    { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService]},
    { path: 'admin/products/:id', component: ProductFormComponent,canActivate: [AuthGuardService] },
-   { path: 'client/Wishlist', component: ListaDeseosComponent,canActivate: [AuthGuardService]  },   
-   { path: 'admin/orders', component: OrdersComponent,canActivate: [AuthGuardService]},
+   { path: 'client/Wishlist', component: ListaDeseosComponent,canActivate: [AuthGuardService]  }, 
+   { path: 'conexion', component: ConexionesComponent },   
    { path: 'auction', loadChildren: () => import('./subasta/subasta.module').then(x => x.SubastaModule)}
-
+     
  ];
 
 @NgModule({

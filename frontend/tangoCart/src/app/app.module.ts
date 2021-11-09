@@ -46,6 +46,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ConexionesComponent } from './conexiones/conexiones.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ManageOrdersComponent,
     ListaDeseosComponent,
     OrdersComponent,
-   
+    ConexionesComponent
   ],
   imports: [
     BrowserModule,

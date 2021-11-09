@@ -2,11 +2,24 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Producto } from '../models/products';
+import { HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
+
+  public EndPoint = {
+     getAll : ""
+  }
+
+  public httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      authorization: this.obtenerAutorizacion.Token
+    })
+  };
   
   private api = 'http://35.192.90.40:3000/api'
   //private api = 'http://localhost:3000/api'
@@ -32,6 +45,10 @@ export class ProductoService {
   }
 
   getProducts() {
+    if(this.EndPoint.getAll !=""){
+      const path = this.EndPoint.getAll;
+      return  this.http.get<Producto[]>(path,this.httpOptions)
+    }
     const path = `${this.api}/product`;
     return  this.http.get<Producto[]>(path)
   }
@@ -55,7 +72,12 @@ export class ProductoService {
     const path = `${this.api}/product/${id}`;
     return this.http.delete(path)
   }
-  
+
+  get obtenerAutorizacion() {
+    let token = localStorage.getItem('token')
+    if(!token) return null;
+    return  JSON.parse(token)
+  }
 
   
 }

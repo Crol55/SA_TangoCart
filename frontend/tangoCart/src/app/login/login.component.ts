@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   form = new FormGroup({
     correo:    new FormControl('',Validators.required), 
     password: new FormControl('',Validators.required),
-    tipo: new FormControl('',Validators.required),
   })
   constructor(private router: Router,
               public auth: AuthService,
@@ -34,14 +33,10 @@ export class LoginComponent implements OnInit {
    return this.form.get('password')
  }
 
- get tipo(){
-  return this.form.get('tipo')
-}
 
  login(){
      if(this.form.valid){
-
-        if(this.tipo?.value == 'c'){
+            console.log(this.form.value)
             this.auth.login(this.form.value)
             .subscribe( usuario =>{
               
@@ -54,38 +49,7 @@ export class LoginComponent implements OnInit {
                 invalidLogin: true
             });
             })
-          }
-          else if(this.tipo?.value == 'p'){
-            
-            this.auth.login2(this.form.value)
-            .subscribe( usuario =>{
-                localStorage.setItem('token', JSON.stringify(usuario))
-                console.log("buscar carrito")
-                this.router.navigate(['admin/products'])
-            }, err =>{ 
-              console.log(err) 
-              this.form.setErrors({
-                invalidLogin: true
-            });
-            })
-          }
-          else if(this.tipo?.value == 'a'){
-            this.router.navigate(['admin/orders'])
-            this.auth.login2(this.form.value)
-            .subscribe( usuario =>{
-                localStorage.setItem('token', JSON.stringify(usuario))
-                this.router.navigate(['/admin/orders'])
-            }, err =>{ 
-              console.log(err) 
-              this.form.setErrors({
-                invalidLogin: true
-            });
-            })
-           console.log("login admin");
-          }
 
-
-     
       }else{
             this.form.setErrors({
               invalidLogin: true

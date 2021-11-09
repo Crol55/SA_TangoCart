@@ -28,10 +28,9 @@ describe('Componente Login', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Deberia crear un formulario con 3 controles', () =>{
+  it('Deberia crear un formulario con 2 controles', () =>{
       expect(component.form.contains('correo')).toBeTruthy();
       expect(component.form.contains('password')).toBeTruthy();
-      expect(component.form.contains('tipo')).toBeTruthy();
   });
   
   it('Debe hacer que el control de correo  sea obligatorio', () =>{

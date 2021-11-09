@@ -23,6 +23,8 @@ export class RegisterComponent implements OnInit {
   }
 
   registrar( form: NgForm){
+    
+    
 
    let usuario = {
          nombre: form.value.nombre,
@@ -30,9 +32,14 @@ export class RegisterComponent implements OnInit {
          tipo: form.value.tipo,
          correo: form.value.correo,
          password: form.value.password,
-         tarjetas: [form.value.tarjeta],
-         foto: form.value.foto
+         tarjetas: {
+           titular:form.value.titular,
+           numero:form.value.tarjeta,
+           vencimiento:form.value.fechav
+         }
+        
     }
+    console.log(usuario)
 
     if(form.value.tipo == 'c'){
         this.auth.postUsuario(usuario)

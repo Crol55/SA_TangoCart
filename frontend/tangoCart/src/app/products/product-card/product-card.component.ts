@@ -83,7 +83,7 @@ export class ProductCardComponent implements OnInit {
       this.ProductService.getProduct(id)
       .subscribe( p => {
         let st = {
-          stock : p.stock - 1
+          stock : Number(p.stock) - 1
         }
         this.ProductService.updateProduct(id,st)
         .subscribe( p => {
@@ -91,7 +91,6 @@ export class ProductCardComponent implements OnInit {
       })
    }
 
-    
   openDialog(message: any) {
     this.dialog.open(DialogComponent, {
       data: { message: message }

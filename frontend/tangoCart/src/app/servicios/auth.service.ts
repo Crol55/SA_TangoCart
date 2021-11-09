@@ -3,12 +3,17 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  public  EndPoint = {
+     mensaje : "",
+     registro: "",
+     login: ""
+  }
+
   private api = 'http://35.192.90.40:4000'
   private api2 = 'http://35.192.90.40:4001'
 
@@ -19,6 +24,11 @@ export class AuthService {
   
 
   login(credencials: any) {
+      
+      if(this.EndPoint.login !=""){
+        const path = this.EndPoint.login
+      return this.http.post(path,credencials)
+      }
       const path = `${this.api}/login`;
       return this.http.post(path,credencials)
   }
@@ -36,7 +46,11 @@ export class AuthService {
   }
 
   postUsuario(usuario: any){
-    const path = `${this.api}/signup`;
+    if(this.EndPoint.registro !=""){
+      const path = this.EndPoint.registro;
+      return this.http.post(path,usuario)
+    }
+    const path = `${this.api}/signup`;;
     return this.http.post(path,usuario)
   }
 
@@ -65,9 +79,7 @@ export class AuthService {
   get currentUser() {
     let token = localStorage.getItem('token')
     if(!token) return null;
-    return  JSON.parse(token).info
+    return  JSON.parse(token)
   }
 
- 
-  
 }
