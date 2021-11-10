@@ -18,10 +18,7 @@
     "html-pdf": "^3.0.1",
     "mongoose": "^5.13.6",
     "morgan": "^1.10.0",
-<<<<<<< HEAD
     "node-cron": "^3.0.0",
-=======
->>>>>>> 5b37b56c8de31a10c216bbf1fe6e47e0a757bc14
     "nodemailer": "^6.7.0"
   },
   "devDependencies": {
