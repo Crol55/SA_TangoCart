@@ -115,20 +115,20 @@
 
 
   #frontend.test
-  - name: create docker image test
-    command: docker build -t test-image:latest -f dockerfile.test .
-    args:
-      chdir: /opt/docker/frontend/tangoCart
+  # - name: create docker image test
+  #   command: docker build -t test-image:latest -f dockerfile.test .
+  #   args:
+  #     chdir: /opt/docker/frontend/tangoCart
 
-  - name: create tag to image
-    command: docker tag test-image germansalguero711/test-image
+  # - name: create tag to image
+  #   command: docker tag test-image germansalguero711/test-image
 
-  - name: push image on to dockerhub
-    command: docker push germansalguero711/test-image  
+  # - name: push image on to dockerhub
+  #   command: docker push germansalguero711/test-image  
     
-  - name: remove docker images from ansible server
-    command: docker rmi test-image:latest germansalguero711/test-image
-    ignore_errors: yes 
+  # - name: remove docker images from ansible server
+  #   command: docker rmi test-image:latest germansalguero711/test-image
+  #   ignore_errors: yes 
 
   #frontend.production
   - name: create docker image front
