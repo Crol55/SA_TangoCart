@@ -17,7 +17,7 @@
     command: docker rmi cart-image:latest germansalguero711/cart-image
     ignore_errors: yes
   
-  # producto
+  #producto
   - name: create docker image productos
     command: docker build -t productos-image:latest .
     args:
