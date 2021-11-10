@@ -95,7 +95,24 @@
     
   - name: remove docker images from ansible server
     command: docker rmi lista-image:latest germansalguero711/lista-image
-    ignore_errors: yes   
+    ignore_errors: yes  
+
+  #ESB
+  - name: create docker image ESB
+    command: docker build -t esb-image:latest .
+    args:
+      chdir: /opt/docker/Microservicio-ESB
+
+  - name: create tag to image
+    command: docker tag esb-image germansalguero711/esb-image
+
+  - name: push image on to dockerhub
+    command: docker push germansalguero711/esb-image  
+    
+  - name: remove docker images from ansible server
+    command: docker rmi esb-image:latest germansalguero711/esb-image
+    ignore_errors: yes 
+
 
   #frontend.test
   - name: create docker image test
@@ -112,7 +129,6 @@
   - name: remove docker images from ansible server
     command: docker rmi test-image:latest germansalguero711/test-image
     ignore_errors: yes 
-
 
   #frontend.production
   - name: create docker image front

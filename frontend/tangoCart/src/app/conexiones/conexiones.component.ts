@@ -13,9 +13,10 @@ export class ConexionesComponent implements OnInit {
    
   Grupo1 = {
      mensaje: "Tienda 1 en linea",
-     registro: "http://34.125.203.249/sa/user/add",
-     login:  "http://34.125.203.249/sa/user/login" ,
-     getProducts: "", 
+     registro: "http://34.125.203.249/sa/bus/grupo1/servicios",
+     login:  "http://34.125.203.249/sa/bus/grupo1/servicios" ,
+     getProducts: "http://34.125.203.249/sa/catalogue", 
+     postProducts: "http://34.125.203.249/sa/bus/grupo1/servicios"
   };
 
   Grupo2 = {
@@ -28,10 +29,10 @@ export class ConexionesComponent implements OnInit {
 
   Grupo3 = {
     mensaje:   "Tienda 3 en linea",
-    registro:  "http://174.138.109.46/api/users/signup",
-    login:     "http://174.138.109.46/api/users/signin",
-    getProducts: "http://174.138.109.46/api/providers/allProducts",
-    postProducts: "http://174.138.109.46/api/providers/newProduct"  
+    registro:  "https://sa-g6.herokuapp.com/api/users/signup",
+    login:     "https://sa-g6.herokuapp.com/users/signin",
+    getProducts: "https://sa-g6.herokuapp.com/api/providers/allProducts",
+    postProducts: "https://sa-g6.herokuapp.com/api/providers/newProduct"  
   };
 
   Grupo4 = {
@@ -60,7 +61,12 @@ export class ConexionesComponent implements OnInit {
     postProducts: "http://sa-g6.herokuapp.com/api/providers/newProduct"
   }
   Grupo7 = {
-    mensaje: "Tienda 7 en linea",
+    mensaje:   "Tienda 2 en linea",
+    registro:  "http://34.125.197.251/api/users/signup",
+    login:     "http://34.125.197.251/api/users/signin",
+    getProducts: "http://34.125.197.251/api/providers/allProducts",
+    postProducts: "http://34.125.197.251/api/providers/newProduct"
+
   }
 
   Grupo8 = {
