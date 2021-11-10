@@ -56,7 +56,7 @@ function log_login (req, res){
 
 }
 
-function log_default ( req, res){
+function log_default (req, res){
 
     let microservice_metaData = req.body;
     

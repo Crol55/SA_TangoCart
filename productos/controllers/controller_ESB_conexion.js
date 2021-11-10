@@ -20,7 +20,7 @@ function ESB_crear_producto (microservice, accion, data){
 
 function ESB_get_productos (microservice, accion, data){
     
-    axios.post(`${ESB_API_URL}/esb_signup`, 
+    axios.post(`${ESB_API_URL}/esb_log_default`, 
         {
             "microservicio": microservice, 
             "accion": accion, 

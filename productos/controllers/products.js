@@ -47,7 +47,7 @@ async function addProduct(req,res){
 
     const product = await Product.create(req.body);
     
-    controler_esb_conexion.ESB_crear_producto('Productos', 'Crear Producto',req.body);
+    controler_esb_conexion.ESB_crear_producto('Productos', 'Crear Producto', req.body);
 
     return res.status(200).json({
         mgs : "Producto registrado con exito"
