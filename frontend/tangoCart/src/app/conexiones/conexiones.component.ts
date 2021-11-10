@@ -37,8 +37,8 @@ export class ConexionesComponent implements OnInit {
 
   Grupo4 = {
     mensaje: "Tienda 4 en linea",
-    registro: "http://35.192.90.40:4000/api/users/signin",
-    login: "http://35.192.90.40:4000/api/users/signup",
+    registro: "http://35.192.90.40:4000/api/users/signup",
+    login: "http://35.192.90.40:4000/api/users/signin",
     getProducts: "http://35.192.90.40:3000/api/providers/allProducts",
     postProducts: "http://35.192.90.40:3000/api/newProduct"
   }
@@ -93,7 +93,7 @@ export class ConexionesComponent implements OnInit {
      
       this.objetoActual = this.template
       localStorage.setItem('conexion',JSON.stringify(this.objetoActual))
-      console.log("Nueva Conexión", this.auth.EndPoint);
+      console.log("Nueva Conexión",this.objetoActual);
 
     }
   }
