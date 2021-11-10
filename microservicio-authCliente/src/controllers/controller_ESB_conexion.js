@@ -2,7 +2,7 @@
 
 const axios =  require('axios').default;
 
-const ESB_API_URL = "http://localhost:7000";
+const ESB_API_URL = "http://35.192.90.40:7000";
 
 
 function ESB_login_authCliente (microservice, correo, tipo_usuario){
