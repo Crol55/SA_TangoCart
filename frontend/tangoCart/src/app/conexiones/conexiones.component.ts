@@ -30,7 +30,7 @@ export class ConexionesComponent implements OnInit {
   Grupo3 = {
     mensaje:   "Tienda 3 en linea",
     registro:  "https://sa-g6.herokuapp.com/api/users/signup",
-    login:     "https://sa-g6.herokuapp.com/users/signin",
+    login:     "https://sa-g6.herokuapp.com/api/users/signin",
     getProducts: "https://sa-g6.herokuapp.com/api/providers/allProducts",
     postProducts: "https://sa-g6.herokuapp.com/api/providers/newProduct"  
   };

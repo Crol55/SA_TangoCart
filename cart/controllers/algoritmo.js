@@ -9,7 +9,7 @@ function carritoAbandonado(){
                     cart = await Cart.find()
                     let correos = []
                     cart.forEach(element => {
-                    if(element.items){ 
+                    if(element.items.length > 0){ 
                             correos.push(element.correo)  
                     }   
                     });
