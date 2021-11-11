@@ -43,6 +43,9 @@
             </li>
           </ul>
           <ul class="navbar-nav">
+            <li *ngIf ="!auth.isLoggedIn()" >
+              <a class="nav-link" routerLink="/conexion">Conexión</a>
+            </li>
               <li *ngIf ="!auth.isLoggedIn()" >
                 <a class="nav-link" routerLink="/login">Login</a>
               </li>

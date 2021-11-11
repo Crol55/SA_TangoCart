@@ -94,7 +94,6 @@ export class ConexionesComponent implements OnInit {
       this.objetoActual = this.template
       localStorage.setItem('conexion',JSON.stringify(this.objetoActual))
       console.log("Nueva Conexión",this.objetoActual);
-
     }
   }
 
