@@ -99,16 +99,16 @@ export class ProductCardComponent implements OnInit {
   }
 
   comprar( form: NgForm, producto: any){
-      console.log(form.value)
+      console.log(producto)
       var ps = {
         idUser: this.auth.currentUser.id,
         nombre: form.value.nombre,
         nit: form.value.nit,
         products :[ {
-            id: producto._id,
+            id: producto._id || producto.id,
             cantidad : 1,
             nombre: producto.nombre,
-            precio: producto.precio 
+            precio: producto.precio, 
         }]
       }
       console.log(ps)

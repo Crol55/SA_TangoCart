@@ -52,7 +52,9 @@ export class ShoppingCardService {
 
   comprar(compra: any){
     if(this.conexion.postCompra !=""){
+      console.log(this.obtenerAutorizacion)
       const path = this.conexion.postCompra;
+
       return  this.http.post(path,compra,{headers:this.headers}) 
     }
     const path = `${this.api}/users/compra`;
