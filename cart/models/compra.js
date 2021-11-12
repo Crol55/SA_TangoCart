@@ -10,7 +10,7 @@ const CompraSchema = new mongoose.Schema({
         type: String, 
         required: [false, 'Please add a nit compra']
     },
-    productos:{
+    products:{
         type: Array,
         trim: true,
     },

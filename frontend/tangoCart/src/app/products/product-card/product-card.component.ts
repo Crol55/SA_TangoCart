@@ -104,7 +104,7 @@ export class ProductCardComponent implements OnInit {
         idUser: this.auth.currentUser.id,
         nombre: form.value.nombre,
         nit: form.value.nit,
-        productos :[ {
+        products :[ {
             id: producto._id,
             cantidad : 1,
             nombre: producto.nombre,
