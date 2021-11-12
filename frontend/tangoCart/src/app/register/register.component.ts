@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../servicios/auth.service';
+import { LogService } from '../servicios/log.service';
 
 @Component({
   selector: 'app-register',
@@ -17,24 +18,30 @@ export class RegisterComponent implements OnInit {
   ext?:string | any
   ocultar : boolean = true;
   constructor(public router : Router,
-             public  auth: AuthService  ) { }
+             public  auth: AuthService,
+             public  esb: LogService  ) { }
 
   ngOnInit(): void {
   }
 
   registrar( form: NgForm){
-
+   
    let usuario = {
          nombre: form.value.nombre,
          apellido: form.value.apellido,
          tipo: form.value.tipo,
          correo: form.value.correo,
          password: form.value.password,
-         tarjetas: [form.value.tarjeta],
-         foto: form.value.foto
+         tarjetas: [{
+           titular: form.value.titular,
+           numero:  form.value.tarjeta,
+           vencimiento: form.value.fechav
+         }]
+        
     }
-
-    if(form.value.tipo == 'c'){
+    console.log(usuario)
+    
+    if(form.value.tipo == 'C'){
         this.auth.postUsuario(usuario)
         .subscribe( u =>{ 
           console.log(u)

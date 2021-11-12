@@ -5,7 +5,8 @@ const express = require('express');
 const { addCart,
         getCart,
         updateCart,
-        deleteCart    
+        deleteCart,
+        carritoAbandonado,
 } = require('../controllers/cart');
 
 //hacemos uso del metodod Router para crear las rutas 
@@ -17,6 +18,10 @@ const router = express.Router();
 router
     .route('/')
         .post(addCart)
+        
+
+
+  
 router
     .route('/:id')
         .get(getCart)

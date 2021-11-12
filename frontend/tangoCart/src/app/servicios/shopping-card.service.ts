@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Cart } from '../models/cart';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -14,6 +14,11 @@ export class ShoppingCardService {
     items: []
   };
 
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'token': this.obtenerAutorizacion
+  });
+
   private api = 'http://35.192.90.40:3001/api'
   //private api = 'http://localhost:3001/api'
   public cartsItems?: any;
@@ -24,7 +29,6 @@ export class ShoppingCardService {
   addToCart(product: any) {
 
     const path = `${this.api}/cart`;
-    console.log(product)
     return  this.http.post(path, product)
   }
 
@@ -45,5 +49,30 @@ export class ShoppingCardService {
     const path = `${this.api}/cart/${id}`;
     return  this.http.delete(path) 
   }
+
+  comprar(compra: any){
+    if(this.conexion.postCompra !=""){
+      console.log(this.obtenerAutorizacion)
+      const path = this.conexion.postCompra;
+
+      return  this.http.post(path,compra,{headers:this.headers}) 
+    }
+    const path = `${this.api}/users/compra`;
+    return  this.http.post(path,compra,{headers:this.headers})
+  }
+
+  get conexion(){
+
+    let conexion = localStorage.getItem('conexion')
+    if(!conexion) return null
+    return JSON.parse(conexion)
+ }
+
+ 
+ get obtenerAutorizacion() {
+  let token = localStorage.getItem('token')
+  if(!token) return null;
+  return  JSON.parse(token).token
+}
 
 }

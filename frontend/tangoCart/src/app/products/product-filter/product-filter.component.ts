@@ -10,7 +10,7 @@ import { CategoriaService } from 'src/app/servicios/categoria.service';
 })
 export class ProductFilterComponent implements OnInit {
   public categories$? : Observable<Categoria[]>;
-  @Input('categoria') categoria: any;
+  @Input('categorias') categorias: any;
   constructor(  public categoriaService : CategoriaService) {
     this.categories$ = this.categoriaService.getCategories();
    }

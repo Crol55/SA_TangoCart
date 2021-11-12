@@ -4,4 +4,6 @@ export interface Order {
     items?: [];
     shipping?: {};
     createdAt?: string;
+    tipo?: string;
+    estado?: string;
 }

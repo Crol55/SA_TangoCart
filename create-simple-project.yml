@@ -114,8 +114,27 @@
    
   - name: create contanier using lista-image
     command: docker run -d --name lista-container -p  5001:5001 germansalguero711/lista-image:latest
+  
+  #ESB
+  - name: stop current running esb-container
+    command: docker stop esb-container
+    ignore_errors: yes
 
-   #front-container
+  - name: remove stopper esb-container
+    command: docker rm esb-container
+    ignore_errors: yes
+
+  - name: remove docker image
+    command: docker rmi germansalguero711/esb-image:latest
+    ignore_errors: yes
+
+  - name: pull docker image from dockerhub
+    command: docker pull germansalguero711/esb-image:latest
+   
+  - name: create contanier using esb-image
+    command: docker run -d --name esb-container -p  7000:7000 germansalguero711/esb-image:latest
+  
+  #front-container
   - name: stop current running front-container
     command: docker stop front-container
     ignore_errors: yes

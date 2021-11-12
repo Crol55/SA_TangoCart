@@ -36,7 +36,7 @@ app.use(fileupload())
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Mount routers
-app.use('/api/product',product);
+app.use('/api/providers',product);
 app.use('/api/category',category);
 
 

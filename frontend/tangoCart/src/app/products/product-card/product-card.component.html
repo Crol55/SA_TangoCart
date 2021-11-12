@@ -1,6 +1,6 @@
-<div *ngIf="product.nombre" class="card" style="width: 18rem;" >
+<div *ngIf="product.nombre" class="card" style="width: 18rem;">
     
-    <div >
+    <div>
       <img  *ngIf="product.foto" [src]="product.foto" class="card-img-top" alt="{{ product.foto }}">
       <button (click)="saveInto_wishList()" type="button" class="btn btn-default wishlist" data-toggle="tooltip" data-placement="right" title="Wishlist" >
         <mat-icon>star_border</mat-icon>
@@ -13,9 +13,43 @@
     </div>
     <div class="card-footer">
         <div class="d-grid gap-2">
-           <button 
-           (click)="addToCart(product)" 
-           class="btn btn-primary">Add to Cart</button>
-        </div>
+          <div class="col-mb-6" >
+           <button (click)="addToCart(product)" style="margin: 10px" class="btn btn-primary">Add to Cart</button>
+           <button  style="margin: 10px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Compra
+          </button>
+          </div>
     </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Efectuar compra</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form #f ="ngForm">
+          <div class="mb-3">
+            <label  class="form-label">Nombre</label>
+            <input  #nombre="ngModel" name="nombre" ngModel  type="text" class="form-control" id="nombre">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nit</label>
+            <input  #nit="ngModel" name="nit" ngModel type="text" class="form-control" id="nit">
+          </div>
+          <div class="mb-3">
+            <h2>Producto: {{ product.nombre  }} </h2>
+            <h2> Precio: {{ product.precio }}</h2>
+            <p>{{product.descripcion}}</p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="comprar(f,product)" class="btn btn-secondary" data-bs-dismiss="modal">Comprar</button>
+      </div>
+    </div>
+  </div>
 </div>

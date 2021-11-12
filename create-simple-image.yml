@@ -17,7 +17,7 @@
     command: docker rmi cart-image:latest germansalguero711/cart-image
     ignore_errors: yes
   
-  # producto
+  #producto
   - name: create docker image productos
     command: docker build -t productos-image:latest .
     args:
@@ -95,24 +95,40 @@
     
   - name: remove docker images from ansible server
     command: docker rmi lista-image:latest germansalguero711/lista-image
-    ignore_errors: yes   
+    ignore_errors: yes  
 
-  #frontend.test
-  - name: create docker image test
-    command: docker build -t test-image:latest -f dockerfile.test .
+  #ESB
+  - name: create docker image ESB
+    command: docker build -t esb-image:latest .
     args:
-      chdir: /opt/docker/frontend/tangoCart
+      chdir: /opt/docker/Microservicio-ESB
 
   - name: create tag to image
-    command: docker tag test-image germansalguero711/test-image
+    command: docker tag esb-image germansalguero711/esb-image
 
   - name: push image on to dockerhub
-    command: docker push germansalguero711/test-image  
+    command: docker push germansalguero711/esb-image  
     
   - name: remove docker images from ansible server
-    command: docker rmi test-image:latest germansalguero711/test-image
+    command: docker rmi esb-image:latest germansalguero711/esb-image
     ignore_errors: yes 
 
+
+  #frontend.test
+  # - name: create docker image test
+  #   command: docker build -t test-image:latest -f dockerfile.test .
+  #   args:
+  #     chdir: /opt/docker/frontend/tangoCart
+
+  # - name: create tag to image
+  #   command: docker tag test-image germansalguero711/test-image
+
+  # - name: push image on to dockerhub
+  #   command: docker push germansalguero711/test-image  
+    
+  # - name: remove docker images from ansible server
+  #   command: docker rmi test-image:latest germansalguero711/test-image
+  #   ignore_errors: yes 
 
   #frontend.production
   - name: create docker image front

@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { ListaDeseosService } from 'src/app/servicios/lista-deseos.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { ShoppingCardService } from 'src/app/servicios/shopping-card.service';
-
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'product-card',
   templateUrl: './product-card.component.html',
@@ -23,7 +23,7 @@ export class ProductCardComponent implements OnInit {
   constructor(public shopping:ShoppingCardService,
               public ProductService: ProductoService, public httpListaDeseos: ListaDeseosService,
               public  dialog: MatDialog,
-              public auth : AuthService) { }
+              public auth : AuthService ) { }
   ngOnInit(): void {
      
   }
@@ -50,8 +50,10 @@ export class ProductCardComponent implements OnInit {
       this.openDialog("Inventario Vacio, Intentelo más tarde")
     }
     else {
+    
     let items = {
-         user:this.auth.currentUser[0]._id,
+         user :this.auth.currentUser.id,
+         correo: this.auth.currentUser.correo,
          state: "active",
          items: [{_id: product?._id,
                   nombre: product?.nombre,
@@ -64,7 +66,6 @@ export class ProductCardComponent implements OnInit {
     this.shopping.addToCart(items)
      .subscribe( i => { 
          this.shopping.cartsItems = i
-         console.log("arq" ,this.shopping.cartsItems['data'])
          localStorage.setItem('IdCart', JSON.stringify(this.shopping.cartsItems['data']))
          let NoItems = 0
          for(let p of this.shopping.cartsItems['data'].items) { 
@@ -82,7 +83,7 @@ export class ProductCardComponent implements OnInit {
       this.ProductService.getProduct(id)
       .subscribe( p => {
         let st = {
-          stock : p.stock - 1
+          stock : Number(p.stock) - 1
         }
         this.ProductService.updateProduct(id,st)
         .subscribe( p => {
@@ -90,12 +91,32 @@ export class ProductCardComponent implements OnInit {
       })
    }
 
-    
   openDialog(message: any) {
     this.dialog.open(DialogComponent, {
       data: { message: message }
     } )
     .afterClosed()
+  }
+
+  comprar( form: NgForm, producto: any){
+      console.log(producto)
+      var ps = {
+        idUser: this.auth.currentUser.id,
+        nombre: form.value.nombre,
+        nit: form.value.nit,
+        products :[ {
+            id: producto._id || producto.id,
+            cantidad : 1,
+            nombre: producto.nombre,
+            precio: producto.precio, 
+        }]
+      }
+      console.log(ps)
+      form.reset()
+      this.shopping.comprar(ps).subscribe( p => {
+          console.log(p)
+      })
+      
   }
 
 

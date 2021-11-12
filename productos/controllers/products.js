@@ -1,7 +1,7 @@
 // importación de la tabla producto o modelo producto
 const Product = require('../models/products');
 const path = require('path');
-
+const controler_esb_conexion =  require('./controller_ESB_conexion');
 // s3
 const AWS = require('aws-sdk');
 const aws_keys = require('./credenciales-aws');
@@ -12,51 +12,53 @@ const { v4: uuidv4 } = require('uuid');
 let encodeBase64;
 var fs = require('fs');
 
-
 //Crear Producto
 async function addProduct(req,res){
-    var {user,titulo,precio,descripcion,categoria,stock,foto,ext} = req.body
+    var {user,nombre,precio,descripcion,categoria,stock,foto,ext} = req.body
     
     let  idb = uuidv4();
     let ruta = `fotos/${idb}${ext}`
 
-    const paramsS3 = {
-        Bucket: "proyecto-sa",
-        Key:  ruta,
-        Body: Buffer.from(foto,'base64'),
-        ContentType: "image",
-        ACL: 'public-read'
-    }
-    let result = await s3.putObject(paramsS3, (err,data)=>{
-        if(err){
-           return 'err'
-        }else{
-           return data
-        }
-    }).promise();
-    if(result == 'err') return  res.send(JSON.stringify( {status:"400", success:"false"} )); 
+    // const paramsS3 = {
+    //     Bucket: "proyecto-sa",
+    //     Key:  ruta,
+    //     Body: Buffer.from(foto,'base64'),
+    //     ContentType: "image",
+    //     ACL: 'public-read'
+    // }
+    // let result = await s3.putObject(paramsS3, (err,data)=>{
+    //     if(err){
+    //        return 'err'
+    //     }else{
+    //        return data
+    //     }
+    // }).promise();
+    // if(result == 'err') return  res.send(JSON.stringify( {status:"400", success:"false"} )); 
 
     campos = {
         user: user,
-        nombre: titulo,
+        nombre: nombre,
         precio: precio,
         descripcion : descripcion,
-        categoria : categoria,
+        categorias : categoria,
         stock : stock,
-        foto: `https://s3-us-east-2.amazonaws.com/proyecto-sa/${ruta}`
+        foto: foto
     }
 
-    const product = await Product.create(campos);
+    const product = await Product.create(req.body);
+    
+    controler_esb_conexion.ESB_crear_producto('Productos', 'Crear Producto', req.body);
+
     return res.status(200).json({
-        success: true,
-        data: product
+        mgs : "Producto registrado con exito"
     });
 }
 
 // Obtener todos los productos
 async function getProducts(req,res){
     const products = await Product.find();
-    res.json(products);
+    controler_esb_conexion.ESB_get_productos('Productos', 'Obtener Productos',products);
+    res.status(200).json(products);
 }
 // Obtener un producto en especifico
  async function getProduct(req,res){

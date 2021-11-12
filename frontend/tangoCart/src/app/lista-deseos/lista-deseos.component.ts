@@ -28,7 +28,7 @@ export class ListaDeseosComponent implements OnInit {
 
     let userInfo = this.getUserinfo();
     //console.log("que info traje", userInfo);
-    this.id_usuario = userInfo[0]['_id'];
+    this.id_usuario = userInfo['id'];
     //console.log("hora de la verdad", this.id_usuario);
   }
    
@@ -42,7 +42,7 @@ export class ListaDeseosComponent implements OnInit {
   getUserinfo(){
     let token = "" ; 
     token += localStorage.getItem('token');
-    return JSON.parse(token).info
+    return JSON.parse(token)
     //console.log(val.info);
   }
 

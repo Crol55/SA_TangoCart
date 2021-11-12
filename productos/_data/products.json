@@ -4,7 +4,7 @@
         "nombre" : "Horno Microondas",
         "precio" : 150.00,
         "descripcion": "Descripcion Microondas",
-        "categoria": "Electronicos",
+        "categorias": ["Electronicos"],
         "stock": 10,
         "foto": "https://m.media-amazon.com/images/I/51QeDINuIlL._AC_SX679_.jpg"
     },
@@ -13,7 +13,7 @@
         "nombre" : "Samsung QN82Q800TA 82",
         "precio" : 250.00,
         "descripcion": "Descripcion Televisor",
-        "categoria": "Electronicos",
+        "categorias": ["Electronicos"],
         "stock": 10,
         "foto": "https://media.flixcar.com/f360cdn/Samsung-67291924-latin-feature-ready-for-today-and-tomorrow-228833914FB_TYPE_A_JPG.jpg"
     },
@@ -22,7 +22,7 @@
         "nombre" : "Parlante inalámbrico Premium",
         "precio" : 50.00,
         "descripcion": "Descripcion Parlante",
-        "categoria": "Audio",
+        "categorias":["Audio"],
         "stock": 10,
         "foto": "https://www.dhresource.com/0x0/f2/albu/g6/M00/B4/F4/rBVaSFr3tNqAXz5WAAH3utBpJxQ239.jpg"
     },
@@ -31,7 +31,7 @@
         "nombre" : "Bocina portátil",
         "precio" : 60.00,
         "descripcion": "Descripcion Bosina",
-        "categoria": "Audio",
+        "categorias": ["Audio"],
         "stock": 10,
         "foto": "https://static.kemikcdn.com/2017/06/jbl_flip4_black_hero.png"
     },
@@ -40,7 +40,7 @@
         "nombre" : "Router tipo Mesh WiFi 6",
         "precio" : 80.00,
         "descripcion": "Descripcion Router tipo Mesh WiFi 6",
-        "categoria": "Hogar Inteligente",
+        "categorias": ["Hogar Inteligente"],
         "stock": 10,
         "foto": "https://www.netspotapp.com/images/upload/screens/router/ASUS_RT_AX88U@2x.jpg"
     },
@@ -49,7 +49,7 @@
         "nombre" : "Camara inteligente con WIFI",
         "precio" : 20.00,
         "descripcion": "Descripcion Camara inteligente con WIFI",
-        "categoria": "Hogar Inteligente",
+        "categorias": ["Hogar Inteligente"],
         "stock": 10,
         "foto": "https://smartgadgets.gt/wp-content/uploads/2020/09/35799.jpg"
     },
@@ -58,7 +58,7 @@
         "nombre" : "MacBook Pro de 13 CORE i5 10 Gen 2.0 GHz",
         "precio" : 1200,
         "descripcion": "Descripcion MacBook Pro de 13 CORE i5 10 Gen 2.0 GHz",
-        "categoria": "Computacion y Tablets",
+        "categorias": ["Computacion y Tablets"],
         "stock": 10,
         "foto": "https://i.blogs.es/67b0e2/analisis-macbook-pro-13-2020-applesfera-06/450_1000.jpg"
     },
@@ -67,7 +67,7 @@
         "nombre" : "Laptop Acer Nitro 5 de 15.6",
         "precio" : 800,
         "descripcion": "Descripcion Laptop Acer Nitro 5 de 15.6",
-        "categoria": "Computacion y Tablets",
+        "categorias": ["Computacion y Tablets"],
         "stock": 10,
         "foto": "https://www.cnet.com/a/img/rs2rW-IjIRkYj7AG5WUIZcYu2r0=/1200x675/2020/12/04/949c1344-2da7-416c-a012-1d09148d4aa9/acer-nitro-5-amd-03.jpg"
     },
@@ -76,7 +76,7 @@
         "nombre" : "Laptop HP Pavilion Gaming 15-dk1037",
         "precio" : 850,
         "descripcion": "Descripcion Laptop HP Pavilion Gaming 15-dk1037",
-        "categoria": "Computacion y Tablets",
+        "categorias": ["Computacion y Tablets"],
         "stock": 10,
         "foto": "https://www.cnet.com/a/img/rs2rW-IjIRkYj7AG5WUIZcYu2r0=/1200x675/2020/12/04/949c1344-2da7-416c-a012-1d09148d4aa9/acer-nitro-5-amd-03.jpg"
     },
@@ -85,7 +85,7 @@
         "nombre" : "Tomates Extra Grande",
         "precio" : 1.50,
         "descripcion": "Descripcion tomates",
-        "categoria": "Comestibles",
+        "categorias": ["Comestibles"],
         "stock": 10,
         "foto": "https://www.ngenespanol.com/wp-content/uploads/2018/08/Dato-del-d%C3%ADa-Tomates.jpg"
     },
@@ -94,7 +94,7 @@
         "nombre" : "Pan de trigo",
         "precio" : 1.50,
         "descripcion": "Descripcion pan de trigo",
-        "categoria": "Comestibles",
+        "categorias": ["Comestibles"],
         "stock": 10,
         "foto": "https://www.hogarmania.com/archivos/201207/receta-barra-de-pan-basica-xl-668x400x80xX.jpg"
     },
@@ -103,7 +103,7 @@
         "nombre" : "Pastas Roma",
         "precio" : 1.50,
         "descripcion": "Descripcion pastas roma",
-        "categoria": "Comestibles",
+        "categorias": ["Comestibles"],
         "stock": 10,
         "foto": "https://static.eldiario.es/clip/3033e791-1b83-49d3-9e1a-4bef8507cb48_16-9-aspect-ratio_default_0.jpg"
     },
@@ -112,7 +112,7 @@
         "nombre" : "Zanahoria",
         "precio" : 1.50,
         "descripcion": "Descripcion Zanahoria",
-        "categoria": "Comestibles",
+        "categorias": ["Comestibles"],
         "stock": 10,
         "foto": "https://elpoderdelconsumidor.org/wp-content/uploads/2021/05/zanahorias.png"
     },
@@ -121,7 +121,7 @@
         "nombre" : "Trigo ",
         "precio" : 1.50,
         "descripcion": "Descripcion Trigo",
-        "categoria": "Comestibles",
+        "categorias": ["Comestibles"],
         "stock": 10,
         "foto": "https://www.partesdel.com/wp-content/uploads/Partes-del-trigo-400x267.jpg"
     },
@@ -130,7 +130,7 @@
         "nombre" : "Carne Premium",
         "precio" : 15.00,
         "descripcion": "Descripcion Carne Premium",
-        "categoria": "Comestibles",
+        "categorias": ["Comestibles"],
         "stock": 10,
         "foto": "https://agroecuador.org/media/k2/items/cache/d197c421d422f5cbf569ea13f09ef700_XL.jpg"
     },
@@ -139,7 +139,7 @@
         "nombre" : "Refrigeradora French Door de 27",
         "precio" : 2000,
         "descripcion": "Descripcion  Refrigeradora French Door de 27",
-        "categoria": "Linea Blanca",
+        "categorias": ["Linea Blanca"],
         "stock": 10,
         "foto": "https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/RECCO_REFRIGERADORA%2B-LgWf8rfw-large.jpg"
     },
@@ -148,7 +148,7 @@
         "nombre" : "Horno empotrable de 30",
         "precio" : 15.00,
         "descripcion": "Descripcion Horno empotrable de 30",
-        "categoria": "Linea Blanca",
+        "categorias": ["Linea Blanca"],
         "stock": 10,
         "foto": "https://m.media-amazon.com/images/I/51QeDINuIlL._AC_SX679_.jpg"
     },
@@ -157,7 +157,7 @@
         "nombre" : "Juego PS4 Call of Duty Black OPS Cold War",
         "precio" : 100,
         "descripcion": "Descripcion Juego ps4 Call of Duty",
-        "categoria": "Videojuegos",
+        "categorias": ["Videojuegos"],
         "stock": 10,
         "foto": "https://m.media-amazon.com/images/I/81E5fUW19gL._SX425_.jpg"
     },
@@ -166,7 +166,7 @@
         "nombre" : "Juego PS4 Call of Duty: Modern Warfare",
         "precio" : 15.00,
         "descripcion": "Descripcion Juego PS4 Call of Duty: Modern Warfare",
-        "categoria": "Videojuegos",
+        "categorias": ["Videojuegos"],
         "stock": 10,
         "foto": "https://m.media-amazon.com/images/I/81E5fUW19gL._SX425_.jpg"
     }

@@ -4,10 +4,15 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 const connectDB = require('./config/db');
+const carritoAbandonado = require('./controllers/algoritmo')
 const cors = require('cors');
 
 //load env vars
 dotenv.config({ path: './config/config.env'});
+
+//cronometro
+carritoAbandonado();
+
 
 //connect to database
 connectDB();
@@ -16,7 +21,7 @@ connectDB();
 
 const cart  = require('./routers/cart')
 const order = require('./routers/order')
-
+const compras = require('./routers/compra')
 const app = express();
 
 app.use(cors());
@@ -30,6 +35,7 @@ if (process.env.NODE_ENV === 'development') {
 //Mount routers
 app.use('/api/cart',cart);
 app.use('/api/order',order);
+app.use('/', compras)
 
 const PORT = process.env.PORT || 3001 ;
 

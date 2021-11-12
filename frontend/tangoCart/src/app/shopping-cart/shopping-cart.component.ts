@@ -24,7 +24,7 @@ export class ShoppingCartComponent implements OnInit {
   public total : number = 0;
   ngOnInit(): void {
     if(this.auth.currentUser != null){
-      this.getCart(this.auth.currentUser[0]._id)
+      this.getCart(this.auth.currentUser.id)
     }
   }
 
@@ -61,7 +61,7 @@ export class ShoppingCartComponent implements OnInit {
            NoItems  =  NoItems + p.cantidad
       }
       localStorage.setItem('NoItems',JSON.stringify(NoItems))
-      this.getCart(this.auth.currentUser[0]._id)
+      this.getCart(this.auth.currentUser.id)
       this.UpdateStock(item._id,item.cantidad)
       this.total = 0;
     })

@@ -16,9 +16,12 @@ const router = express.Router();
 
 // definimos las rutas y su tipo POST/GET/PUT/DELETE
 router
-    .route('/')
-        .post(addProduct)
-        .get(getProducts);
+    .route('/newProduct')
+    .post(addProduct)
+
+router
+      .route('/allProducts')
+      .get(getProducts);
 
 router
     .route('/:id')

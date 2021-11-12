@@ -1,13 +1,16 @@
-import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DataTablesModule } from "angular-datatables";
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { MatPaginatorModule } from '@angular/material/paginator'
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +43,12 @@ import { ListaDeseosComponent } from './lista-deseos/lista-deseos.component';
 import { ListaDeseosService } from './servicios/lista-deseos.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { OrdersComponent } from './admin/orders/orders.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ConexionesComponent } from './conexiones/conexiones.component';
+import { LogService } from './servicios/log.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -63,12 +71,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MyOrdersComponent,
     ManageOrdersComponent,
     ListaDeseosComponent,
-   
+    OrdersComponent,
+    ConexionesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
@@ -79,9 +89,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DataTablesModule,
     MatIconModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     MatPaginatorModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule,
+    FontAwesomeModule,
+    
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
@@ -98,6 +114,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     OrderService,
     OverlayModule, 
     ListaDeseosService
+    
   ],
   
   bootstrap: [AppComponent]

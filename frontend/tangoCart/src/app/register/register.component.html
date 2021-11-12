@@ -3,66 +3,95 @@
  <h1>Registro</h1>   
 <form #form="ngForm">
 <div class="row">
-    <div class="col-md-5">
-        <div class="mb-3">
-            <label class="form-label">Nombre</label>
-            <input  #nombre="ngModel" ngModel name="nombre"  type="text" class="form-control" id="nombre" required >
-            <div class="alert alert-danger"*ngIf="nombre.touched && nombre.invalid">
-                Nombre es requerido
+    <div class="col-md-6">
+
+        <div class="row">
+         <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input  #nombre="ngModel" ngModel name="nombre"  type="text" class="form-control" id="nombre" required >
+                <div class="alert alert-danger"*ngIf="nombre.touched && nombre.invalid">
+                    Nombre es requerido
+                </div>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input  #apellido="ngModel" ngModel name="apellido" type="text" class="form-control" id="apellido" required>
+                <div class="alert alert-danger"*ngIf="apellido.touched && apellido.invalid">
+                    Apellido es requerido
+                </div>
             </div>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Apellido</label>
-            <input  #apellido="ngModel" ngModel name="apellido" type="text" class="form-control" id="apellido" required>
-            <div class="alert alert-danger"*ngIf="apellido.touched && apellido.invalid">
-                Apellido es requerido
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label class="form-label">Correo</label>
+                    <input  #correo="ngModel" ngModel name="correo" type="email" class="form-control" id="correo" required>
+                    <div class="alert alert-danger"*ngIf="correo.touched && correo.invalid">
+                        Correo es requerido
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label  class="form-label">Password</label>
+                    <input #password="ngModel" ngModel name="password" type="password" class="form-control" id="password" required>
+                    <div class="alert alert-danger"*ngIf="password.touched && password.invalid">
+                        Password es requerido
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="mb-3">
-            <label  class="form-label">Tipo</label>
-            <select  #tipo="ngModel" ngModel name="tipo" id="tipo" class="form-select" required>
-              <option value="">Selecciona</option>
-              <option value="P">Proveedor</option>
-              <option value="C">Cliente</option>
-            </select>
-          </div>
-          <div class="alert alert-danger"*ngIf="tipo.touched && tipo.invalid" >
-            Tipo es requerido
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Correo</label>
-            <input  #correo="ngModel" ngModel name="correo" type="email" class="form-control" id="correo" required>
-            <div class="alert alert-danger"*ngIf="correo.touched && correo.invalid">
-                Correo es requerido
+
+        <div class="row" >
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label  class="form-label">Tipo</label>
+                    <select  #tipo="ngModel" ngModel name="tipo" id="tipo" class="form-select" required>
+                      <option value="">Selecciona</option>
+                      <option value="P">Proveedor</option>
+                      <option value="C">Cliente</option>
+                    </select>
+                  </div>
+                  <div class="alert alert-danger"*ngIf="tipo.touched && tipo.invalid" >
+                    Tipo es requerido
+                </div>
             </div>
         </div>
+       
+        <div class="row">
+        <div class="col-md-6"> 
+            <div class="mb-3">
+                <label class="form-label">No. Tarjeta</label>
+                <input  #tarjeta="ngModel" ngModel name="tarjeta" type="text" class="form-control" id="tarjeta">
+                
+            </div> 
+        </div>
+                <div class="col-md-6">
+                <label class="form-label">Titular</label>
+                <input  #titular="ngModel" ngModel name="titular" type="text" class="form-control" id="titular">
+                </div>
+        </div> 
         
-        <div class="mb-3">
-            <label  class="form-label">Password</label>
-            <input #password="ngModel" ngModel name="password" type="password" class="form-control" id="password" required>
-            <div class="alert alert-danger"*ngIf="password.touched && password.invalid">
-                Password es requerido
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                <label class="form-label">Fecha de vencimiento</label>
+                <input  #fechav="ngModel" ngModel name="fechav" type="text" class="form-control" id="fechav">
+            </div>
             </div>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Tarjeta</label>
-            <input  #tarjeta="ngModel" ngModel name="tarjeta" type="text" class="form-control" id="tarjeta" required>
-            <div class="alert alert-danger"*ngIf="tarjeta.touched && tarjeta.invalid">
-                Tarjeta es requerido
-            </div>
-        </div>
-        <div  class="form-group mb-3">
-            <label for="foto" class="form-label">Foto</label>
-                <input #foto="ngModel" ngModel name="foto" class="form-control" type="file" id="foto" (change)="subirImagen($event)" required>
-                <div class="alert alert-danger mb-3" *ngIf="foto.touched && foto.invalid">
-                  Photo is required.
-                </div> 
-          </div>
+
         <div class="mb-3">
             <button [disabled]="!form.valid" type="button"  class="btn btn-primary" (click)="registrar(form)" >Registrar</button>
         </div>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-6">
         <div class="center">
         <div class="card" style="width:20rem; height:12;">
             <img src="../assets/logo/logo3.jpg" class="card-img-top" *ngIf="ocultar">

@@ -33,5 +33,19 @@ export class OrderService {
     return this.http.get<Order>(path)
   }
 
+  getAllOrders():Observable<Order[]>{
+    const path = `${this.api}/order/get/all`;
+    return  this.http.get<Order[]>(path);
+  }
+
+  putOrder(id:string, estado:string){
+    const path = `${this.api}/order/${id}/${estado}`;
+    return  this.http.put(path, {});
+  }
+
+  postEmail(order: any){
+    const path = `${this.api}/order/send-email`;
+    return  this.http.post(path,order);
+  }
 
 }
