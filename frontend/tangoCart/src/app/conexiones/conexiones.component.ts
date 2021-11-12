@@ -66,11 +66,11 @@ export class ConexionesComponent implements OnInit {
   }
   Grupo7 = {
     mensaje:   "Tienda 2 en linea",
-    registro:     "http://34.125.192.251:3000/api/users/signup",
-    login:        "http://34.125.192.251:3000/api/users/signin",
-    getProducts:  "http://34.125.192.251:3000/api/providers/allProducts",
-    postProducts: "http://34.125.192.251:3000/api/providers/newProduct",
-    postCompra:   "http://34.125.192.251:3000/api/users/compra", 
+    registro:     "http://34.125.197.251:3000/api/users/signup",
+    login:        "http://34.125.197.251:3000/api/users/signin",
+    getProducts:  "http://34.125.197.251:3000/api/providers/allProducts",
+    postProducts: "http://34.125.197.251:3000/api/providers/newProduct",
+    postCompra:   "http://34.125.197.251:3000/api/users/compra", 
 
   }
 
