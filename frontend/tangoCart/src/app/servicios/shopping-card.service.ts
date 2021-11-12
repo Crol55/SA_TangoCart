@@ -14,10 +14,7 @@ export class ShoppingCardService {
     items: []
   };
 
-  headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'token': this.obtenerAutorizacion
-  });
+
 
   private api = 'http://35.192.90.40:3001/api'
   //private api = 'http://localhost:3001/api'
@@ -51,18 +48,23 @@ export class ShoppingCardService {
   }
 
   comprar(compra: any){
-    if(this.conexion.postCompra !=""){
+
+  let  headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'token': this.obtenerAutorizacion
+    });
+
+    if(this.conexion.postCompra!=""){
       console.log(this.obtenerAutorizacion)
       const path = this.conexion.postCompra;
 
-      return  this.http.post(path,compra,{headers:this.headers}) 
+      return  this.http.post(path,compra,{headers:headers}) 
     }
     const path = `${this.api}/users/compra`;
-    return  this.http.post(path,compra,{headers:this.headers})
+    return  this.http.post(path,compra,{headers:headers})
   }
 
   get conexion(){
-
     let conexion = localStorage.getItem('conexion')
     if(!conexion) return null
     return JSON.parse(conexion)
