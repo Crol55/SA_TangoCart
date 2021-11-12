@@ -11,10 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class ProductoService {
 
-  public EndPoint = {
-     getAll: "",
-     postProducts: ""
-  }
+ 
   
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -39,7 +36,7 @@ export class ProductoService {
 
   constructor(public http: HttpClient){
 
-        console.log(this.EndPoint)
+        
   }
   
   postProducts(product: any){

@@ -1,6 +1,6 @@
-import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DataTablesModule } from "angular-datatables";
@@ -48,6 +48,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ConexionesComponent } from './conexiones/conexiones.component';
 import { LogService } from './servicios/log.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { LogService } from './servicios/log.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
@@ -94,7 +96,8 @@ import { LogService } from './servicios/log.service';
     MatTooltipModule,
     MatSnackBarModule,
     MatRadioModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

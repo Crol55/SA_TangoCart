@@ -58,14 +58,14 @@ export class CheckOutComponent implements OnInit, OnDestroy {
     localStorage.setItem('NoItems',JSON.stringify(0));
     if(this.tipoEnvio == "En Tienda"){
       let orderBody = {
-        name: this.auth.currentUser[0].nombre,
-        lastName: this.auth.currentUser[0].apellido,
+        name: this.auth.currentUser.nombre,
+        lastName: this.auth.currentUser.apellido,
         address1: this.shipping.addressLine1, 
         address2: this.shipping.addressLine2, 
         orderID: order$._id, 
         total: (precioFinal + (precioFinal*0.1)), 
         items: this.cart[0].items,
-        correo: this.auth.currentUser[0].correo
+        correo: this.auth.currentUser.correo
       }  
       await this.OrderService.postEmail(orderBody).toPromise();
       this._snackBar.open(`Se ha enviado el correo con éxito!`, "Ok", {duration:3500});

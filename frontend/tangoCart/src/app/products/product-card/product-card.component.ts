@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { ListaDeseosService } from 'src/app/servicios/lista-deseos.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { ShoppingCardService } from 'src/app/servicios/shopping-card.service';
-
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'product-card',
   templateUrl: './product-card.component.html',
@@ -23,7 +23,7 @@ export class ProductCardComponent implements OnInit {
   constructor(public shopping:ShoppingCardService,
               public ProductService: ProductoService, public httpListaDeseos: ListaDeseosService,
               public  dialog: MatDialog,
-              public auth : AuthService) { }
+              public auth : AuthService ) { }
   ngOnInit(): void {
      
   }
@@ -96,6 +96,27 @@ export class ProductCardComponent implements OnInit {
       data: { message: message }
     } )
     .afterClosed()
+  }
+
+  comprar( form: NgForm, producto: any){
+      console.log(form.value)
+      var ps = {
+        idUser: this.auth.currentUser.id,
+        nombre: form.value.nombre,
+        nit: form.value.nit,
+        productos :[ {
+            id: producto._id,
+            cantidad : 1,
+            nombre: producto.nombre,
+            precio: producto.precio 
+        }]
+      }
+      console.log(ps)
+      form.reset()
+      this.shopping.comprar(ps).subscribe( p => {
+          console.log(p)
+      })
+      
   }
 
 
