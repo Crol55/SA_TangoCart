@@ -21,7 +21,7 @@ connectDB();
 
 const cart  = require('./routers/cart')
 const order = require('./routers/order')
-
+const compras = require('./routers/compra')
 const app = express();
 
 app.use(cors());
@@ -35,6 +35,7 @@ if (process.env.NODE_ENV === 'development') {
 //Mount routers
 app.use('/api/cart',cart);
 app.use('/api/order',order);
+app.use('/', compras)
 
 const PORT = process.env.PORT || 3001 ;
 
